@@ -1,0 +1,376 @@
+{
+  "skill": "chinese-chess",
+  "name": "象棋",
+  "nameEn": "Chinese Chess (Xiangqi)",
+  "description": "中國象棋學習路線圖 — 從入門規則到大師級對弈策略",
+  "stages": [
+    {
+      "id": "beginner",
+      "name": "入門階段",
+      "nameEn": "Beginner",
+      "description": "掌握棋子走法、基本規則與簡單殘局，建立對弈基礎",
+      "duration": "1-2 個月",
+      "xp": 100,
+      "topics": [
+        {
+          "id": "rules",
+          "name": "基本規則",
+          "nameEn": "Basic Rules",
+          "description": "棋盤佈局、棋子走法、勝負判定、犯規與和棋條件"
+        },
+        {
+          "id": "piece-movement",
+          "name": "棋子特性",
+          "nameEn": "Piece Characteristics",
+          "description": "車、馬、炮、兵、仕、相、帥的走法與攻防特點"
+        },
+        {
+          "id": "basic-openings",
+          "name": "基礎開局",
+          "nameEn": "Basic Openings",
+          "description": "中炮局、順手炮、列手炮、飛相局等常見開局入門"
+        },
+        {
+          "id": "basic-endgames",
+          "name": "基礎殘局",
+          "nameEn": "Basic Endgames",
+          "description": "單車殺士、馬後炮、鐵門栓等經典殺法"
+        },
+        {
+          "id": "basic-tactics",
+          "name": "基本戰術",
+          "nameEn": "Basic Tactics",
+          "description": "捉雙、抽將、閃擊、牽制等基礎戰術手段"
+        },
+        {
+          "id": "etiquette",
+          "name": "棋道禮儀",
+          "nameEn": "Chess Etiquette",
+          "description": "下棋禮節、計時規則、比賽基本規範"
+        }
+      ],
+      "resources": [
+        {
+          "title": "象棋入門教程 — 楊官璘",
+          "type": "book",
+          "url": "",
+          "description": "一代宗師楊官璘所著的經典入門書籍，淺顯易懂",
+          "language": "zh"
+        },
+        {
+          "title": "天天象棋",
+          "type": "app",
+          "url": "https://www.ttxq.com",
+          "description": "騰訊出品的象棋對弈平台，內建殘局闯關與AI對練",
+          "language": "zh"
+        },
+        {
+          "title": "弈客象棋",
+          "type": "platform",
+          "url": "https://www.yikexiangqi.com",
+          "description": "專業象棋平台，支援線上對弈、觀戰、復盤分析",
+          "language": "zh"
+        },
+        {
+          "title": "象棋微學堂 YouTube",
+          "type": "video",
+          "url": "https://www.youtube.com/@xiangqi-micro",
+          "description": "系統化的象棋教學影片，適合初學者跟隨學習",
+          "language": "zh"
+        },
+        {
+          "title": "東萍象棋網",
+          "type": "website",
+          "url": "https://www.dpxq.com",
+          "description": "大量棋譜資料庫與殘局練習，棋友社群討論",
+          "language": "zh"
+        },
+        {
+          "title": "XQiEnglish - Xiangqi in English",
+          "type": "website",
+          "url": "https://www.xqinenglish.com",
+          "description": "英文象棋教學網站，適合想用英文學習的棋友",
+          "language": "en"
+        },
+        {
+          "title": "象棋巫師",
+          "type": "app",
+          "url": "http://www.xqwizard.com",
+          "description": "經典象棋軟體，內建引擎分析與海量殘局題庫",
+          "language": "zh"
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "進階階段",
+      "nameEn": "Intermediate",
+      "description": "深入開局理論與中局戰術，建立體系化的對弈思維",
+      "duration": "3-6 個月",
+      "xp": 300,
+      "topics": [
+        {
+          "id": "opening-systems",
+          "name": "開局體系",
+          "nameEn": "Opening Systems",
+          "description": "中炮對屏風馬、仙人指路、起馬局等主流開局體系"
+        },
+        {
+          "id": "midgame-tactics",
+          "name": "中局戰術",
+          "nameEn": "Midgame Tactics",
+          "description": "棄子攻殺、腰車炮、重炮、鐵門栓等中局組合殺法"
+        },
+        {
+          "id": "positional-play",
+          "name": "局勢判斷",
+          "nameEn": "Positional Play",
+          "description": "子力價值、空間控制、局勢優劣的判斷方法"
+        },
+        {
+          "id": "common-patterns",
+          "name": "常見棋形",
+          "nameEn": "Common Patterns",
+          "description": "海底撈月、釣魚馬、臥槽馬、天地炮等經典棋形運用"
+        },
+        {
+          "id": "defense-techniques",
+          "name": "防禦技巧",
+          "nameEn": "Defense Techniques",
+          "description": "破解常見攻殺、頑強防守、反擊時機的把握"
+        },
+        {
+          "id": "game-analysis",
+          "name": "覆盤分析",
+          "nameEn": "Game Analysis",
+          "description": "利用引擎輔助覆盤，找出失誤與改進方向"
+        }
+      ],
+      "resources": [
+        {
+          "title": "象棋中局戰術 — 黃少龍",
+          "type": "book",
+          "url": "",
+          "description": "系統講解中局戰術的權威著作，大量實戰範例",
+          "language": "zh"
+        },
+        {
+          "title": "適情雅趣",
+          "type": "book",
+          "url": "",
+          "description": "明代古譜，收錄大量殘局與中局殺法，經典必讀",
+          "language": "zh"
+        },
+        {
+          "title": "Pikafish 引擎",
+          "type": "app",
+          "url": "https://github.com/official-pikafish/Pikafish",
+          "description": "開源象棋引擎（基於 Stockfish 架構），用於深度分析",
+          "language": "en"
+        },
+        {
+          "title": "象棋旋風",
+          "type": "app",
+          "url": "http://www.xqyclone.com",
+          "description": "專業象棋分析軟體，支援多引擎對比與棋譜管理",
+          "language": "zh"
+        },
+        {
+          "title": "中國象棋大師網",
+          "type": "website",
+          "url": "https://www.zgxqds.com",
+          "description": "大師棋譜集錦與教學文章，跟隨頂尖棋手學習",
+          "language": "zh"
+        },
+        {
+          "title": "JJ象棋",
+          "type": "platform",
+          "url": "https://www.jj.cn",
+          "description": "競技象棋平台，段位系統清晰，適合進階棋手刷分",
+          "language": "zh"
+        },
+        {
+          "title": "胡榮華對局集",
+          "type": "book",
+          "url": "",
+          "description": "「十連霸」胡榮華精彩對局解析，學習大師思路",
+          "language": "zh"
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "高級階段",
+      "nameEn": "Advanced",
+      "description": "精研複雜中局計算與殘局技巧，具備參加正式比賽的實力",
+      "duration": "6-12 個月",
+      "xp": 600,
+      "topics": [
+        {
+          "id": "advanced-combinations",
+          "name": "高級組合殺法",
+          "nameEn": "Advanced Combinations",
+          "description": "多步棄子組合、連環殺招的計算與執行"
+        },
+        {
+          "id": "strategic-planning",
+          "name": "戰略規劃",
+          "nameEn": "Strategic Planning",
+          "description": "全局戰略思維、先手後手轉換、長計劃的制定"
+        },
+        {
+          "id": "endgame-mastery",
+          "name": "殘局精研",
+          "nameEn": "Endgame Mastery",
+          "description": "車馬兵殘局、炮兵殘局等複雜殘局的精確計算"
+        },
+        {
+          "id": "competition-prep",
+          "name": "比賽準備",
+          "nameEn": "Competition Preparation",
+          "description": "備賽策略、對手研究、心理準備、比賽節奏把控"
+        },
+        {
+          "id": "opening-research",
+          "name": "開局研究",
+          "nameEn": "Opening Research",
+          "description": "利用資料庫與引擎進行開局新手段的研發"
+        },
+        {
+          "id": "time-management",
+          "name": "時間管理",
+          "nameEn": "Time Management",
+          "description": "快棋與慢棋的用時策略，關鍵時刻的時間分配"
+        }
+      ],
+      "resources": [
+        {
+          "title": "許銀川棋路歷程",
+          "type": "book",
+          "url": "",
+          "description": "當代棋王許銀川的成長與對局精選，頂級思維展示",
+          "language": "zh"
+        },
+        {
+          "title": "象棋殘局大全 — 劉殿中",
+          "type": "book",
+          "url": "",
+          "description": "殘局百科全書，系統分類講解各類殘局",
+          "language": "zh"
+        },
+        {
+          "title": "全國象棋個人賽棋譜",
+          "type": "website",
+          "url": "https://www.dpxq.com",
+          "description": "歷年全國大賽完整棋譜，研究頂尖對局",
+          "language": "zh"
+        },
+        {
+          "title": "象棋名手戰集",
+          "type": "book",
+          "url": "",
+          "description": "收錄近年全國冠軍級對局，附詳細評注",
+          "language": "zh"
+        },
+        {
+          "title": "弈天棋緣",
+          "type": "platform",
+          "url": "https://www.yitianqi.com",
+          "description": "高手雲集的對弈平台，可與高段位棋手過招",
+          "language": "zh"
+        },
+        {
+          "title": "Cyclone 引擎深度分析",
+          "type": "app",
+          "url": "http://www.xqyclone.com",
+          "description": "利用多核深度搜索進行開局與中局研究",
+          "language": "zh"
+        },
+        {
+          "title": "象棋世界月刊",
+          "type": "book",
+          "url": "",
+          "description": "專業象棋刊物，每月更新最新對局與理論研究",
+          "language": "zh"
+        }
+      ]
+    },
+    {
+      "id": "master",
+      "name": "大師階段",
+      "nameEn": "Master",
+      "description": "追求棋藝極致，具備專業水準的全面素養與競技能力",
+      "duration": "持續精進",
+      "xp": 1000,
+      "topics": [
+        {
+          "id": "opening-innovation",
+          "name": "開局創新",
+          "nameEn": "Opening Innovation",
+          "description": "在已有理論基礎上開發新變例，建立個人開局武器庫"
+        },
+        {
+          "id": "psychological-warfare",
+          "name": "心理博弈",
+          "nameEn": "Psychological Warfare",
+          "description": "對手心理分析、引導對手犯錯、關鍵局心理素質"
+        },
+        {
+          "id": "professional-analysis",
+          "name": "專業級分析",
+          "nameEn": "Professional Analysis",
+          "description": "結合引擎與人類直覺的深度分析方法論"
+        },
+        {
+          "id": "teaching-sharing",
+          "name": "教學傳承",
+          "nameEn": "Teaching & Sharing",
+          "description": "將所學系統化輸出，通過教學提升自身理解"
+        },
+        {
+          "id": "style-development",
+          "name": "風格塑造",
+          "nameEn": "Style Development",
+          "description": "發展個人棋風，兼具攻殺力與防守穩健"
+        }
+      ],
+      "resources": [
+        {
+          "title": "梅花譜",
+          "type": "book",
+          "url": "",
+          "description": "清代象棋古譜巔峰之作，深研可大幅提升棋力",
+          "language": "zh"
+        },
+        {
+          "title": "橘中秘",
+          "type": "book",
+          "url": "",
+          "description": "明代經典古譜，以全局為主，理論價值極高",
+          "language": "zh"
+        },
+        {
+          "title": "世界象棋錦標賽實戰集",
+          "type": "book",
+          "url": "",
+          "description": "世界大賽精華對局，國際頂級水準的攻防展示",
+          "language": "zh"
+        },
+        {
+          "title": "專業象棋引擎集群分析",
+          "type": "app",
+          "url": "",
+          "description": "多引擎並行分析，開發開局新變並驗證正確性",
+          "language": "zh"
+        },
+        {
+          "title": "棋協大師認證",
+          "type": "platform",
+          "url": "https://www.xiangqi.org",
+          "description": "中國象棋協會官方認證體系，目標等級分提升",
+          "language": "zh"
+        }
+      ]
+    }
+  ]
+}

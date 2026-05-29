@@ -1,0 +1,16 @@
+name: yu-dojo
+description: "個人技能修煉道場 - 透過遊戲化學習路徑精進象棋、五子棋、攝影等多元技能"
+framework: static
+skills:
+  - id: chinese-chess
+    name: "象棋"
+    nameEn: "Chinese Chess"
+    icon: "♞"
+  - id: gomoku
+    name: "五子棋"
+    nameEn: "Gomoku"
+    icon: "⚫"
+  - id: photography
+    name: "攝影"
+    nameEn: "Photography"
+    icon: "◎"

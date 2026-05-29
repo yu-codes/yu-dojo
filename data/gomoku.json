@@ -1,0 +1,369 @@
+{
+  "skill": "gomoku",
+  "name": "五子棋",
+  "nameEn": "Gomoku / Renju",
+  "description": "五子棋學習路線圖 — 從規則入門到職業級連珠技巧",
+  "stages": [
+    {
+      "id": "beginner",
+      "name": "入門階段",
+      "nameEn": "Beginner",
+      "description": "理解規則、認識基本棋形，能進行有意識的攻防",
+      "duration": "1-2 個月",
+      "xp": 100,
+      "topics": [
+        {
+          "id": "rules",
+          "name": "規則認識",
+          "nameEn": "Rules & Variations",
+          "description": "標準五子棋規則、連珠（Renju）規則、禁手概念"
+        },
+        {
+          "id": "basic-patterns",
+          "name": "基礎棋形",
+          "nameEn": "Basic Patterns",
+          "description": "活二、活三、衝四、活四、成五的辨識與運用"
+        },
+        {
+          "id": "attack-defense",
+          "name": "攻防基礎",
+          "nameEn": "Attack & Defense Basics",
+          "description": "如何進攻做棋、防守堵截的基本原則"
+        },
+        {
+          "id": "simple-vcf",
+          "name": "簡單連續衝四",
+          "nameEn": "Simple VCF",
+          "description": "VCF（連續衝四取勝）的基本概念與簡單練習"
+        },
+        {
+          "id": "opening-basics",
+          "name": "開局入門",
+          "nameEn": "Opening Basics",
+          "description": "直指、斜指的區別，常見前三手佈局方式"
+        },
+        {
+          "id": "board-awareness",
+          "name": "盤面感覺",
+          "nameEn": "Board Awareness",
+          "description": "培養全盤視野，避免只注意局部"
+        }
+      ],
+      "resources": [
+        {
+          "title": "五子棋入門與提高 — 彭建國",
+          "type": "book",
+          "url": "",
+          "description": "中國連珠名家彭建國所著入門教材，循序漸進",
+          "language": "zh"
+        },
+        {
+          "title": "Renju Offline",
+          "type": "app",
+          "url": "https://renjuoffline.com",
+          "description": "專業連珠對弈與練習軟體，支援多種規則",
+          "language": "en"
+        },
+        {
+          "title": "五林大會",
+          "type": "platform",
+          "url": "https://www.wulin.ac",
+          "description": "中文五子棋對弈平台，活躍社群與教學資源",
+          "language": "zh"
+        },
+        {
+          "title": "連珠世界",
+          "type": "website",
+          "url": "http://www.renjuworld.net",
+          "description": "連珠資訊站，棋譜庫、教程、新聞一應俱全",
+          "language": "zh"
+        },
+        {
+          "title": "Gomoku Quest",
+          "type": "app",
+          "url": "https://www.gomokuquest.com",
+          "description": "日本開發的五子棋對弈App，段位系統嚴謹",
+          "language": "en"
+        },
+        {
+          "title": "五子棋教學 — 小白入門系列",
+          "type": "video",
+          "url": "https://www.bilibili.com/video/BV1xx411x7xx",
+          "description": "B站人氣五子棋教學影片，適合零基礎學習者",
+          "language": "zh"
+        },
+        {
+          "title": "RenjuNet",
+          "type": "website",
+          "url": "https://www.renju.net",
+          "description": "國際連珠聯盟官方網站，規則與國際賽事資訊",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "進階階段",
+      "nameEn": "Intermediate",
+      "description": "掌握VCF/VCT技巧與開局理論，具備線上對弈競爭力",
+      "duration": "3-6 個月",
+      "xp": 300,
+      "topics": [
+        {
+          "id": "vcf-mastery",
+          "name": "VCF 精通",
+          "nameEn": "VCF Mastery",
+          "description": "連續衝四取勝的系統訓練，複雜VCF路線計算"
+        },
+        {
+          "id": "vct-introduction",
+          "name": "VCT 入門",
+          "nameEn": "VCT Introduction",
+          "description": "連續活三取勝（VCT），比VCF更靈活的進攻方式"
+        },
+        {
+          "id": "opening-theory",
+          "name": "開局理論",
+          "nameEn": "Opening Theory",
+          "description": "連珠26種開局的認識與選擇，各開局特點分析"
+        },
+        {
+          "id": "forbidden-moves",
+          "name": "禁手規則",
+          "nameEn": "Forbidden Moves",
+          "description": "黑方禁手（三三、四四、長連）的精確判斷"
+        },
+        {
+          "id": "positional-judgment",
+          "name": "形勢判斷",
+          "nameEn": "Positional Judgment",
+          "description": "全局形勢評估，進攻與防守時機的選擇"
+        },
+        {
+          "id": "pattern-combinations",
+          "name": "棋形組合",
+          "nameEn": "Pattern Combinations",
+          "description": "活三+衝四、雙活三等複合棋形的構築技巧"
+        }
+      ],
+      "resources": [
+        {
+          "title": "連珠開局指南",
+          "type": "book",
+          "url": "",
+          "description": "詳解連珠26種開局的攻防要點與變化",
+          "language": "zh"
+        },
+        {
+          "title": "Yixin 引擎",
+          "type": "app",
+          "url": "https://github.com/accreator/Yixin-Board",
+          "description": "世界頂級五子棋AI引擎，用於覆盤分析",
+          "language": "en"
+        },
+        {
+          "title": "五子棋終結者 — VCF訓練",
+          "type": "app",
+          "url": "",
+          "description": "專門的VCF解題軟體，由易到難系統訓練",
+          "language": "zh"
+        },
+        {
+          "title": "Renju Class — Ando's Lessons",
+          "type": "website",
+          "url": "https://www.renju.net/study/",
+          "description": "國際連珠聯盟教學課程，英文系統教材",
+          "language": "en"
+        },
+        {
+          "title": "弈城五子棋",
+          "type": "platform",
+          "url": "https://www.eweiqi.com",
+          "description": "弈城旗下五子棋對弈平台，高手較多",
+          "language": "zh"
+        },
+        {
+          "title": "五子棋研究 — 中級篇",
+          "type": "video",
+          "url": "https://www.bilibili.com/video/BV1xx411x7xy",
+          "description": "深入講解VCF與VCT計算方法的教學影片",
+          "language": "zh"
+        },
+        {
+          "title": "Noesis 引擎",
+          "type": "app",
+          "url": "",
+          "description": "強力五子棋引擎，支援連珠規則禁手判斷",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "高級階段",
+      "nameEn": "Advanced",
+      "description": "精通複雜計算與開局研究，具備參加正式比賽的水準",
+      "duration": "6-12 個月",
+      "xp": 600,
+      "topics": [
+        {
+          "id": "complex-vct",
+          "name": "複雜 VCT",
+          "nameEn": "Complex VCT",
+          "description": "多分支VCT計算，防守方最強應對下的取勝路線"
+        },
+        {
+          "id": "anti-forbidden",
+          "name": "利用禁手",
+          "nameEn": "Exploiting Forbidden Moves",
+          "description": "白方利用禁手規則追殺黑方的高級戰術"
+        },
+        {
+          "id": "swap-rules",
+          "name": "交換規則精研",
+          "nameEn": "Swap Rule Mastery",
+          "description": "Swap2、Soosyrv 等現代規則下的開局策略"
+        },
+        {
+          "id": "advanced-openings",
+          "name": "開局深度研究",
+          "nameEn": "Advanced Opening Research",
+          "description": "利用引擎進行開局變化的窮盡分析與新手研發"
+        },
+        {
+          "id": "competition-strategy",
+          "name": "比賽策略",
+          "nameEn": "Competition Strategy",
+          "description": "正式比賽中的開局選擇、對手準備、心態調整"
+        },
+        {
+          "id": "defensive-mastery",
+          "name": "防守精通",
+          "nameEn": "Defensive Mastery",
+          "description": "面對強攻的最頑強防守，轉守為攻的時機把握"
+        }
+      ],
+      "resources": [
+        {
+          "title": "連珠必勝法研究",
+          "type": "book",
+          "url": "",
+          "description": "日本連珠名家著作，系統研究必勝開局",
+          "language": "zh"
+        },
+        {
+          "title": "世界連珠錦標賽棋譜集",
+          "type": "book",
+          "url": "",
+          "description": "歷屆世錦賽精華對局，國際頂級水準的攻防",
+          "language": "en"
+        },
+        {
+          "title": "RenLib",
+          "type": "app",
+          "url": "http://www.renju.se/renlib/",
+          "description": "經典連珠棋譜管理與研究軟體，社群共享庫",
+          "language": "en"
+        },
+        {
+          "title": "五子棋大師訓練營",
+          "type": "platform",
+          "url": "",
+          "description": "高級訓練群組，定期對局、覆盤與主題研討",
+          "language": "zh"
+        },
+        {
+          "title": "Renju International Federation",
+          "type": "website",
+          "url": "https://www.renju.net",
+          "description": "RIF 官方賽事系統與國際等級分查詢",
+          "language": "en"
+        },
+        {
+          "title": "高段位實戰解析",
+          "type": "video",
+          "url": "",
+          "description": "頂級棋手實戰覆盤影片，深入解說思路",
+          "language": "zh"
+        }
+      ]
+    },
+    {
+      "id": "master",
+      "name": "大師階段",
+      "nameEn": "Master",
+      "description": "追求極致棋力，以創新與研究引領五子棋發展",
+      "duration": "持續精進",
+      "xp": 1000,
+      "topics": [
+        {
+          "id": "opening-database",
+          "name": "開局資料庫建設",
+          "nameEn": "Opening Database",
+          "description": "建立個人開局武器庫，記錄與分析所有變化"
+        },
+        {
+          "id": "computational-analysis",
+          "name": "計算策略",
+          "nameEn": "Computational Strategy",
+          "description": "結合引擎分析與人類直覺的高效研究方法"
+        },
+        {
+          "id": "meta-game",
+          "name": "元博弈",
+          "nameEn": "Meta-Game Strategy",
+          "description": "規則選擇、開局博弈中的博弈論應用"
+        },
+        {
+          "id": "innovation",
+          "name": "理論創新",
+          "nameEn": "Theoretical Innovation",
+          "description": "發表研究成果，推動五子棋理論發展"
+        },
+        {
+          "id": "mental-fortitude",
+          "name": "心理素質",
+          "nameEn": "Mental Fortitude",
+          "description": "高壓比賽中保持專注與計算精度的心理訓練"
+        }
+      ],
+      "resources": [
+        {
+          "title": "中村茂九段棋譜全集",
+          "type": "book",
+          "url": "",
+          "description": "日本連珠傳奇中村茂的畢生對局精華",
+          "language": "zh"
+        },
+        {
+          "title": "國際連珠大師認證",
+          "type": "platform",
+          "url": "https://www.renju.net",
+          "description": "RIF 官方段位認證系統與國際大師稱號申請",
+          "language": "en"
+        },
+        {
+          "title": "引擎輔助開局研究系統",
+          "type": "app",
+          "url": "",
+          "description": "利用 Yixin/Katago 進行開局完全解析的方法論",
+          "language": "en"
+        },
+        {
+          "title": "職業連珠選手訪談集",
+          "type": "video",
+          "url": "",
+          "description": "世界冠軍級選手分享訓練方法與心路歷程",
+          "language": "zh"
+        },
+        {
+          "title": "五子棋理論前沿論文",
+          "type": "website",
+          "url": "",
+          "description": "學術界關於五子棋博弈樹與AI研究的最新論文",
+          "language": "en"
+        }
+      ]
+    }
+  ]
+}

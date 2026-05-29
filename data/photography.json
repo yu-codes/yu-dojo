@@ -1,0 +1,383 @@
+{
+  "skill": "photography",
+  "name": "攝影",
+  "nameEn": "Photography",
+  "description": "攝影學習路線圖 — 從相機操作到藝術表達的完整旅程",
+  "stages": [
+    {
+      "id": "beginner",
+      "name": "入門階段",
+      "nameEn": "Beginner",
+      "description": "掌握曝光三角與基礎構圖，能拍出正確曝光且構圖合理的照片",
+      "duration": "1-3 個月",
+      "xp": 100,
+      "topics": [
+        {
+          "id": "exposure-triangle",
+          "name": "曝光三角",
+          "nameEn": "Exposure Triangle",
+          "description": "光圈、快門速度、ISO 三者的關係與互動影響"
+        },
+        {
+          "id": "composition-basics",
+          "name": "基礎構圖",
+          "nameEn": "Composition Basics",
+          "description": "三分法、引導線、對稱、框架構圖等經典構圖法則"
+        },
+        {
+          "id": "lighting-fundamentals",
+          "name": "光線基礎",
+          "nameEn": "Lighting Fundamentals",
+          "description": "自然光的方向、質感、色溫，黃金時段的運用"
+        },
+        {
+          "id": "lens-types",
+          "name": "鏡頭認識",
+          "nameEn": "Lens Types",
+          "description": "廣角、標準、望遠、微距鏡頭的特性與適用場景"
+        },
+        {
+          "id": "camera-modes",
+          "name": "相機模式",
+          "nameEn": "Camera Modes",
+          "description": "P/A/S/M 模式的應用時機，測光模式與對焦系統"
+        },
+        {
+          "id": "basic-editing",
+          "name": "基礎後製",
+          "nameEn": "Basic Editing",
+          "description": "RAW 與 JPEG 的差異，基本的亮度、對比、色溫調整"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Understanding Exposure — Bryan Peterson",
+          "type": "book",
+          "url": "",
+          "description": "攝影曝光聖經，用淺顯語言解釋複雜的曝光概念",
+          "language": "en"
+        },
+        {
+          "title": "攝影筆記 — 寧思潮耳",
+          "type": "book",
+          "url": "",
+          "description": "中文攝影入門暢銷書，系統講解基礎知識",
+          "language": "zh"
+        },
+        {
+          "title": "Peter McKinnon YouTube Channel",
+          "type": "video",
+          "url": "https://www.youtube.com/@PeterMcKinnon",
+          "description": "高品質攝影教學影片，風格輕鬆有趣且乾貨滿滿",
+          "language": "en"
+        },
+        {
+          "title": "Adobe Lightroom",
+          "type": "app",
+          "url": "https://www.adobe.com/products/photoshop-lightroom.html",
+          "description": "業界標準的照片管理與編修軟體，適合入門學習後製",
+          "language": "en"
+        },
+        {
+          "title": "500px",
+          "type": "platform",
+          "url": "https://500px.com",
+          "description": "攝影師作品分享平台，瀏覽優秀作品培養審美",
+          "language": "en"
+        },
+        {
+          "title": "Cambridge in Colour",
+          "type": "website",
+          "url": "https://www.cambridgeincolour.com",
+          "description": "深入淺出的攝影技術教學，涵蓋曝光、構圖等主題",
+          "language": "en"
+        },
+        {
+          "title": "Thomas Heaton YouTube Channel",
+          "type": "video",
+          "url": "https://www.youtube.com/@ThomasHeaton",
+          "description": "風景攝影大師的戶外拍攝記錄與教學",
+          "language": "en"
+        },
+        {
+          "title": "Snapseed",
+          "type": "app",
+          "url": "https://snapseed.online",
+          "description": "Google 出品的免費手機修圖App，功能強大且直覺",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "intermediate",
+      "name": "進階階段",
+      "nameEn": "Intermediate",
+      "description": "探索多元攝影類型，掌握閃燈與進階構圖技巧",
+      "duration": "3-6 個月",
+      "xp": 300,
+      "topics": [
+        {
+          "id": "advanced-composition",
+          "name": "進階構圖",
+          "nameEn": "Advanced Composition",
+          "description": "色彩對比、負空間、層次感、視覺動線的運用"
+        },
+        {
+          "id": "flash-photography",
+          "name": "閃光燈攝影",
+          "nameEn": "Flash Photography",
+          "description": "離機閃、跳閃、柔光罩的使用與光比控制"
+        },
+        {
+          "id": "portrait-lighting",
+          "name": "人像用光",
+          "nameEn": "Portrait Lighting",
+          "description": "倫勃朗光、蝶光、分割光等經典人像布光法"
+        },
+        {
+          "id": "landscape-techniques",
+          "name": "風景技法",
+          "nameEn": "Landscape Techniques",
+          "description": "長曝光、HDR、全景拼接、濾鏡系統的使用"
+        },
+        {
+          "id": "street-photography",
+          "name": "街頭攝影",
+          "nameEn": "Street Photography",
+          "description": "決定性瞬間、抓拍技巧、光影與人文敘事"
+        },
+        {
+          "id": "color-theory",
+          "name": "色彩理論",
+          "nameEn": "Color Theory",
+          "description": "色彩心理學、互補色運用、調色風格的建立"
+        }
+      ],
+      "resources": [
+        {
+          "title": "The Photographer's Eye — Michael Freeman",
+          "type": "book",
+          "url": "",
+          "description": "構圖聖經，從設計角度分析照片構成",
+          "language": "en"
+        },
+        {
+          "title": "Strobist",
+          "type": "website",
+          "url": "https://strobist.blogspot.com",
+          "description": "閃光燈攝影入門到精通的經典教學網站",
+          "language": "en"
+        },
+        {
+          "title": "Portrait Photography — Scott Kelby",
+          "type": "book",
+          "url": "",
+          "description": "人像攝影實戰指南，佈光與拍攝技巧詳解",
+          "language": "en"
+        },
+        {
+          "title": "Matti Haapoja YouTube",
+          "type": "video",
+          "url": "https://www.youtube.com/@MattiHaapoja",
+          "description": "攝影與影片製作教學，專業且實用",
+          "language": "en"
+        },
+        {
+          "title": "1X.com",
+          "type": "platform",
+          "url": "https://1x.com",
+          "description": "精選高品質藝術攝影平台，嚴格策展標準",
+          "language": "en"
+        },
+        {
+          "title": "Capture One",
+          "type": "app",
+          "url": "https://www.captureone.com",
+          "description": "專業級RAW處理軟體，色彩管理能力出眾",
+          "language": "en"
+        },
+        {
+          "title": "Henri Cartier-Bresson: The Decisive Moment",
+          "type": "book",
+          "url": "",
+          "description": "街頭攝影開山之作，理解「決定性瞬間」的哲學",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "高級階段",
+      "nameEn": "Advanced",
+      "description": "建立個人風格，掌握商業攝影與精細後製技術",
+      "duration": "6-12 個月",
+      "xp": 600,
+      "topics": [
+        {
+          "id": "studio-lighting",
+          "name": "棚拍布光",
+          "nameEn": "Studio Lighting",
+          "description": "多燈布光、高/低調攝影、商品攝影佈光方案"
+        },
+        {
+          "id": "advanced-retouching",
+          "name": "精細修圖",
+          "nameEn": "Advanced Retouching",
+          "description": "頻率分離、D&B、色彩分級、合成等專業技法"
+        },
+        {
+          "id": "commercial-photography",
+          "name": "商業攝影",
+          "nameEn": "Commercial Photography",
+          "description": "產品攝影、美食攝影、建築攝影的專業標準"
+        },
+        {
+          "id": "conceptual-photography",
+          "name": "觀念攝影",
+          "nameEn": "Conceptual Photography",
+          "description": "用影像傳達概念與情感，策劃完整的攝影項目"
+        },
+        {
+          "id": "print-preparation",
+          "name": "輸出與印刷",
+          "nameEn": "Print & Output",
+          "description": "色彩管理、ICC Profile、輸出銳化、紙張選擇"
+        },
+        {
+          "id": "video-hybrid",
+          "name": "動靜融合",
+          "nameEn": "Photo-Video Hybrid",
+          "description": "將攝影技巧延伸至影片，短影音內容創作"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Light: Science & Magic",
+          "type": "book",
+          "url": "",
+          "description": "光學原理在攝影中的應用，理解光的本質",
+          "language": "en"
+        },
+        {
+          "title": "Phlearn",
+          "type": "website",
+          "url": "https://phlearn.com",
+          "description": "專業 Photoshop 與 Lightroom 後製教學平台",
+          "language": "en"
+        },
+        {
+          "title": "LensCulture",
+          "type": "platform",
+          "url": "https://www.lensculture.com",
+          "description": "當代攝影藝術平台，國際攝影比賽與展覽資訊",
+          "language": "en"
+        },
+        {
+          "title": "Photoshop — Adobe",
+          "type": "app",
+          "url": "https://www.adobe.com/products/photoshop.html",
+          "description": "影像處理行業標準，精細修圖與合成必備工具",
+          "language": "en"
+        },
+        {
+          "title": "The Art of Photography — YouTube",
+          "type": "video",
+          "url": "https://www.youtube.com/@theartofphotography",
+          "description": "深入攝影藝術與歷史的高質量頻道",
+          "language": "en"
+        },
+        {
+          "title": "商業攝影實戰 — Karl Taylor Education",
+          "type": "website",
+          "url": "https://www.karltayloreducation.com",
+          "description": "專業商業攝影教學平台，佈光與實拍案例豐富",
+          "language": "en"
+        },
+        {
+          "title": "Nik Collection",
+          "type": "app",
+          "url": "https://nikcollection.dxo.com",
+          "description": "專業級濾鏡與效果插件套裝，風格化調色利器",
+          "language": "en"
+        }
+      ]
+    },
+    {
+      "id": "master",
+      "name": "大師階段",
+      "nameEn": "Master",
+      "description": "發展獨特藝術視野，以攝影作品影響他人",
+      "duration": "持續精進",
+      "xp": 1000,
+      "topics": [
+        {
+          "id": "personal-style",
+          "name": "個人風格",
+          "nameEn": "Personal Style",
+          "description": "發展辨識度高的拍攝與後製風格，建立視覺語言"
+        },
+        {
+          "id": "portfolio-curation",
+          "name": "作品集策展",
+          "nameEn": "Portfolio Curation",
+          "description": "精選與排序作品，打造有敘事力的作品集"
+        },
+        {
+          "id": "exhibition-planning",
+          "name": "展覽策劃",
+          "nameEn": "Exhibition Planning",
+          "description": "策劃與執行攝影展覽，空間設計與作品呈現"
+        },
+        {
+          "id": "photography-business",
+          "name": "攝影事業",
+          "nameEn": "Photography Business",
+          "description": "定價策略、客戶管理、品牌經營與市場定位"
+        },
+        {
+          "id": "mentoring",
+          "name": "教學傳承",
+          "nameEn": "Mentoring",
+          "description": "將經驗系統化輸出，指導新進攝影師成長"
+        }
+      ],
+      "resources": [
+        {
+          "title": "On Photography — Susan Sontag",
+          "type": "book",
+          "url": "",
+          "description": "攝影哲學經典著作，探討影像與真實的關係",
+          "language": "en"
+        },
+        {
+          "title": "Magnum Photos",
+          "type": "platform",
+          "url": "https://www.magnumphotos.com",
+          "description": "世界頂級攝影通訊社，大師作品與深度故事",
+          "language": "en"
+        },
+        {
+          "title": "World Press Photo",
+          "type": "platform",
+          "url": "https://www.worldpressphoto.org",
+          "description": "全球最具影響力的新聞攝影獎，觀察紀實趨勢",
+          "language": "en"
+        },
+        {
+          "title": "Camera Lucida — Roland Barthes",
+          "type": "book",
+          "url": "",
+          "description": "攝影理論經典，探討照片的本質與情感力量",
+          "language": "en"
+        },
+        {
+          "title": "Format.com",
+          "type": "platform",
+          "url": "https://www.format.com",
+          "description": "專業攝影師作品集網站建構平台",
+          "language": "en"
+        }
+      ]
+    }
+  ]
+}
