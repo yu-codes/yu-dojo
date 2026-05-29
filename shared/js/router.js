@@ -206,15 +206,27 @@ const Router = (() => {
         const stage = data.stages.find(s => s.id === stageId);
         if (!stage) { navigate(`skill/${skillId}`); return; }
 
-        const topicsHtml = stage.topics.map(t => `
-            <div class="topic-card">
-                <div class="topic-card-name">${t.name}</div>
-                <div class="topic-card-name-en">${t.nameEn}</div>
-                <div class="topic-card-desc">${t.description}</div>
-            </div>
+        const topicsNav = stage.topics.map((t, i) => `
+            <a class="topic-nav-item" href="#topic-${i}" onclick="event.preventDefault(); document.getElementById('topic-${i}').scrollIntoView({behavior:'smooth', block:'start'})">
+                <span class="topic-nav-num">${String(i+1).padStart(2,'0')}</span>
+                <span>${t.name}</span>
+            </a>
         `).join('');
 
-        const resourcesHtml = stage.resources.map(r => renderResourceCard(r)).join('');
+        const topicsContent = stage.topics.map((t, i) => `
+            <article class="topic-article" id="topic-${i}">
+                <div class="topic-article-header">
+                    <span class="topic-article-num">${String(i+1).padStart(2,'0')}</span>
+                    <div>
+                        <h2 class="topic-article-title">${t.name}</h2>
+                        <span class="topic-article-subtitle">${t.nameEn}</span>
+                    </div>
+                </div>
+                <div class="topic-article-body">
+                    ${renderContentBlocks(t.content, skillId)}
+                </div>
+            </article>
+        `).join('');
 
         document.getElementById('app').innerHTML = `
             ${renderTopbar([
@@ -233,18 +245,84 @@ const Router = (() => {
                     </div>
                     <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem;">${stage.description}</p>
                     
-                    <div class="topics-section">
-                        <h3>學習主題</h3>
-                        <div class="topics-grid">${topicsHtml}</div>
-                    </div>
-
-                    <div class="resources-section">
-                        <h3>推薦資源</h3>
-                        <div class="resources-grid">${resourcesHtml}</div>
-                    </div>
+                    <nav class="topics-nav">${topicsNav}</nav>
+                    <div class="topics-content">${topicsContent}</div>
                 </div>
             </div>
         `;
+
+        // Render board diagrams after DOM is ready
+        setTimeout(() => renderBoards(), 50);
+    }
+
+    function renderContentBlocks(blocks, skillId) {
+        if (!blocks || !Array.isArray(blocks)) return '';
+        return blocks.map(block => {
+            switch (block.type) {
+                case 'text':
+                    return `<p class="cb-text">${escapeHtml(block.value)}</p>`;
+                case 'heading':
+                    return `<h3 class="cb-heading">${escapeHtml(block.value)}</h3>`;
+                case 'list':
+                    return `<ul class="cb-list">${block.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+                case 'tip':
+                    return `<div class="cb-tip"><span class="cb-tip-icon">💡</span><span>${escapeHtml(block.value)}</span></div>`;
+                case 'table':
+                    return renderTable(block);
+                case 'board':
+                    return `<div class="cb-board" data-fen="${escapeHtml(block.fen)}" data-caption="${escapeHtml(block.caption || '')}" data-highlights='${JSON.stringify(block.highlights||[])}' data-arrows='${JSON.stringify(block.arrows||[])}'></div>`;
+                case 'gomoku':
+                    return `<div class="cb-gomoku" data-moves='${JSON.stringify(block.moves||[])}' data-caption="${escapeHtml(block.caption || '')}" data-markers='${JSON.stringify(block.markers||[])}' data-show-numbers="${block.showNumbers !== false}"></div>`;
+                default:
+                    return '';
+            }
+        }).join('');
+    }
+
+    function renderTable(block) {
+        const headers = block.headers ? `<thead><tr>${block.headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>` : '';
+        const rows = block.rows ? `<tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>` : '';
+        return `<div class="cb-table-wrap"><table class="cb-table">${headers}${rows}</table></div>`;
+    }
+
+    function renderBoards() {
+        // Render xiangqi boards
+        document.querySelectorAll('.cb-board').forEach(el => {
+            const fen = el.dataset.fen;
+            const caption = el.dataset.caption;
+            const highlights = JSON.parse(el.dataset.highlights || '[]');
+            const arrows = JSON.parse(el.dataset.arrows || '[]');
+            if (typeof XiangqiBoard !== 'undefined') {
+                XiangqiBoard.render(el, fen, { highlights, arrows });
+            }
+            if (caption) {
+                const cap = document.createElement('div');
+                cap.className = 'cb-board-caption';
+                cap.textContent = caption;
+                el.appendChild(cap);
+            }
+        });
+        // Render gomoku boards
+        document.querySelectorAll('.cb-gomoku').forEach(el => {
+            const moves = JSON.parse(el.dataset.moves || '[]');
+            const caption = el.dataset.caption;
+            const markers = JSON.parse(el.dataset.markers || '[]');
+            const showNumbers = el.dataset.showNumbers !== 'false';
+            if (typeof GomokuBoard !== 'undefined') {
+                GomokuBoard.render(el, moves, { markers, showNumbers });
+            }
+            if (caption) {
+                const cap = document.createElement('div');
+                cap.className = 'cb-board-caption';
+                cap.textContent = caption;
+                el.appendChild(cap);
+            }
+        });
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
     function renderResourceCard(r) {

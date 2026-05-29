@@ -2,13 +2,13 @@
   "skill": "chinese-chess",
   "name": "象棋",
   "nameEn": "Chinese Chess (Xiangqi)",
-  "description": "中國象棋學習路線圖 — 從入門規則到大師級對弈策略",
+  "description": "中國象棋完整學習路線 — 從零基礎到大師級的系統化修煉之道",
   "stages": [
     {
       "id": "beginner",
       "name": "入門階段",
       "nameEn": "Beginner",
-      "description": "掌握棋子走法、基本規則與簡單殘局，建立對弈基礎",
+      "description": "掌握棋子走法、基本規則與簡單殺法，建立穩固的對弈基礎",
       "duration": "1-2 個月",
       "xp": 100,
       "topics": [
@@ -16,96 +16,109 @@
           "id": "rules",
           "name": "基本規則",
           "nameEn": "Basic Rules",
-          "description": "棋盤佈局、棋子走法、勝負判定、犯規與和棋條件"
+          "content": [
+            {"type": "text", "value": "象棋是兩人對弈的策略遊戲，棋盤由9條直線和10條橫線交叉組成，棋子放在交叉點上。棋盤中間有「楚河漢界」將雙方陣地分隔，上方為黑方（後手），下方為紅方（先手）。"},
+            {"type": "heading", "value": "棋盤構成"},
+            {"type": "board", "fen": "rheakaehr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RHEAKAEHR", "caption": "象棋初始佈局 — 紅方在下，黑方在上"},
+            {"type": "list", "items": ["棋盤：9路×10行，共90個交叉點", "河界：第5行與第6行之間，稱為「楚河漢界」", "九宮：雙方各有3×3斜線區域，帥/將、仕/士只能在其中活動", "紅方先行：紅方永遠走第一步"]},
+            {"type": "heading", "value": "棋子配置"},
+            {"type": "table", "headers": ["棋子", "紅方", "黑方", "數量"], "rows": [["帥/將", "帥", "將", "各1"], ["仕/士", "仕", "士", "各2"], ["相/象", "相", "象", "各2"], ["車", "車", "車", "各2"], ["馬", "馬", "馬", "各2"], ["炮", "炮", "炮", "各2"], ["兵/卒", "兵", "卒", "各5"]]},
+            {"type": "heading", "value": "勝負判定"},
+            {"type": "list", "items": ["將死：對方帥（將）被將軍且無法解除", "困斃：輪到對方走棋但無合法走法", "認輸：對方主動認負", "超時：限時賽中一方用完時間"]},
+            {"type": "heading", "value": "和棋條件"},
+            {"type": "list", "items": ["雙方同意和棋", "三次重複局面", "雙方均無法將死對方", "一方長將超過規定次數需變著"]},
+            {"type": "tip", "value": "飛將規則：帥與將不能在同一直線上面對面（中間無子阻隔）。這規則在殘局中極為關鍵。"}
+          ]
         },
         {
           "id": "piece-movement",
-          "name": "棋子特性",
-          "nameEn": "Piece Characteristics",
-          "description": "車、馬、炮、兵、仕、相、帥的走法與攻防特點"
+          "name": "棋子走法",
+          "nameEn": "Piece Movement",
+          "content": [
+            {"type": "text", "value": "每種棋子有獨特的移動規則，熟練掌握是下棋的第一步。"},
+            {"type": "heading", "value": "車 — 棋力之王"},
+            {"type": "text", "value": "車沿直線（橫或豎）移動任意格數，不能越過其他棋子。是最強的棋子，無任何限制（除了不能越子）。"},
+            {"type": "board", "fen": "9/9/9/9/2R6/9/9/9/9/4K4", "caption": "車可橫走、直走任意格數（不越子）", "arrows": [{"from": {"row": 4, "col": 2}, "to": {"row": 4, "col": 8}}, {"from": {"row": 4, "col": 2}, "to": {"row": 0, "col": 2}}]},
+            {"type": "heading", "value": "馬 — 八面威風"},
+            {"type": "text", "value": "馬走「日」字形：先橫（或豎）走一格，再斜走一格到對角。但如果第一步方向有子阻擋（蹩馬腿），則該方向不可走。"},
+            {"type": "list", "items": ["最多可到達8個位置", "蹩馬腿：第一步被擋則不能走", "開闊時靈活，擁擠時受限"]},
+            {"type": "heading", "value": "炮 — 隔山打牛"},
+            {"type": "text", "value": "炮移動同車（直線任意格），但吃子時必須隔一個棋子（炮架）跳過去吃。無炮架不能吃子，移動時不能越子。"},
+            {"type": "board", "fen": "4k4/9/9/9/4p4/9/9/4C4/9/4K4", "caption": "炮隔一子（炮架）可吃對方棋子", "arrows": [{"from": {"row": 7, "col": 4}, "to": {"row": 4, "col": 4}}]},
+            {"type": "tip", "value": "炮在開局（棋子多=炮架多）時威力大，殘局（子少）時不如馬。"},
+            {"type": "heading", "value": "兵/卒"},
+            {"type": "text", "value": "未過河：只能向前一步。過河後：可前、左、右各一步（不能後退）。過河兵活動範圍大增，威力翻倍。"},
+            {"type": "heading", "value": "仕/士"},
+            {"type": "text", "value": "只在九宮內沿斜線走一步。可到達位置僅5個點。是帥的貼身護衛。"},
+            {"type": "heading", "value": "相/象"},
+            {"type": "text", "value": "走「田」字對角（斜走兩格），不能過河，中間不能有子擋（塞象眼）。只能在己方半場活動。"},
+            {"type": "heading", "value": "帥/將"},
+            {"type": "text", "value": "在九宮內每次走一步（橫或豎）。不能離開九宮。兩帥不能在同一直線面對面（飛將規則）。"}
+          ]
         },
         {
-          "id": "basic-openings",
-          "name": "基礎開局",
-          "nameEn": "Basic Openings",
-          "description": "中炮局、順手炮、列手炮、飛相局等常見開局入門"
+          "id": "piece-value",
+          "name": "子力價值",
+          "nameEn": "Piece Value",
+          "content": [
+            {"type": "text", "value": "了解各棋子的相對價值是正確兌子的基礎："},
+            {"type": "table", "headers": ["棋子", "價值", "說明"], "rows": [["車", "9", "最強，控制整條線路"], ["馬", "4", "開闊時活躍，殘局逐漸強於炮"], ["炮", "4.5", "開局強（炮架多），殘局弱"], ["過河兵", "2", "可橫走，逼近九宮威脅大"], ["未過河兵", "0.5", "只能前進，價值有限"], ["仕", "2", "防守核心"], ["相", "2", "控制己方斜線"]]},
+            {"type": "heading", "value": "兌子原則"},
+            {"type": "list", "items": ["車換雙（馬+炮）通常虧，「一車十子寒」", "炮換馬：開局炮優，殘局馬優", "不要用車換馬/炮（除非有戰術目的）", "優勢時多兌子，劣勢時避免兌子"]},
+            {"type": "tip", "value": "價值不固定：被困住的車不如活馍的馬，逼近九宮的兵威脅遠超2分。"},
+            {"type": "board", "fen": "4k4/9/9/4P4/9/9/9/9/9/4K4", "caption": "深入敵陣的過河兵，實際威脅遠超帳面價值"}
+          ]
         },
         {
-          "id": "basic-endgames",
-          "name": "基礎殘局",
-          "nameEn": "Basic Endgames",
-          "description": "單車殺士、馬後炮、鐵門栓等經典殺法"
+          "id": "basic-checkmate",
+          "name": "基本殺法",
+          "nameEn": "Basic Checkmates",
+          "content": [
+            {"type": "text", "value": "掌握基本殺法模式是將死對手的必備功夫："},
+            {"type": "heading", "value": "馬後炮"},
+            {"type": "text", "value": "馬控制將的退路，炮借馬當炮架將軍。將無處可逃，形成絕殺。這是象棋中最經典、最常見的殺法。"},
+            {"type": "board", "fen": "4k4/4H4/9/9/9/9/9/4C4/9/4K4", "caption": "馬後炮：馬在e1卡住將的退路，炮從e7隔馬將殺", "arrows": [{"from": {"row": 7, "col": 4}, "to": {"row": 1, "col": 4}}]},
+            {"type": "heading", "value": "鐵門栓"},
+            {"type": "text", "value": "車佔據次底線封住將的橫向逃路，炮在頂線將殺。車如門栓鎖住出路。"},
+            {"type": "board", "fen": "2C1k4/3R5/9/9/9/9/9/9/9/4K4", "caption": "鐵門栓：車在d1封住將的橫向移動，炮在c0將殺"},
+            {"type": "heading", "value": "重炮"},
+            {"type": "text", "value": "兩炮前後排列同一線上，前炮做後炮的炮架，直接將殺。最直接暴力的殺法。"},
+            {"type": "heading", "value": "臥槽馬"},
+            {"type": "text", "value": "馬跳入九宮角落（如c1或g1位），控制將的多個退路，配合車/炮幾乎必殺。"},
+            {"type": "board", "fen": "3k5/2H6/9/9/9/9/9/3R5/9/4K4", "caption": "臥槽馬+車：馬在c1控制多個要點，車提供致命威脅"},
+            {"type": "heading", "value": "雙車錯"},
+            {"type": "text", "value": "兩車交替將軍，一車將軍迫將移動，另一車占位繼續將，直到將死。"},
+            {"type": "tip", "value": "每天做3-5道殺棋題是提升最快的方法。從1步殺到3步殺逐漸增加難度。"}
+          ]
         },
         {
-          "id": "basic-tactics",
-          "name": "基本戰術",
-          "nameEn": "Basic Tactics",
-          "description": "捉雙、抽將、閃擊、牽制等基礎戰術手段"
-        },
-        {
-          "id": "etiquette",
-          "name": "棋道禮儀",
-          "nameEn": "Chess Etiquette",
-          "description": "下棋禮節、計時規則、比賽基本規範"
+          "id": "opening-principles",
+          "name": "開局原則",
+          "nameEn": "Opening Principles",
+          "content": [
+            {"type": "text", "value": "開局目標：快速出動子力、搶佔有利位置。遵循以下原則避免開局吃虧："},
+            {"type": "heading", "value": "核心原則"},
+            {"type": "list", "items": ["儘快出車：「三步不出車，必定要輸棋」", "搶佔要道：中路（5路）、肋道（4/6路）", "子力協調：均衡發展，不要只動一邊", "注意安全：不要過早把帥暴露在開放線上"]},
+            {"type": "heading", "value": "常見開局"},
+            {"type": "table", "headers": ["名稱", "首著", "特點"], "rows": [["中炮局", "炮二平五", "最直接進攻，控制中路"], ["飛相局", "相三進五", "穩健，先固防再圖攻"], ["仙人指路", "兵七進一", "靈活試探"], ["起馬局", "馬二進三", "穩健出子"]]},
+            {"type": "board", "fen": "rheakaehr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C2C4/9/RHEAKAEHR", "caption": "中炮局：炮二平五，佔據中路要位"},
+            {"type": "tip", "value": "初學者建議先精通中炮局，路線直接明確。穩定後再加入飛相局擴充武器庫。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "象棋入門教程 — 楊官璘",
-          "type": "book",
-          "url": "",
-          "description": "一代宗師楊官璘所著的經典入門書籍，淺顯易懂",
-          "language": "zh"
-        },
-        {
-          "title": "天天象棋",
-          "type": "app",
-          "url": "https://www.ttxq.com",
-          "description": "騰訊出品的象棋對弈平台，內建殘局闯關與AI對練",
-          "language": "zh"
-        },
-        {
-          "title": "弈客象棋",
-          "type": "platform",
-          "url": "https://www.yikexiangqi.com",
-          "description": "專業象棋平台，支援線上對弈、觀戰、復盤分析",
-          "language": "zh"
-        },
-        {
-          "title": "象棋微學堂 YouTube",
-          "type": "video",
-          "url": "https://www.youtube.com/@xiangqi-micro",
-          "description": "系統化的象棋教學影片，適合初學者跟隨學習",
-          "language": "zh"
-        },
-        {
-          "title": "東萍象棋網",
-          "type": "website",
-          "url": "https://www.dpxq.com",
-          "description": "大量棋譜資料庫與殘局練習，棋友社群討論",
-          "language": "zh"
-        },
-        {
-          "title": "XQiEnglish - Xiangqi in English",
-          "type": "website",
-          "url": "https://www.xqinenglish.com",
-          "description": "英文象棋教學網站，適合想用英文學習的棋友",
-          "language": "en"
-        },
-        {
-          "title": "象棋巫師",
-          "type": "app",
-          "url": "http://www.xqwizard.com",
-          "description": "經典象棋軟體，內建引擎分析與海量殘局題庫",
-          "language": "zh"
-        }
+        {"title": "象棋入門教程 — 楊官璘", "type": "book", "url": "", "description": "一代宗師所著經典入門書", "language": "zh"},
+        {"title": "天天象棋", "type": "app", "url": "https://www.ttxq.com", "description": "騰訊象棋平台，含殘局闯關與AI對練", "language": "zh"},
+        {"title": "弈客象棋", "type": "platform", "url": "https://www.yikexiangqi.com", "description": "專業對弈、觀戰、復盤平台", "language": "zh"},
+        {"title": "東萍象棋網", "type": "website", "url": "https://www.dpxq.com", "description": "海量棋譜與殘局練習", "language": "zh"},
+        {"title": "象棋巫師", "type": "app", "url": "http://www.xqwizard.com", "description": "經典象棋軟體，引擎分析+題庫", "language": "zh"}
       ]
     },
     {
       "id": "intermediate",
       "name": "進階階段",
       "nameEn": "Intermediate",
-      "description": "深入開局理論與中局戰術，建立體系化的對弈思維",
+      "description": "深入開局體系與中局戰術，建立系統化的對弈思維框架",
       "duration": "3-6 個月",
       "xp": 300,
       "topics": [
@@ -113,193 +126,183 @@
           "id": "opening-systems",
           "name": "開局體系",
           "nameEn": "Opening Systems",
-          "description": "中炮對屏風馬、仙人指路、起馬局等主流開局體系"
+          "content": [
+            {"type": "text", "value": "進階階段需要系統學習2-3套開局，建立個人武器庫。以下是最主流的開局系統："},
+            {"type": "heading", "value": "中炮對屏風馬"},
+            {"type": "text", "value": "最經典、研究最深的開局。紅方中炮進攻，黑方雙馬屏風防守。後續紅方可選五七炮、五六炮等子變化。"},
+            {"type": "board", "fen": "r1eakaehr/9/1ch2c3/p1p1p1p1p/9/2P6/P3P1P1P/2C1C1H2/9/R1EAKAEHR", "caption": "中炮對屏風馬基本陣型 — 紅方出車進兵壓制中路"},
+            {"type": "heading", "value": "飛相局"},
+            {"type": "text", "value": "首步走相，穩健不急攻。先穩固陣形再尋戰機，適合穩紮穩打型棋手。黑方有多種應法，局面較封閉。"},
+            {"type": "heading", "value": "仙人指路"},
+            {"type": "text", "value": "首步挺兵試探，根據對手反應可轉入中炮或飛相等體系。靈活多變，適合武器庫廣泛的棋手。"},
+            {"type": "board", "fen": "rheakaehr/9/1c5c1/p1p1p1p1p/9/6P2/P1P1P3P/1C5C1/9/RHEAKAEHR", "caption": "仙人指路（兵三進一）— 試探黑方意圖"},
+            {"type": "tip", "value": "先精通一套主力開局，再學備用開局。紅方建議：中炮為主+飛相為輔。黑方：屏風馬對中炮+反宮馬備用。"}
+          ]
         },
         {
           "id": "midgame-tactics",
           "name": "中局戰術",
           "nameEn": "Midgame Tactics",
-          "description": "棄子攻殺、腰車炮、重炮、鐵門栓等中局組合殺法"
+          "content": [
+            {"type": "text", "value": "中局決定勝負。掌握戰術手段能讓你在均勢中創造決定性優勢："},
+            {"type": "heading", "value": "捉雙（Fork）"},
+            {"type": "text", "value": "一步棋同時威脅兩個目標，對方只能救一個。馬的捉雙最常見——馬的走法能輻射多方向。"},
+            {"type": "board", "fen": "4k4/2r1a4/9/9/9/3H5/9/9/9/4K4", "caption": "馬捉雙：馬跳d5同時威脅攻將和吃車", "highlights": [{"row": 5, "col": 3}]},
+            {"type": "heading", "value": "牽制（Pin）"},
+            {"type": "text", "value": "棋子被「釘住」：移動會暴露後方更大價值的子被吃。被牽制的子等於癱瘓。"},
+            {"type": "heading", "value": "閃擊/閃將（Discovered Attack）"},
+            {"type": "text", "value": "移開一子暴露後方攻擊線。若移開的子本身也去威脅目標=雙重攻擊。閃將（移開後將軍）最致命。"},
+            {"type": "heading", "value": "引離與引入"},
+            {"type": "list", "items": ["引離：犧牲子力把防守子引離崗位", "引入：迫使對方子走到不利位置", "例：送炮引離仕，再用車打入九宮"]},
+            {"type": "heading", "value": "封鎖"},
+            {"type": "text", "value": "控制對方子力出路使其無法發揮。例：用兵蹩馬腿、用車封住車的出路。"},
+            {"type": "tip", "value": "提升戰術敏感度的方法：每天做10道戰術題，覆盤時標記所有漏掉的戰術機會。"}
+          ]
         },
         {
           "id": "positional-play",
-          "name": "局勢判斷",
+          "name": "局面判斷",
           "nameEn": "Positional Play",
-          "description": "子力價值、空間控制、局勢優劣的判斷方法"
+          "content": [
+            {"type": "text", "value": "非戰術局面中，正確的局面判斷決定了你的計劃方向。"},
+            {"type": "heading", "value": "評估要素"},
+            {"type": "list", "items": ["子力對比：計算雙方總子力差距", "子力活躍度：被困的車不如活躍的馬", "空間控制：過河兵推進擴大空間", "帥的安全：仕相完整性影響防守能力", "先手權：誰在主導局面節奏"]},
+            {"type": "heading", "value": "判斷口訣"},
+            {"type": "list", "items": ["「子多者優」— 物質優勢最直接", "「先手者優」— 掌握主動的一方佔優", "「子活者優」— 活躍子力價值更高", "「形好者優」— 陣型協調方佔優"]},
+            {"type": "board", "fen": "r2ak4/4a4/2h1e4/p3p4/6p2/2P6/P3P1P1P/2H1C4/4A4/2R1KAE1R", "caption": "局面判斷練習：分析此局面雙方的優劣勢"},
+            {"type": "text", "value": "上圖分析：紅方車已出動佔據c線，但左翼馬尚未到位。黑方馬已過河威脅大，但車尚未活躍。整體略偏紅方，因紅方子力更協調。"},
+            {"type": "tip", "value": "判斷不需精確到小數，關鍵是：哪方佔優？優勢多大？該攻還是守？"}
+          ]
         },
         {
           "id": "common-patterns",
-          "name": "常見棋形",
-          "nameEn": "Common Patterns",
-          "description": "海底撈月、釣魚馬、臥槽馬、天地炮等經典棋形運用"
+          "name": "經典棋形",
+          "nameEn": "Classic Patterns",
+          "content": [
+            {"type": "text", "value": "記住經典棋形能讓你在實戰中快速找到殺著或得子手段："},
+            {"type": "heading", "value": "海底撈月"},
+            {"type": "text", "value": "車沉底佔對方底線，配合兵推進限制將的移動，最終從底線將殺。殘局中車兵聯攻的基本功。"},
+            {"type": "board", "fen": "3k5/9/9/9/9/9/9/9/4P4/R3K4", "caption": "海底撈月意圖：車將沉底線，兵向前推壓迫將"},
+            {"type": "heading", "value": "釣魚馬"},
+            {"type": "text", "value": "馬跳到將旁位置（如d1/f1），同時控制將的出路，配合車/炮形成殺局。馬如魚鉤勾住將。"},
+            {"type": "heading", "value": "臥槽馬"},
+            {"type": "text", "value": "馬深入九宮角落，控制將的多個退路。臥槽馬配車/炮幾乎必殺，是最常見的殺棋組合。"},
+            {"type": "board", "fen": "4k4/3H5/9/9/9/9/9/4R4/9/4K4", "caption": "臥槽馬配車：馬d1控制多點，車e7提供殺著支援"},
+            {"type": "heading", "value": "天地炮"},
+            {"type": "text", "value": "兩炮分佔頂線和底線（天與地），形成上下夾擊。配合車切入，殺傷力極大。"},
+            {"type": "tip", "value": "重點不是死記，而是理解原理。實戰中變化無窮，但底層邏輯相通。"}
+          ]
         },
         {
-          "id": "defense-techniques",
-          "name": "防禦技巧",
-          "nameEn": "Defense Techniques",
-          "description": "破解常見攻殺、頑強防守、反擊時機的把握"
-        },
-        {
-          "id": "game-analysis",
-          "name": "覆盤分析",
-          "nameEn": "Game Analysis",
-          "description": "利用引擎輔助覆盤，找出失誤與改進方向"
+          "id": "endgame-basics",
+          "name": "殘局基礎",
+          "nameEn": "Endgame Basics",
+          "content": [
+            {"type": "text", "value": "殘局有確定結論——有些必勝，有些必和。掌握這些結論能正確判斷何時兌子入殘。"},
+            {"type": "heading", "value": "基本結論表"},
+            {"type": "table", "headers": ["局面", "結論", "要點"], "rows": [["車 vs 單士", "必勝", "車切線逼將入角"], ["車 vs 單象", "必勝", "車佔象路逼殺"], ["車 vs 士象全", "一般和", "防守方可守"], ["馬 vs 單士", "必勝", "用帥配合逼殺"], ["馬 vs 士象全", "一般和", "攻方難以破城"], ["車兵 vs 車", "多數勝", "用車保兵前進"], ["炮+仕 vs 士象全", "和", "炮無架難攻"]]},
+            {"type": "heading", "value": "車殺單士"},
+            {"type": "board", "fen": "3k5/4a4/9/9/9/9/9/9/9/3RK4", "caption": "車殺單士：紅車沿線切斷士路，配合帥的飛將逼殺"},
+            {"type": "text", "value": "方法：用車控制士的移動路線，配合帥站位（利用飛將規則），逐步把將逼到角落再殺。關鍵是帥要主動配合，不要躲在後面。"},
+            {"type": "heading", "value": "殘局關鍵思維"},
+            {"type": "list", "items": ["帥/將要主動參戰（飛將是重要武器）", "兵的推進節奏是殘局核心", "控制對方將的活動空間", "注意困斃的可能（逼對方無子可動即勝）"]},
+            {"type": "tip", "value": "每天研究2-3個殘局局面，用引擎驗證計算。基本殘局結論務必背熟。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "象棋中局戰術 — 黃少龍",
-          "type": "book",
-          "url": "",
-          "description": "系統講解中局戰術的權威著作，大量實戰範例",
-          "language": "zh"
-        },
-        {
-          "title": "適情雅趣",
-          "type": "book",
-          "url": "",
-          "description": "明代古譜，收錄大量殘局與中局殺法，經典必讀",
-          "language": "zh"
-        },
-        {
-          "title": "Pikafish 引擎",
-          "type": "app",
-          "url": "https://github.com/official-pikafish/Pikafish",
-          "description": "開源象棋引擎（基於 Stockfish 架構），用於深度分析",
-          "language": "en"
-        },
-        {
-          "title": "象棋旋風",
-          "type": "app",
-          "url": "http://www.xqyclone.com",
-          "description": "專業象棋分析軟體，支援多引擎對比與棋譜管理",
-          "language": "zh"
-        },
-        {
-          "title": "中國象棋大師網",
-          "type": "website",
-          "url": "https://www.zgxqds.com",
-          "description": "大師棋譜集錦與教學文章，跟隨頂尖棋手學習",
-          "language": "zh"
-        },
-        {
-          "title": "JJ象棋",
-          "type": "platform",
-          "url": "https://www.jj.cn",
-          "description": "競技象棋平台，段位系統清晰，適合進階棋手刷分",
-          "language": "zh"
-        },
-        {
-          "title": "胡榮華對局集",
-          "type": "book",
-          "url": "",
-          "description": "「十連霸」胡榮華精彩對局解析，學習大師思路",
-          "language": "zh"
-        }
+        {"title": "象棋中局戰術 — 黃少龍", "type": "book", "url": "", "description": "中局戰術權威著作", "language": "zh"},
+        {"title": "適情雅趣", "type": "book", "url": "", "description": "明代古譜，殘局與殺法經典", "language": "zh"},
+        {"title": "Pikafish", "type": "app", "url": "https://github.com/official-pikafish/Pikafish", "description": "開源象棋引擎，覆盤分析", "language": "en"},
+        {"title": "JJ象棋", "type": "platform", "url": "https://www.jj.cn", "description": "競技平台，段位清晰", "language": "zh"}
       ]
     },
     {
       "id": "advanced",
       "name": "高級階段",
       "nameEn": "Advanced",
-      "description": "精研複雜中局計算與殘局技巧，具備參加正式比賽的實力",
+      "description": "精研複雜計算與高級戰略，建立完整比賽能力",
       "duration": "6-12 個月",
       "xp": 600,
       "topics": [
         {
-          "id": "advanced-combinations",
-          "name": "高級組合殺法",
-          "nameEn": "Advanced Combinations",
-          "description": "多步棄子組合、連環殺招的計算與執行"
+          "id": "advanced-openings",
+          "name": "高級開局研究",
+          "nameEn": "Advanced Openings",
+          "content": [
+            {"type": "text", "value": "高級開局研究要求深入理解各變化10步以上的理論，掌握每步棋的含義和備選方案。"},
+            {"type": "heading", "value": "五七炮進三兵"},
+            {"type": "text", "value": "紅方兩炮列於五路和七路，配合進三兵形成強大攻擊陣容。這是中炮體系中攻擊性最強的變化，紅方追求速攻。"},
+            {"type": "board", "fen": "r1eak1ehr/9/1c4hc1/p1p1p1p1p/9/2P3P2/P3P3P/C1H1C1H2/9/R1EAKAER1", "caption": "五七炮進三兵：紅方雙炮+雙兵推進，形成猛烈攻勢"},
+            {"type": "heading", "value": "建立變化樹"},
+            {"type": "list", "items": ["記錄每個分支的所有可能回應", "標記自己的選擇和備選", "關鍵變化算到15步以上", "準備「暗著」（少見但有力的變化）"]},
+            {"type": "heading", "value": "引擎輔助研究"},
+            {"type": "text", "value": "用 Pikafish 分析時不要盲記引擎招法，重要的是理解每步的計劃。引擎是輔助，不能替代思考。"},
+            {"type": "tip", "value": "紅方建議準備2套主力+1套暗著，黑方對中炮和飛相各備2套應法。"}
+          ]
         },
         {
-          "id": "strategic-planning",
-          "name": "戰略規劃",
-          "nameEn": "Strategic Planning",
-          "description": "全局戰略思維、先手後手轉換、長計劃的制定"
+          "id": "combination-attacks",
+          "name": "組合攻殺",
+          "nameEn": "Combinations",
+          "content": [
+            {"type": "text", "value": "組合攻殺是中局最高藝術——通過棄子和強制招法，在均勢中找到致勝殺著。"},
+            {"type": "heading", "value": "棄子攻殺的邏輯"},
+            {"type": "text", "value": "犧牲子力換取：將軍的連續性、破壞對方防線、迫使子力脫離防守。棄子是投資，必須能收回更多。"},
+            {"type": "heading", "value": "經典棄子模式"},
+            {"type": "list", "items": ["棄車殺著：破開防線後子力跟進殺王", "棄炮引離：引開防守子暴露弱點", "棄馬入局：讓另一子進入致命位置", "連環棄子：連續犧牲2-3子一氣呵成"]},
+            {"type": "board", "fen": "3ck4/4a4/4e4/2R6/9/5C3/9/4E4/4A4/4KA3", "caption": "棄車攻殺：紅車衝入破防，後續炮跟進可形成殺勢", "arrows": [{"from": {"row": 3, "col": 2}, "to": {"row": 0, "col": 2}}]},
+            {"type": "heading", "value": "計算步驟"},
+            {"type": "list", "items": ["1. 觀察將帥位置和防守弱點", "2. 檢查直接將軍手段", "3. 若被擋，考慮犧牲破壞防守", "4. 驗證犧牲後是否能殺到底", "5. 確認無中間反擊"]},
+            {"type": "tip", "value": "每天做5-10道殺棋題（3步到7步殺），是提升組合攻殺能力最有效的方法。"}
+          ]
         },
         {
-          "id": "endgame-mastery",
-          "name": "殘局精研",
-          "nameEn": "Endgame Mastery",
-          "description": "車馬兵殘局、炮兵殘局等複雜殘局的精確計算"
+          "id": "complex-endgames",
+          "name": "複雜殘局",
+          "nameEn": "Complex Endgames",
+          "content": [
+            {"type": "text", "value": "複雜殘局需要10步以上精確計算，是區分業餘高手和專業棋手的分水嶺。"},
+            {"type": "heading", "value": "車兵對車"},
+            {"type": "text", "value": "最常見的複雜殘局。多兵方需精確控制兵的推進節奏，同時用車保護兵並牽制對方車。"},
+            {"type": "board", "fen": "4k4/9/9/9/4r4/4P4/9/4R4/9/4K4", "caption": "車兵對車：紅方需精確步驟推兵入九宮"},
+            {"type": "heading", "value": "馬兵類殘局"},
+            {"type": "text", "value": "馬需數步到達目標位置，計算深度要求極高。馬兵對士象全是經典攻守課題。"},
+            {"type": "heading", "value": "精確計算要點"},
+            {"type": "list", "items": ["算對方最強回應，非最弱", "注意中途反將/解殺手段", "利用飛將規則控制空間", "兵的推進時機是核心節奏", "困斃有時比將死更實際"]},
+            {"type": "tip", "value": "推薦劉殿中《象棋殘局大全》，每天研究2-3局，用引擎驗證自己的計算。"}
+          ]
         },
         {
-          "id": "competition-prep",
-          "name": "比賽準備",
-          "nameEn": "Competition Preparation",
-          "description": "備賽策略、對手研究、心理準備、比賽節奏把控"
-        },
-        {
-          "id": "opening-research",
-          "name": "開局研究",
-          "nameEn": "Opening Research",
-          "description": "利用資料庫與引擎進行開局新手段的研發"
-        },
-        {
-          "id": "time-management",
-          "name": "時間管理",
-          "nameEn": "Time Management",
-          "description": "快棋與慢棋的用時策略，關鍵時刻的時間分配"
+          "id": "calculation",
+          "name": "計算能力",
+          "nameEn": "Calculation",
+          "content": [
+            {"type": "text", "value": "計算能力是棋力核心。能看多遠、算多準直接決定你的上限。"},
+            {"type": "heading", "value": "候選走法法"},
+            {"type": "text", "value": "面對局面先列出3-5個候選走法，逐一計算後續變化，再比較選擇最佳。不要只算第一個想到的就下棋。"},
+            {"type": "heading", "value": "計算層次"},
+            {"type": "list", "items": ["第1層：我走A，對方最可能回應？", "第2層：對方回應後我的最佳續招？", "第3層：推演3-4回合後局面對誰有利？", "關鍵時刻（殺著機會）：必須算到底（5步+）"]},
+            {"type": "heading", "value": "避免算錯的方法"},
+            {"type": "list", "items": ["確認每步的所有將軍/被將可能", "永遠考慮對方最強回應", "注意長計算中的「中途反擊」", "用倒推法驗證：從結果倒推每步"]},
+            {"type": "heading", "value": "盲棋訓練"},
+            {"type": "text", "value": "盲棋（不看盤下棋）是提升視覺化能力的終極訓練。從簡單殘局的腦中重現開始，逐漸增加複雜度。"},
+            {"type": "tip", "value": "每天30分鐘殺棋題+每盤慢棋認真計算不隨手。計算力提升無捷徑，唯有練習。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "許銀川棋路歷程",
-          "type": "book",
-          "url": "",
-          "description": "當代棋王許銀川的成長與對局精選，頂級思維展示",
-          "language": "zh"
-        },
-        {
-          "title": "象棋殘局大全 — 劉殿中",
-          "type": "book",
-          "url": "",
-          "description": "殘局百科全書，系統分類講解各類殘局",
-          "language": "zh"
-        },
-        {
-          "title": "全國象棋個人賽棋譜",
-          "type": "website",
-          "url": "https://www.dpxq.com",
-          "description": "歷年全國大賽完整棋譜，研究頂尖對局",
-          "language": "zh"
-        },
-        {
-          "title": "象棋名手戰集",
-          "type": "book",
-          "url": "",
-          "description": "收錄近年全國冠軍級對局，附詳細評注",
-          "language": "zh"
-        },
-        {
-          "title": "弈天棋緣",
-          "type": "platform",
-          "url": "https://www.yitianqi.com",
-          "description": "高手雲集的對弈平台，可與高段位棋手過招",
-          "language": "zh"
-        },
-        {
-          "title": "Cyclone 引擎深度分析",
-          "type": "app",
-          "url": "http://www.xqyclone.com",
-          "description": "利用多核深度搜索進行開局與中局研究",
-          "language": "zh"
-        },
-        {
-          "title": "象棋世界月刊",
-          "type": "book",
-          "url": "",
-          "description": "專業象棋刊物，每月更新最新對局與理論研究",
-          "language": "zh"
-        }
+        {"title": "許銀川棋路歷程", "type": "book", "url": "", "description": "當代棋王對局精選", "language": "zh"},
+        {"title": "象棋殘局大全 — 劉殿中", "type": "book", "url": "", "description": "殘局百科全書", "language": "zh"},
+        {"title": "全國象棋個人賽棋譜", "type": "website", "url": "https://www.dpxq.com", "description": "歷年大賽完整棋譜", "language": "zh"},
+        {"title": "象棋旋風", "type": "app", "url": "http://www.xqyclone.com", "description": "深度分析軟體", "language": "zh"}
       ]
     },
     {
       "id": "master",
       "name": "大師階段",
       "nameEn": "Master",
-      "description": "追求棋藝極致，具備專業水準的全面素養與競技能力",
+      "description": "追求棋藝極致，發展個人風格與創新",
       "duration": "持續精進",
       "xp": 1000,
       "topics": [
@@ -307,69 +310,55 @@
           "id": "opening-innovation",
           "name": "開局創新",
           "nameEn": "Opening Innovation",
-          "description": "在已有理論基礎上開發新變例，建立個人開局武器庫"
-        },
-        {
-          "id": "psychological-warfare",
-          "name": "心理博弈",
-          "nameEn": "Psychological Warfare",
-          "description": "對手心理分析、引導對手犯錯、關鍵局心理素質"
-        },
-        {
-          "id": "professional-analysis",
-          "name": "專業級分析",
-          "nameEn": "Professional Analysis",
-          "description": "結合引擎與人類直覺的深度分析方法論"
-        },
-        {
-          "id": "teaching-sharing",
-          "name": "教學傳承",
-          "nameEn": "Teaching & Sharing",
-          "description": "將所學系統化輸出，通過教學提升自身理解"
+          "content": [
+            {"type": "text", "value": "大師級不僅精通理論，更能創新——找前人未發現的新手段。"},
+            {"type": "heading", "value": "創新方法論"},
+            {"type": "list", "items": ["選熟悉開局的關鍵分支點", "找尚未充分研究的偏門應法", "用引擎驗證是否可行（評分合理）", "深算新手後的各種變化", "非正式對弈中測試", "正式比賽中作為秘密武器"]},
+            {"type": "heading", "value": "資料庫研究法"},
+            {"type": "text", "value": "通過棋譜資料庫統計某變化勝率。若某方勝率偏低，研究是否有更好走法。數據是創新的起點。"},
+            {"type": "heading", "value": "創新的價值"},
+            {"type": "text", "value": "成功的新手讓對手離開準備路線，被迫在陌生局面消耗時間。心理震撼效果有時比客觀優勢更大。"},
+            {"type": "tip", "value": "不需驚天新著法，在已知變化中選少見但可行的分支，就足以讓對手措手不及。"}
+          ]
         },
         {
           "id": "style-development",
           "name": "風格塑造",
-          "nameEn": "Style Development",
-          "description": "發展個人棋風，兼具攻殺力與防守穩健"
+          "nameEn": "Playing Style",
+          "content": [
+            {"type": "text", "value": "頂級棋手都有鮮明個人風格，是長期實踐中自然形成的偏好。"},
+            {"type": "heading", "value": "攻擊型"},
+            {"type": "list", "items": ["偏好中炮直接進攻", "願意犧牲物質換取攻勢", "追求速勝", "代表：胡榮華（犀利攻殺）"]},
+            {"type": "heading", "value": "陣地型"},
+            {"type": "list", "items": ["偏好飛相局等穩健開局", "重視空間控制和小優勢", "耐心積累", "代表：許銀川（精確穩健）"]},
+            {"type": "heading", "value": "全面型"},
+            {"type": "list", "items": ["武器庫豐富，能攻能守", "根據對手弱點選策略", "無明顯短板", "代表：呂欽（攻守兼備）"]},
+            {"type": "heading", "value": "發展建議"},
+            {"type": "text", "value": "認識自己性格：冒險型/穩健型？計算強/大局觀強？選匹配的開局和策略，同時補強短板。最佳風格=「有特長+無明顯弱點」。"},
+            {"type": "tip", "value": "研究與自己風格相近的大師全部棋譜，他們解決問題的方式會潛移默化影響你。"}
+          ]
+        },
+        {
+          "id": "endgame-artistry",
+          "name": "殘局藝術",
+          "nameEn": "Endgame Art",
+          "content": [
+            {"type": "text", "value": "象棋殘局排局是棋藝最高表現形式，古人創作大量精妙作品，蘊含深刻計算和巧妙構思。"},
+            {"type": "heading", "value": "江湖殘局"},
+            {"type": "text", "value": "街頭殘局看似簡單實則暗藏玄機，是歷代民間棋手智慧的結晶。每局都需要精確計算才能破解。"},
+            {"type": "board", "fen": "2R1k4/4a4/3Hea3/9/9/9/p8/4E4/4A4/4K4", "caption": "古局：紅方車馬攻勢看似占優，但需要精確走法避免黑方反撲"},
+            {"type": "heading", "value": "經典古譜"},
+            {"type": "list", "items": ["《適情雅趣》— 明代550局殘局精品", "《橘中秘》— 以全局為主的理論巨著", "《梅花譜》— 清代象棋古譜巔峰", "《七星聚會》— 最著名江湖殘局"]},
+            {"type": "heading", "value": "欣賞方法"},
+            {"type": "text", "value": "拿到排局先不看答案自己嘗試解。即使找不到完整解法，思考過程就是極好的計算訓練。"},
+            {"type": "tip", "value": "每週研究1-2局古譜殘局，享受藝術之美的同時實質性提升殘局計算力。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "梅花譜",
-          "type": "book",
-          "url": "",
-          "description": "清代象棋古譜巔峰之作，深研可大幅提升棋力",
-          "language": "zh"
-        },
-        {
-          "title": "橘中秘",
-          "type": "book",
-          "url": "",
-          "description": "明代經典古譜，以全局為主，理論價值極高",
-          "language": "zh"
-        },
-        {
-          "title": "世界象棋錦標賽實戰集",
-          "type": "book",
-          "url": "",
-          "description": "世界大賽精華對局，國際頂級水準的攻防展示",
-          "language": "zh"
-        },
-        {
-          "title": "專業象棋引擎集群分析",
-          "type": "app",
-          "url": "",
-          "description": "多引擎並行分析，開發開局新變並驗證正確性",
-          "language": "zh"
-        },
-        {
-          "title": "棋協大師認證",
-          "type": "platform",
-          "url": "https://www.xiangqi.org",
-          "description": "中國象棋協會官方認證體系，目標等級分提升",
-          "language": "zh"
-        }
+        {"title": "梅花譜", "type": "book", "url": "", "description": "清代古譜巔峰之作", "language": "zh"},
+        {"title": "橘中秘", "type": "book", "url": "", "description": "明代經典全局古譜", "language": "zh"},
+        {"title": "棋協大師認證", "type": "platform", "url": "https://www.xiangqi.org", "description": "中國象棋協會認證體系", "language": "zh"}
       ]
     }
   ]

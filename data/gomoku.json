@@ -2,7 +2,7 @@
   "skill": "gomoku",
   "name": "五子棋",
   "nameEn": "Gomoku / Renju",
-  "description": "五子棋學習路線圖 — 從規則入門到職業級連珠技巧",
+  "description": "五子棋完整學習路線 — 從認識棋形到職業級連珠技巧的系統修煉",
   "stages": [
     {
       "id": "beginner",
@@ -15,354 +15,345 @@
         {
           "id": "rules",
           "name": "規則認識",
-          "nameEn": "Rules & Variations",
-          "description": "標準五子棋規則、連珠（Renju）規則、禁手概念"
+          "nameEn": "Rules",
+          "content": [
+            {"type": "text", "value": "五子棋在15×15的棋盤上進行，黑白雙方交替落子，先連成五子（橫、豎、斜均可）者獲勝。"},
+            {"type": "heading", "value": "基本規則"},
+            {"type": "list", "items": ["棋盤：15×15格線交叉點（共225個點）", "黑先白後：黑方先手落子", "勝利條件：先形成連續五子（含以上）者勝", "連線方向：橫、豎、左斜（\\\\）、右斜（/）均算"]},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":7,"num":1},{"color":"w","row":7,"col":8,"num":2},{"color":"b","row":6,"col":6,"num":3},{"color":"w","row":8,"col":9,"num":4},{"color":"b","row":5,"col":5,"num":5},{"color":"w","row":9,"col":10,"num":6},{"color":"b","row":4,"col":4,"num":7},{"color":"w","row":3,"col":3,"num":8},{"color":"b","row":8,"col":8,"num":9}], "caption": "黑方（奇數）從天元出發，形成斜向連珠獲勝", "showNumbers": true},
+            {"type": "heading", "value": "連珠（Renju）規則"},
+            {"type": "text", "value": "由於先手優勢太大，職業比賽採用「連珠」規則，對黑方增加禁手限制："},
+            {"type": "list", "items": ["三三禁：黑方不能同時形成兩個活三", "四四禁：黑方不能同時形成兩個四（活四或衝四）", "長連禁：黑方連成六子以上（長連）也算禁手", "白方無禁手限制，且可利用禁手追殺黑方"]},
+            {"type": "tip", "value": "初學者先練習無禁手規則（Free Gomoku），熟練後再學習連珠禁手規則。"}
+          ]
         },
         {
           "id": "basic-patterns",
           "name": "基礎棋形",
           "nameEn": "Basic Patterns",
-          "description": "活二、活三、衝四、活四、成五的辨識與運用"
+          "content": [
+            {"type": "text", "value": "棋形是五子棋的語言。認識每種棋形及其威脅等級是提升棋力的基石。"},
+            {"type": "heading", "value": "威脅等級：從低到高"},
+            {"type": "table", "headers": ["棋形", "威脅", "說明"], "rows": [["活一", "極低", "孤子一顆，兩端均空"], ["活二", "低", "連續兩子兩端均空，潛力大"], ["眠三", "中", "三子但一端被擋，需要一步成活三"], ["活三", "高", "連續三子兩端均空，再一步成活四"], ["衝四", "很高", "四子一端空，對方必須堵"], ["活四", "致命", "四子兩端空，無法防守，必勝"]]},
+            {"type": "heading", "value": "活三示例"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7}], "caption": "活三：三子連珠兩端皆空 — 對方必須擋一端，否則下步成活四", "showNumbers": false, "markers": [{"row":7,"col":4,"type":"circle","color":"#4ecdc4"},{"row":7,"col":8,"type":"circle","color":"#4ecdc4"}]},
+            {"type": "heading", "value": "衝四示例"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7},{"color":"b","row":7,"col":8},{"color":"w","row":7,"col":4}], "caption": "衝四：四子一端被擋 — 對方必須堵另一端(col 9)否則成五", "showNumbers": false, "markers": [{"row":7,"col":9,"type":"x","color":"#e63946"}]},
+            {"type": "heading", "value": "活四（必勝形）"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7},{"color":"b","row":7,"col":8}], "caption": "活四：四子兩端皆空 — 無解，對方無論堵哪端都輸", "showNumbers": false, "markers": [{"row":7,"col":4,"type":"circle","color":"#e63946"},{"row":7,"col":9,"type":"circle","color":"#e63946"}]},
+            {"type": "tip", "value": "核心觀念：活三→活四→成五 是最基本的勝利路徑。阻止對手的活三是防守的第一要務。"}
+          ]
         },
         {
           "id": "attack-defense",
           "name": "攻防基礎",
-          "nameEn": "Attack & Defense Basics",
-          "description": "如何進攻做棋、防守堵截的基本原則"
+          "nameEn": "Attack & Defense",
+          "content": [
+            {"type": "text", "value": "五子棋的核心是「先手」——誰能持續製造威脅（保持進攻），誰就掌握主動權。"},
+            {"type": "heading", "value": "進攻原則"},
+            {"type": "list", "items": ["每步棋都要製造威脅（活二→活三→活四）", "追求「一子雙用」：一步棋同時形成多個方向的威脅", "保持連續性：進攻不能斷，一旦失去先手就可能被反攻", "活三是進攻的核心：形成活三=迫使對方防守=你保持先手"]},
+            {"type": "heading", "value": "防守原則"},
+            {"type": "list", "items": ["看到對方活三必須立即堵（否則變活四無解）", "堵的位置選擇：盡量選能同時形成自己棋形的點", "判斷威脅等級：先堵最危險的（活三>眠三，衝四必堵）", "防守時製造反威脅：被動防守只會越來越被動"]},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":7,"num":1},{"color":"w","row":7,"col":8,"num":2},{"color":"b","row":8,"col":8,"num":3},{"color":"w","row":6,"col":6,"num":4},{"color":"b","row":8,"col":6,"num":5},{"color":"w","row":8,"col":9,"num":6},{"color":"b","row":9,"col":5,"num":7}], "caption": "攻防示例：黑方5形成活三威脅，白6防守，黑7在另一方向繼續進攻", "showNumbers": true},
+            {"type": "heading", "value": "先手的轉換"},
+            {"type": "text", "value": "當你的攻勢被化解後，先手可能轉到對方手中。因此每次進攻都要有後續計劃，不能只有一步威脅。好的攻擊是連環的，一個威脅接一個。"},
+            {"type": "tip", "value": "初學者最常犯的錯誤：只看到自己的棋形，沒看到對方的威脅。每步落子前先看對方有沒有活三或衝四！"}
+          ]
         },
         {
           "id": "simple-vcf",
-          "name": "簡單連續衝四",
+          "name": "簡單VCF",
           "nameEn": "Simple VCF",
-          "description": "VCF（連續衝四取勝）的基本概念與簡單練習"
+          "content": [
+            {"type": "text", "value": "VCF（Victory by Continuous Fours）= 連續衝四取勝。這是五子棋中最基本也最重要的計算技術。"},
+            {"type": "heading", "value": "VCF 的概念"},
+            {"type": "text", "value": "通過連續下衝四（每步都是四子，對方必須堵），一步步把對方堵子引到你需要的位置，最終第五子形成不可阻擋的五連。"},
+            {"type": "heading", "value": "VCF 示例（3步殺）"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7},{"color":"b","row":6,"col":6},{"color":"b","row":5,"col":5},{"color":"b","row":8,"col":5},{"color":"w","row":7,"col":4},{"color":"w","row":7,"col":9},{"color":"w","row":6,"col":4}], "caption": "VCF示例：黑方已有子力基礎，可通過連續衝四取勝", "showNumbers": false, "markers": [{"row":7,"col":8,"type":"label","text":"A","color":"#e63946"},{"row":9,"col":5,"type":"label","text":"B","color":"#e63946"},{"row":4,"col":4,"type":"label","text":"C","color":"#e63946"}]},
+            {"type": "text", "value": "上圖中，黑方通過以下順序取勝：A點衝四→白必擋→B點衝四→白必擋→C點成五。每一步對方都沒有選擇餘地。"},
+            {"type": "heading", "value": "VCF 訓練方法"},
+            {"type": "list", "items": ["從2步VCF開始練習（共需衝四2次+最後成五）", "逐步增加到3步、4步、5步", "重點訓練方向感：衝四後對方堵子的位置在哪？", "注意：衝四時不要不小心形成禁手（連珠規則下）"]},
+            {"type": "tip", "value": "VCF是五子棋的基本功中的基本功。能穩定找到5步以上的VCF，棋力就能達到業餘中級水準。"}
+          ]
         },
         {
           "id": "opening-basics",
           "name": "開局入門",
           "nameEn": "Opening Basics",
-          "description": "直指、斜指的區別，常見前三手佈局方式"
+          "content": [
+            {"type": "text", "value": "五子棋開局（前3-5手）決定了全局的走向。在連珠比賽中，開局有嚴格的分類系統。"},
+            {"type": "heading", "value": "第一手：天元"},
+            {"type": "text", "value": "黑方第一手必須下在棋盤正中心（天元，H8位置）。這是比賽規則要求。"},
+            {"type": "heading", "value": "第二手：直指與斜指"},
+            {"type": "list", "items": ["直指：白方第二手下在天元的上下左右（相鄰直線位置）", "斜指：白方第二手下在天元的對角位置", "直指局面較為開闊，進攻路線多", "斜指局面較為緊湊，雙方糾纏密切"]},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":7,"num":1},{"color":"w","row":6,"col":7,"num":2},{"color":"b","row":6,"col":8,"num":3}], "caption": "直指開局示例：白2在上方直指，黑3選擇斜向發展（花月開局）", "showNumbers": true},
+            {"type": "heading", "value": "經典開局名稱"},
+            {"type": "table", "headers": ["名稱", "黑3位置", "結論"], "rows": [["花月", "斜上方", "黑必勝（已被證明）"], ["浦月", "直上方", "黑必勝（已被證明）"], ["寒星", "對角", "黑先優勢"], ["溪月", "遠角", "較為均衡"], ["雨月", "遠邊", "較為均衡"]]},
+            {"type": "tip", "value": "初學者先熟悉花月和浦月的基本攻擊路線，這兩個開局黑方有必勝法，學會後對手很難抵擋。"}
+          ]
         },
         {
           "id": "board-awareness",
           "name": "盤面感覺",
           "nameEn": "Board Awareness",
-          "description": "培養全盤視野，避免只注意局部"
+          "content": [
+            {"type": "text", "value": "高手與新手最大的差距不在於某個技術，而在於「盤面感覺」——能同時看到全盤的所有威脅和機會。"},
+            {"type": "heading", "value": "培養全盤視野"},
+            {"type": "list", "items": ["每步落子前掃視全盤，不要只盯一個角落", "先看對方最新一步棋形成了什麼威脅", "再看全盤有沒有自己的VCF或殺機", "最後決定：進攻還是防守？在哪裡下？"]},
+            {"type": "heading", "value": "先手（Sente）概念"},
+            {"type": "text", "value": "先手=你在製造威脅，對方被迫回應。掌握先手的一方主導局面。失去先手後被動防守，越守越被動。"},
+            {"type": "text", "value": "如何保持先手：每步棋都要製造「對方不得不回應」的威脅。如果下了一步「慢棋」（無威脅的棋），先手就交給對方了。"},
+            {"type": "heading", "value": "距離感"},
+            {"type": "text", "value": "好棋不一定緊貼既有棋子。有時候在稍遠的地方下一子，能同時輻射多個方向的發展。這需要對「幾步後能連上」有準確的距離判斷。"},
+            {"type": "tip", "value": "提升盤面感覺的最好方法：打譜（擺高手對局），觀察高手是如何選擇落子位置的，為什麼不選其他看似也不錯的點。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "五子棋入門與提高 — 彭建國",
-          "type": "book",
-          "url": "",
-          "description": "中國連珠名家彭建國所著入門教材，循序漸進",
-          "language": "zh"
-        },
-        {
-          "title": "Renju Offline",
-          "type": "app",
-          "url": "https://renjuoffline.com",
-          "description": "專業連珠對弈與練習軟體，支援多種規則",
-          "language": "en"
-        },
-        {
-          "title": "五林大會",
-          "type": "platform",
-          "url": "https://www.wulin.ac",
-          "description": "中文五子棋對弈平台，活躍社群與教學資源",
-          "language": "zh"
-        },
-        {
-          "title": "連珠世界",
-          "type": "website",
-          "url": "http://www.renjuworld.net",
-          "description": "連珠資訊站，棋譜庫、教程、新聞一應俱全",
-          "language": "zh"
-        },
-        {
-          "title": "Gomoku Quest",
-          "type": "app",
-          "url": "https://www.gomokuquest.com",
-          "description": "日本開發的五子棋對弈App，段位系統嚴謹",
-          "language": "en"
-        },
-        {
-          "title": "五子棋教學 — 小白入門系列",
-          "type": "video",
-          "url": "https://www.bilibili.com/video/BV1xx411x7xx",
-          "description": "B站人氣五子棋教學影片，適合零基礎學習者",
-          "language": "zh"
-        },
-        {
-          "title": "RenjuNet",
-          "type": "website",
-          "url": "https://www.renju.net",
-          "description": "國際連珠聯盟官方網站，規則與國際賽事資訊",
-          "language": "en"
-        }
+        {"title": "五子棋入門與提高 — 彭建國", "type": "book", "url": "", "description": "連珠名家所著入門教材", "language": "zh"},
+        {"title": "Gomoku Quest", "type": "app", "url": "https://www.gomokuquest.com", "description": "日本開發的五子棋App，段位嚴謹", "language": "en"},
+        {"title": "五林大會", "type": "platform", "url": "https://www.wulin.ac", "description": "中文五子棋對弈平台", "language": "zh"},
+        {"title": "RenjuNet", "type": "website", "url": "https://www.renju.net", "description": "國際連珠聯盟官方資訊", "language": "en"}
       ]
     },
     {
       "id": "intermediate",
       "name": "進階階段",
       "nameEn": "Intermediate",
-      "description": "掌握VCF/VCT技巧與開局理論，具備線上對弈競爭力",
+      "description": "掌握VCF/VCT、開局理論與禁手，具備線上競技實力",
       "duration": "3-6 個月",
       "xp": 300,
       "topics": [
         {
           "id": "vcf-mastery",
-          "name": "VCF 精通",
+          "name": "VCF精通",
           "nameEn": "VCF Mastery",
-          "description": "連續衝四取勝的系統訓練，複雜VCF路線計算"
+          "content": [
+            {"type": "text", "value": "VCF（連續衝四勝）的精通需要系統訓練。從簡單到複雜，逐步提升計算深度和速度。"},
+            {"type": "heading", "value": "VCF的本質"},
+            {"type": "text", "value": "VCF利用的是「衝四必須擋」這個規則——每次衝四都迫使對方在固定位置堵子，從而你能精確預測對方的每一步反應。這就是為什麼VCF可以精確計算到底。"},
+            {"type": "heading", "value": "複雜VCF的特點"},
+            {"type": "list", "items": ["方向轉換：第一步橫向衝四，第二步轉為斜向衝四", "利用對方堵子：對方的堵子可能成為你下一步衝四的一部分", "分支判斷：有時衝四有兩個方向可選，需要判斷哪個能殺", "長度：高手能計算7-10步以上的VCF"]},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7},{"color":"b","row":6,"col":5},{"color":"b","row":5,"col":4},{"color":"b","row":9,"col":7},{"color":"b","row":10,"col":8},{"color":"w","row":7,"col":4},{"color":"w","row":8,"col":6},{"color":"w","row":6,"col":7}], "caption": "複雜VCF：黑方利用橫向和斜向的交叉子力，通過方向轉換完成VCF殺", "showNumbers": false},
+            {"type": "heading", "value": "VCF訓練法"},
+            {"type": "list", "items": ["專項訓練：每天50道VCF題（從3步到7步）", "計時訓練：限定30秒內找到VCF路線", "實戰意識：每步落子前都問「現在有沒有VCF？」", "逆向思考：站在對手角度判斷對方有沒有VCF"]},
+            {"type": "tip", "value": "VCF訓練的App推薦：五子棋終結者、Renju Offline都有大量分級VCF題庫。"}
+          ]
         },
         {
           "id": "vct-introduction",
-          "name": "VCT 入門",
+          "name": "VCT入門",
           "nameEn": "VCT Introduction",
-          "description": "連續活三取勝（VCT），比VCF更靈活的進攻方式"
+          "content": [
+            {"type": "text", "value": "VCT（Victory by Continuous Threats）= 連續做殺取勝。不限於衝四，也包括活三等威脅。比VCF更靈活但也更難計算。"},
+            {"type": "heading", "value": "VCT vs VCF"},
+            {"type": "table", "headers": ["", "VCF", "VCT"], "rows": [["手段", "只用衝四", "衝四+活三混合"], ["對方應對", "只能堵固定點", "有選擇餘地"], ["計算難度", "較低（線性）", "較高（有分支）"], ["威力", "必殺（算對就贏）", "必殺（但要考慮反殺）"]]},
+            {"type": "heading", "value": "VCT 的典型模式"},
+            {"type": "text", "value": "最常見的VCT模式：先做活三→對方堵一端→再做另一個方向的活三或衝四→最終形成不可防守的雙威脅。"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":7},{"color":"b","row":7,"col":8},{"color":"b","row":6,"col":7},{"color":"b","row":8,"col":7},{"color":"w","row":7,"col":5},{"color":"w","row":7,"col":9},{"color":"w","row":5,"col":7}], "caption": "VCT示意：黑方在十字位置有多個活三方向，白方無法同時防守所有威脅", "showNumbers": false},
+            {"type": "heading", "value": "VCT的計算要點"},
+            {"type": "list", "items": ["每個活三對方有兩端可堵，要分析兩種情況", "對方堵子後是否形成了反威脅（反三、反四）？", "若對方有反VCF，你的VCT就不成立", "VCT成功的關鍵：保證對方在每步回應後都沒有反殺"]},
+            {"type": "tip", "value": "先完全掌握VCF再學VCT。VCT的計算建立在VCF能力之上——你需要能快速判斷「此時有沒有VCF」作為VCT計算的基礎。"}
+          ]
         },
         {
           "id": "opening-theory",
           "name": "開局理論",
           "nameEn": "Opening Theory",
-          "description": "連珠26種開局的認識與選擇，各開局特點分析"
+          "content": [
+            {"type": "text", "value": "連珠開局經過百年研究已有完整理論。了解各開局的性質是選擇戰略方向的基礎。"},
+            {"type": "heading", "value": "開局分類系統"},
+            {"type": "text", "value": "連珠共有26種標準開局，由黑方前三手的位置決定。根據第二手（白方）的位置分為「直指」（13種）和「斜指」（13種）。"},
+            {"type": "heading", "value": "直指開局（白2在天元相鄰直線）"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":7,"num":1},{"color":"w","row":6,"col":7,"num":2},{"color":"b","row":5,"col":7,"num":3}], "caption": "寒星開局（直指）：黑3在白2同側直線上", "showNumbers": true},
+            {"type": "heading", "value": "主要開局性質"},
+            {"type": "table", "headers": ["名稱", "類型", "性質"], "rows": [["花月", "直指", "黑必勝，攻擊路線多"], ["浦月", "直指", "黑必勝，經典進攻開局"], ["寒星", "直指", "黑優勢但非必勝"], ["溪月", "斜指", "較均衡"], ["雨月", "斜指", "較均衡"], ["金星", "斜指", "白方可戰"], ["瑞星", "直指", "複雜，雙方都有機會"]]},
+            {"type": "heading", "value": "開局選擇策略"},
+            {"type": "list", "items": ["持黑時：選擇已知必勝的開局（花月/浦月），前提是你記得住攻擊路線", "持白時：選擇較均衡的開局（溪月/雨月），避免進入黑方必勝的變化", "比賽策略：研究對手慣用開局，準備針對性應對"]},
+            {"type": "tip", "value": "先把花月和浦月的主要攻擊路線記熟，這是最直接的提升途徑——持黑時有明確的必勝方案。"}
+          ]
         },
         {
           "id": "forbidden-moves",
           "name": "禁手規則",
           "nameEn": "Forbidden Moves",
-          "description": "黑方禁手（三三、四四、長連）的精確判斷"
-        },
-        {
-          "id": "positional-judgment",
-          "name": "形勢判斷",
-          "nameEn": "Positional Judgment",
-          "description": "全局形勢評估，進攻與防守時機的選擇"
+          "content": [
+            {"type": "text", "value": "連珠規則中黑方有「禁手」限制。白方可利用禁手追殺黑方，這是連珠的獨特戰術。"},
+            {"type": "heading", "value": "三種禁手"},
+            {"type": "list", "items": ["三三禁：黑方一步棋同時形成兩個「活三」→ 禁手", "四四禁：黑方一步棋同時形成兩個「四」（活四或衝四）→ 禁手", "長連禁：黑方形成六子以上的連線 → 禁手"]},
+            {"type": "heading", "value": "三三禁示例"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":6},{"color":"b","row":7,"col":8},{"color":"b","row":6,"col":7},{"color":"b","row":5,"col":7}], "caption": "三三禁：若黑下在(7,7)會同時形成橫向活三和縱向活三 = 禁手點", "showNumbers": false, "markers": [{"row":7,"col":7,"type":"x","color":"#e63946"}]},
+            {"type": "heading", "value": "白方利用禁手的戰術"},
+            {"type": "text", "value": "白方可以故意把黑方「追」到禁手點：通過連續威脅，使黑方唯一能防守的點恰好是禁手位置。黑方不能下禁手點，等於無法防守，白方取勝。"},
+            {"type": "heading", "value": "禁手判斷的注意事項"},
+            {"type": "list", "items": ["只有「活三」才算三三禁，「眠三」不算", "四四禁包含活四+衝四的組合", "先成五則不算禁手（五連優先於一切禁手）", "禁手判斷有時很複雜，需要精確分析每個方向"]},
+            {"type": "tip", "value": "黑方防禁手：落子前檢查該點是否會同時形成兩個活三或兩個四。白方攻禁手：故意構造局面迫使黑方只能下禁手點。"}
+          ]
         },
         {
           "id": "pattern-combinations",
           "name": "棋形組合",
           "nameEn": "Pattern Combinations",
-          "description": "活三+衝四、雙活三等複合棋形的構築技巧"
+          "content": [
+            {"type": "text", "value": "單個活三或衝四可以被防守，但兩個威脅同時出現就無法防守了。這就是「棋形組合」的威力。"},
+            {"type": "heading", "value": "必勝組合"},
+            {"type": "table", "headers": ["組合", "結果", "說明"], "rows": [["活四", "必勝", "兩端都能成五，無法防"], ["活三+衝四", "必勝", "衝四必擋→活三成活四→勝"], ["雙活三", "必勝*", "兩個活三無法同時堵（*黑方注意禁手）"], ["雙衝四", "必勝*", "兩個衝四無法同時堵（*黑方注意禁手）"]]},
+            {"type": "heading", "value": "構築雙威脅"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":6},{"color":"b","row":6,"col":6},{"color":"b","row":5,"col":6},{"color":"b","row":8,"col":8}], "caption": "構築雙威脅：黑方在(7,7)落子可同時形成橫向活三+縱向活三", "showNumbers": false, "markers": [{"row":7,"col":7,"type":"label","text":"!","color":"#e63946"}]},
+            {"type": "heading", "value": "實戰中的追求"},
+            {"type": "text", "value": "所有的進攻最終目標都是形成這些「雙威脅」組合。VCF的本質是通過連續衝四在某處形成五連，VCT的本質是通過連續威脅在某處形成無解的雙威脅。"},
+            {"type": "heading", "value": "構築方法"},
+            {"type": "list", "items": ["尋找「交叉點」：一步棋能同時延伸兩個方向的棋形", "利用對方堵子：對方堵活三時下的子可能幫你在另一方向形成棋形", "遠程規劃：在不同方向布局，等待交叉點出現", "一子多用：好的落子位置能同時在多個方向有用"]},
+            {"type": "tip", "value": "提升的關鍵：每步落子都想「這步棋在幾個方向上有用？」。好棋=多方向延伸，壞棋=只在一個方向有效。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "連珠開局指南",
-          "type": "book",
-          "url": "",
-          "description": "詳解連珠26種開局的攻防要點與變化",
-          "language": "zh"
-        },
-        {
-          "title": "Yixin 引擎",
-          "type": "app",
-          "url": "https://github.com/accreator/Yixin-Board",
-          "description": "世界頂級五子棋AI引擎，用於覆盤分析",
-          "language": "en"
-        },
-        {
-          "title": "五子棋終結者 — VCF訓練",
-          "type": "app",
-          "url": "",
-          "description": "專門的VCF解題軟體，由易到難系統訓練",
-          "language": "zh"
-        },
-        {
-          "title": "Renju Class — Ando's Lessons",
-          "type": "website",
-          "url": "https://www.renju.net/study/",
-          "description": "國際連珠聯盟教學課程，英文系統教材",
-          "language": "en"
-        },
-        {
-          "title": "弈城五子棋",
-          "type": "platform",
-          "url": "https://www.eweiqi.com",
-          "description": "弈城旗下五子棋對弈平台，高手較多",
-          "language": "zh"
-        },
-        {
-          "title": "五子棋研究 — 中級篇",
-          "type": "video",
-          "url": "https://www.bilibili.com/video/BV1xx411x7xy",
-          "description": "深入講解VCF與VCT計算方法的教學影片",
-          "language": "zh"
-        },
-        {
-          "title": "Noesis 引擎",
-          "type": "app",
-          "url": "",
-          "description": "強力五子棋引擎，支援連珠規則禁手判斷",
-          "language": "en"
-        }
+        {"title": "連珠開局指南", "type": "book", "url": "", "description": "26種開局攻防詳解", "language": "zh"},
+        {"title": "Yixin 引擎", "type": "app", "url": "https://github.com/accreator/Yixin-Board", "description": "世界頂級五子棋AI", "language": "en"},
+        {"title": "Renju Class", "type": "website", "url": "https://www.renju.net/study/", "description": "國際連珠聯盟教學", "language": "en"},
+        {"title": "弈城五子棋", "type": "platform", "url": "https://www.eweiqi.com", "description": "高手對弈平台", "language": "zh"},
+        {"title": "RenLib", "type": "app", "url": "http://www.renju.se/renlib/", "description": "棋譜管理研究軟體", "language": "en"}
       ]
     },
     {
       "id": "advanced",
       "name": "高級階段",
       "nameEn": "Advanced",
-      "description": "精通複雜計算與開局研究，具備參加正式比賽的水準",
+      "description": "精通複雜計算與開局研究，具備正式比賽水準",
       "duration": "6-12 個月",
       "xp": 600,
       "topics": [
         {
           "id": "complex-vct",
-          "name": "複雜 VCT",
+          "name": "複雜VCT計算",
           "nameEn": "Complex VCT",
-          "description": "多分支VCT計算，防守方最強應對下的取勝路線"
+          "content": [
+            {"type": "text", "value": "高級VCT涉及多分支計算——對方活三有兩端可堵，你需要確保兩種情況都能繼續殺棋。"},
+            {"type": "heading", "value": "多分支VCT的思考框架"},
+            {"type": "list", "items": ["列出當前可做的所有威脅手段", "對每個活三，分析對方堵左vs堵右的區別", "驗證兩種堵法下你都有後續殺招", "確認對方沒有「反VCF」打斷你的攻勢", "確認路線中不經過禁手點（持黑時）"]},
+            {"type": "heading", "value": "反VCF的致命性"},
+            {"type": "text", "value": "如果在你做VCT的過程中，對方突然有了VCF（連續衝四反殺），你的VCT就徹底失敗。所以VCT計算中最重要的一環就是：每步之後確認對方沒有VCF反擊。"},
+            {"type": "gomoku", "moves": [{"color":"b","row":7,"col":7},{"color":"b","row":8,"col":7},{"color":"b","row":9,"col":7},{"color":"b","row":7,"col":5},{"color":"b","row":7,"col":9},{"color":"b","row":5,"col":5},{"color":"w","row":6,"col":7},{"color":"w","row":10,"col":7},{"color":"w","row":7,"col":4},{"color":"w","row":7,"col":10},{"color":"w","row":6,"col":6}], "caption": "複雜VCT局面：黑方需要找到正確的威脅順序避開白方的反擊", "showNumbers": false},
+            {"type": "heading", "value": "VCT訓練進階"},
+            {"type": "list", "items": ["先計算有沒有VCF（更簡單），沒有再考慮VCT", "VCT題從4步做起，逐漸增加到8步+", "重點訓練「雙殺」意識：如何構造不可防守的雙威脅", "學會判斷對方的反擊手段"]},
+            {"type": "tip", "value": "VCT的計算量是VCF的數倍。實戰中如果時間有限，優先找VCF；只有確定無VCF時才展開VCT計算。"}
+          ]
         },
         {
           "id": "anti-forbidden",
-          "name": "利用禁手",
+          "name": "禁手戰術",
           "nameEn": "Exploiting Forbidden Moves",
-          "description": "白方利用禁手規則追殺黑方的高級戰術"
+          "content": [
+            {"type": "text", "value": "白方利用禁手追殺黑方是連珠的獨特藝術。把黑方「逼」到禁手點就等於獲勝。"},
+            {"type": "heading", "value": "追禁手的基本思路"},
+            {"type": "text", "value": "白方通過連續威脅（VCF/VCT），使黑方唯一能解困的位置恰好是禁手點。黑方不能下禁手→無法防守→白方取勝。"},
+            {"type": "heading", "value": "製造禁手陷阱"},
+            {"type": "list", "items": ["在黑方可能防守的位置周圍預埋棋子", "使該位置形成「三三」或「四四」的結構", "然後發動攻擊，逼黑方必須回防", "黑方發現唯一防守點是禁手→崩潰"]},
+            {"type": "gomoku", "moves": [{"color":"w","row":7,"col":5},{"color":"w","row":7,"col":6},{"color":"w","row":6,"col":7},{"color":"w","row":5,"col":7},{"color":"b","row":7,"col":8},{"color":"b","row":8,"col":7},{"color":"b","row":9,"col":7},{"color":"b","row":7,"col":3},{"color":"b","row":7,"col":4}], "caption": "禁手陷阱：若白下(7,7)形成活三，黑(7,7)是禁手點（三三禁）無法防守", "showNumbers": false, "markers": [{"row":7,"col":7,"type":"x","color":"#e63946"}]},
+            {"type": "heading", "value": "黑方的防禁手策略"},
+            {"type": "list", "items": ["提前注意潛在禁手位置，避免在其周圍堆積棋子", "被追禁手時尋找其他防守點（不一定要堵在被威脅的點上）", "利用「先成五不算禁手」的規則突圍", "改變防守方向，不讓白方如願把你引向禁手"]},
+            {"type": "tip", "value": "禁手戰術是連珠（而非普通五子棋）的核心技術。掌握它是從業餘到專業的分水嶺。"}
+          ]
         },
         {
           "id": "swap-rules",
-          "name": "交換規則精研",
-          "nameEn": "Swap Rule Mastery",
-          "description": "Swap2、Soosyrv 等現代規則下的開局策略"
-        },
-        {
-          "id": "advanced-openings",
-          "name": "開局深度研究",
-          "nameEn": "Advanced Opening Research",
-          "description": "利用引擎進行開局變化的窮盡分析與新手研發"
-        },
-        {
-          "id": "competition-strategy",
-          "name": "比賽策略",
-          "nameEn": "Competition Strategy",
-          "description": "正式比賽中的開局選擇、對手準備、心態調整"
+          "name": "現代比賽規則",
+          "nameEn": "Modern Rules",
+          "content": [
+            {"type": "text", "value": "為了平衡先後手優勢，現代比賽使用各種「交換規則」，大大增加了開局的策略深度。"},
+            {"type": "heading", "value": "主流比賽規則"},
+            {"type": "table", "headers": ["規則", "流程", "特點"], "rows": [["Swap2", "黑下3子→白選黑/白/加2子", "簡單公平"], ["Soosyrv-8", "黑提供3個開局→白選一個→可交換", "複雜策略性強"], ["Taraguchi-10", "多次提供選擇機會", "最為公平"]]},
+            {"type": "heading", "value": "Swap2 規則詳解"},
+            {"type": "text", "value": "1. 第一位玩家在棋盤上放置3顆子（2黑1白）。2. 第二位玩家選擇：(a)持黑繼續、(b)持白繼續、(c)再放2子（1黑1白）後由第一位玩家選黑白。"},
+            {"type": "heading", "value": "開局設計策略"},
+            {"type": "text", "value": "在Swap2中，放3子的一方要設計出「看似均衡」的開局——太強對方會選持黑，太弱對方選持白。理想是設計出雙方都有機會但需要深度計算的局面。"},
+            {"type": "list", "items": ["不要放已知必勝開局（對方直接選黑）", "不要放明顯劣勢開局（對方直接選白）", "準備幾個「均衡但自己研究深」的開局", "利用對手不熟悉的冷門開局製造信息不對稱"]},
+            {"type": "tip", "value": "現代規則下，開局的「知識戰」比純計算更重要。你研究得比對手深，就有優勢。"}
+          ]
         },
         {
           "id": "defensive-mastery",
           "name": "防守精通",
           "nameEn": "Defensive Mastery",
-          "description": "面對強攻的最頑強防守，轉守為攻的時機把握"
+          "content": [
+            {"type": "text", "value": "面對高手的猛攻，防守能力決定了你能否撐過攻勢並找到反擊時機。"},
+            {"type": "heading", "value": "防守的核心原則"},
+            {"type": "list", "items": ["一子多防：堵的位置盡量同時防守多個方向的威脅", "以攻代守：堵的位置同時形成自己的威脅（反三、反四）", "不要盲堵：有時放棄一個方向，在另一方向反擊更有效", "計算確認：確認對方真的有殺，再決定如何防守"]},
+            {"type": "heading", "value": "防VCF的方法"},
+            {"type": "text", "value": "對方VCF（連續衝四）時你似乎無選擇，但其實有：1. 確認是否可以「引VCF」到有利方向。2. 有時衝四可以用「反衝四」解，不一定要堵。"},
+            {"type": "heading", "value": "轉守為攻"},
+            {"type": "text", "value": "成功防守後最關鍵的一步：立即反擊。對方攻勢用盡後子力往往分散，正是反擊的最佳時機。"},
+            {"type": "gomoku", "moves": [{"color":"w","row":7,"col":5},{"color":"w","row":7,"col":6},{"color":"w","row":7,"col":7},{"color":"b","row":7,"col":4},{"color":"b","row":6,"col":5},{"color":"b","row":5,"col":4},{"color":"b","row":8,"col":6}], "caption": "防守反擊：黑方堵住白活三的同時在斜向構建自己的活二→後續可反攻", "showNumbers": false},
+            {"type": "tip", "value": "最好的防守=能製造反威脅的防守。單純被動堵子只會越堵越被動，最終被殺。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "連珠必勝法研究",
-          "type": "book",
-          "url": "",
-          "description": "日本連珠名家著作，系統研究必勝開局",
-          "language": "zh"
-        },
-        {
-          "title": "世界連珠錦標賽棋譜集",
-          "type": "book",
-          "url": "",
-          "description": "歷屆世錦賽精華對局，國際頂級水準的攻防",
-          "language": "en"
-        },
-        {
-          "title": "RenLib",
-          "type": "app",
-          "url": "http://www.renju.se/renlib/",
-          "description": "經典連珠棋譜管理與研究軟體，社群共享庫",
-          "language": "en"
-        },
-        {
-          "title": "五子棋大師訓練營",
-          "type": "platform",
-          "url": "",
-          "description": "高級訓練群組，定期對局、覆盤與主題研討",
-          "language": "zh"
-        },
-        {
-          "title": "Renju International Federation",
-          "type": "website",
-          "url": "https://www.renju.net",
-          "description": "RIF 官方賽事系統與國際等級分查詢",
-          "language": "en"
-        },
-        {
-          "title": "高段位實戰解析",
-          "type": "video",
-          "url": "",
-          "description": "頂級棋手實戰覆盤影片，深入解說思路",
-          "language": "zh"
-        }
+        {"title": "連珠必勝法研究", "type": "book", "url": "", "description": "必勝開局系統研究", "language": "zh"},
+        {"title": "世界連珠錦標賽棋譜", "type": "book", "url": "", "description": "國際頂級對局精華", "language": "en"},
+        {"title": "RenLib", "type": "app", "url": "http://www.renju.se/renlib/", "description": "棋譜研究管理軟體", "language": "en"},
+        {"title": "RIF", "type": "website", "url": "https://www.renju.net", "description": "國際連珠聯盟賽事系統", "language": "en"}
       ]
     },
     {
       "id": "master",
       "name": "大師階段",
       "nameEn": "Master",
-      "description": "追求極致棋力，以創新與研究引領五子棋發展",
+      "description": "以創新與研究引領五子棋發展，追求極致棋力",
       "duration": "持續精進",
       "xp": 1000,
       "topics": [
         {
           "id": "opening-database",
-          "name": "開局資料庫建設",
+          "name": "開局資料庫",
           "nameEn": "Opening Database",
-          "description": "建立個人開局武器庫，記錄與分析所有變化"
+          "content": [
+            {"type": "text", "value": "大師級棋手需要建立龐大的個人開局資料庫，記錄每個變化的分析結論。"},
+            {"type": "heading", "value": "資料庫建設方法"},
+            {"type": "list", "items": ["使用RenLib等軟體建立開局樹", "每個分支記錄：最佳招法、次佳招法、陷阱變化", "標記結論：必勝/必敗/均衡/待研究", "定期用最新引擎（Yixin）更新分析", "記錄實戰中遇到的新變化"]},
+            {"type": "heading", "value": "資料庫的實戰應用"},
+            {"type": "text", "value": "比賽前根據對手的棋譜，找出他慣用的開局和弱點。準備針對性的「暗著」，在對手不熟悉的分支上消耗其時間。"},
+            {"type": "heading", "value": "社群研究"},
+            {"type": "text", "value": "加入高水準研究群體，交流開局發現。很多突破性的開局研究是集體協作的成果。"},
+            {"type": "tip", "value": "資料庫是活的，需要持續更新。每次比賽後都把新發現的變化添加進去。"}
+          ]
         },
         {
           "id": "computational-analysis",
-          "name": "計算策略",
-          "nameEn": "Computational Strategy",
-          "description": "結合引擎分析與人類直覺的高效研究方法"
-        },
-        {
-          "id": "meta-game",
-          "name": "元博弈",
-          "nameEn": "Meta-Game Strategy",
-          "description": "規則選擇、開局博弈中的博弈論應用"
-        },
-        {
-          "id": "innovation",
-          "name": "理論創新",
-          "nameEn": "Theoretical Innovation",
-          "description": "發表研究成果，推動五子棋理論發展"
+          "name": "計算與引擎",
+          "nameEn": "Engine Analysis",
+          "content": [
+            {"type": "text", "value": "現代五子棋研究離不開AI引擎。但關鍵是如何正確使用引擎提升自己。"},
+            {"type": "heading", "value": "引擎的正確用法"},
+            {"type": "list", "items": ["覆盤：找出自己的失誤和遺漏的殺著", "開局研究：驗證新變化是否可行", "驗證計算：確認自己的VCF/VCT計算是否正確", "尋找反例：嘗試推翻自己認為正確的結論"]},
+            {"type": "heading", "value": "引擎的錯誤用法"},
+            {"type": "list", "items": ["死記引擎推薦招法（不理解原因）", "完全依賴引擎判斷（放棄自己思考）", "只看引擎評分不分析具體變化"]},
+            {"type": "heading", "value": "人機協作研究法"},
+            {"type": "text", "value": "最有效的研究方式：先用自己的判斷分析→用引擎驗證→找出差異→理解為什麼引擎的判斷與自己不同→內化引擎的思路。"},
+            {"type": "tip", "value": "引擎是鏡子，照出你的盲點。但提升還是靠你自己的理解和內化。"}
+          ]
         },
         {
           "id": "mental-fortitude",
-          "name": "心理素質",
-          "nameEn": "Mental Fortitude",
-          "description": "高壓比賽中保持專注與計算精度的心理訓練"
+          "name": "比賽心理",
+          "nameEn": "Mental Game",
+          "content": [
+            {"type": "text", "value": "頂級比賽中，心理素質往往比計算能力更決定勝負。"},
+            {"type": "heading", "value": "比賽壓力管理"},
+            {"type": "list", "items": ["賽前：充足睡眠、回顧準備的開局、避免臨時抱佛腳", "賽中：專注當前局面，不想之前的失誤", "困難局面：深呼吸，接受「可能輸」的事實反而能更冷靜思考", "時間壓力：練習快速決策的能力，慢棋時也要有時間意識"]},
+            {"type": "heading", "value": "對手心理分析"},
+            {"type": "text", "value": "觀察對手的節奏：下得快=可能在準備範圍內；下得慢=可能遇到困難。根據這些信息調整自己的策略。"},
+            {"type": "heading", "value": "連勝/連敗心態"},
+            {"type": "list", "items": ["連勝時：不要輕敵，每盤仍需認真對待", "連敗時：不要自我懷疑，專注於每步棋的質量而非結果", "關鍵局：當作普通一盤下，過度重視反而會影響發揮"]},
+            {"type": "tip", "value": "心理訓練和棋力訓練一樣重要。建議在比賽間隙做簡單的呼吸練習，保持頭腦清晰。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "中村茂九段棋譜全集",
-          "type": "book",
-          "url": "",
-          "description": "日本連珠傳奇中村茂的畢生對局精華",
-          "language": "zh"
-        },
-        {
-          "title": "國際連珠大師認證",
-          "type": "platform",
-          "url": "https://www.renju.net",
-          "description": "RIF 官方段位認證系統與國際大師稱號申請",
-          "language": "en"
-        },
-        {
-          "title": "引擎輔助開局研究系統",
-          "type": "app",
-          "url": "",
-          "description": "利用 Yixin/Katago 進行開局完全解析的方法論",
-          "language": "en"
-        },
-        {
-          "title": "職業連珠選手訪談集",
-          "type": "video",
-          "url": "",
-          "description": "世界冠軍級選手分享訓練方法與心路歷程",
-          "language": "zh"
-        },
-        {
-          "title": "五子棋理論前沿論文",
-          "type": "website",
-          "url": "",
-          "description": "學術界關於五子棋博弈樹與AI研究的最新論文",
-          "language": "en"
-        }
+        {"title": "國際連珠大師認證", "type": "platform", "url": "https://www.renju.net", "description": "RIF段位與大師稱號", "language": "en"},
+        {"title": "Yixin引擎", "type": "app", "url": "https://github.com/accreator/Yixin-Board", "description": "頂級引擎用於研究", "language": "en"},
+        {"title": "中村茂九段棋譜", "type": "book", "url": "", "description": "連珠傳奇對局精華", "language": "zh"}
       ]
     }
   ]

@@ -2,13 +2,13 @@
   "skill": "photography",
   "name": "攝影",
   "nameEn": "Photography",
-  "description": "攝影學習路線圖 — 從相機操作到藝術表達的完整旅程",
+  "description": "攝影完整學習路線 — 從相機操作到藝術表達的系統化修煉",
   "stages": [
     {
       "id": "beginner",
       "name": "入門階段",
       "nameEn": "Beginner",
-      "description": "掌握曝光三角與基礎構圖，能拍出正確曝光且構圖合理的照片",
+      "description": "掌握曝光三角與基礎構圖，拍出正確曝光且構圖合理的照片",
       "duration": "1-3 個月",
       "xp": 100,
       "topics": [
@@ -16,96 +16,95 @@
           "id": "exposure-triangle",
           "name": "曝光三角",
           "nameEn": "Exposure Triangle",
-          "description": "光圈、快門速度、ISO 三者的關係與互動影響"
+          "content": [
+            {"type": "text", "value": "曝光三角是攝影的物理基礎——光圈、快門速度、ISO三者共同決定了照片的亮度。理解它們的關係是一切的起點。"},
+            {"type": "heading", "value": "光圈（Aperture）"},
+            {"type": "text", "value": "光圈是鏡頭中控制進光量的開孔大小，用f值表示。f值越小=開孔越大=進光越多=景深越淺（背景越模糊）。"},
+            {"type": "table", "headers": ["f值", "進光量", "景深", "適用場景"], "rows": [["f/1.4-2.8", "大", "極淺", "人像、主題突出"], ["f/4-5.6", "中等", "適中", "日常、旅遊"], ["f/8-11", "較少", "較深", "風景、建築"], ["f/16-22", "很少", "極深", "全景、長曝"]]},
+            {"type": "heading", "value": "快門速度（Shutter Speed）"},
+            {"type": "text", "value": "快門打開的時間長度。快門越快=凝結動態=進光越少。快門越慢=記錄運動軌跡=進光越多。"},
+            {"type": "list", "items": ["1/1000s+ ：凝結高速運動（體育、飛鳥）", "1/250s：一般抓拍，凍結人物動作", "1/60s：手持安全快門（焦距的倒數）", "1s-30s：長曝光（車軌、星空、瀑布絲綢感）"]},
+            {"type": "heading", "value": "ISO 感光度"},
+            {"type": "text", "value": "感測器對光的敏感度。ISO越高=越亮=但噪點越多。盡量使用最低ISO，只在必要時才提高。"},
+            {"type": "list", "items": ["ISO 100-400：畫質最佳，日間戶外使用", "ISO 800-1600：陰天或室內", "ISO 3200-6400：夜間或快速抓拍", "ISO 6400+：極暗環境，犧牲畫質換取可用照片"]},
+            {"type": "heading", "value": "三者的互動關係"},
+            {"type": "text", "value": "三者互相補償：光圈開大一檔=快門可以快一檔（同樣亮度）。ISO提高一檔=快門可以快一檔。攝影師需要在「景深、動態凝結、畫質」三者之間做取捨。"},
+            {"type": "tip", "value": "練習方法：找一個場景，分別用光圈優先（A模式）和快門優先（S模式）各拍10張，觀察不同設定下的效果變化。"}
+          ]
         },
         {
-          "id": "composition-basics",
+          "id": "composition",
           "name": "基礎構圖",
-          "nameEn": "Composition Basics",
-          "description": "三分法、引導線、對稱、框架構圖等經典構圖法則"
+          "nameEn": "Composition",
+          "content": [
+            {"type": "text", "value": "構圖決定了照片的視覺吸引力。好的構圖引導觀者的目光到你想表達的重點。"},
+            {"type": "heading", "value": "三分法則"},
+            {"type": "text", "value": "將畫面用兩橫兩豎分成9格，把主體放在線條交叉點上。這是最基本也最實用的構圖法則。大部分相機都可以開啟九宮格輔助線。"},
+            {"type": "heading", "value": "常用構圖技法"},
+            {"type": "table", "headers": ["技法", "效果", "適用"], "rows": [["三分法", "平衡自然", "通用"], ["對稱構圖", "莊嚴穩重", "建築、倒影"], ["引導線", "引導視覺深入", "道路、欄杆"], ["框架構圖", "聚焦主體", "門窗、拱門"], ["留白", "意境空靈", "極簡、情緒"], ["填滿畫面", "衝擊力強", "特寫、細節"]]},
+            {"type": "heading", "value": "引導線構圖"},
+            {"type": "text", "value": "利用場景中的線條（道路、河流、欄杆）引導觀者視線從前景到主體。引導線越指向主體，效果越強。收斂的透視線（如公路延伸到地平線）最有視覺衝擊力。"},
+            {"type": "heading", "value": "打破規則"},
+            {"type": "text", "value": "構圖「規則」只是起點。把主體放正中央有時更有力（對稱美），把地平線放極高或極低可以強調天空或前景。先學規則，再有意識地打破。"},
+            {"type": "tip", "value": "練習：同一個場景至少用3種不同構圖各拍一張，回去比較效果差異。這是提升構圖感最快的方法。"}
+          ]
         },
         {
-          "id": "lighting-fundamentals",
+          "id": "lighting",
           "name": "光線基礎",
-          "nameEn": "Lighting Fundamentals",
-          "description": "自然光的方向、質感、色溫，黃金時段的運用"
+          "nameEn": "Lighting",
+          "content": [
+            {"type": "text", "value": "攝影是「用光作畫」。理解光線的性質是拍出好照片的核心能力。"},
+            {"type": "heading", "value": "光線的方向"},
+            {"type": "table", "headers": ["方向", "效果", "適用"], "rows": [["順光", "色彩飽和、平面感", "紀錄、風景"], ["側光", "立體感強、明暗分明", "人像、質感"], ["逆光", "輪廓光、氛圍感", "剪影、髮絲光"], ["頂光", "眼窩陰影（不利人像）", "正午需避免"]]},
+            {"type": "heading", "value": "光線的質感"},
+            {"type": "list", "items": ["硬光：光源小/遠（正午陽光）→ 陰影邊界銳利、對比強", "柔光：光源大/近（陰天、窗戶光）→ 陰影過渡柔和、均勻", "硬光適合表現力量和戲劇感", "柔光適合人像和細膩表現"]},
+            {"type": "heading", "value": "黃金時段（Golden Hour）"},
+            {"type": "text", "value": "日出後和日落前各約30-60分鐘，陽光低角度穿過大氣層，呈現溫暖金色。這是拍攝風景和人像的最佳時段——光線柔和、色溫溫暖、陰影長而有戲劇性。"},
+            {"type": "heading", "value": "藍色時段（Blue Hour）"},
+            {"type": "text", "value": "日出前和日落後約20-30分鐘，天空呈現深藍色。城市夜景在這個時段拍攝效果最好——天空有色彩而非全黑，與建築燈光形成平衡。"},
+            {"type": "tip", "value": "新手第一課：在同一地點，分別在正午、黃金時段、陰天各拍同一主題，對比光線對照片情緒的巨大影響。"}
+          ]
         },
         {
-          "id": "lens-types",
-          "name": "鏡頭認識",
-          "nameEn": "Lens Types",
-          "description": "廣角、標準、望遠、微距鏡頭的特性與適用場景"
-        },
-        {
-          "id": "camera-modes",
-          "name": "相機模式",
-          "nameEn": "Camera Modes",
-          "description": "P/A/S/M 模式的應用時機，測光模式與對焦系統"
+          "id": "camera-settings",
+          "name": "相機設定",
+          "nameEn": "Camera Settings",
+          "content": [
+            {"type": "text", "value": "了解相機的各種模式和設定，才能在不同場景快速應對。"},
+            {"type": "heading", "value": "拍攝模式"},
+            {"type": "table", "headers": ["模式", "控制", "適用場景"], "rows": [["P（程式自動）", "相機決定光圈快門", "抓拍、不確定時"], ["A/Av（光圈優先）", "你設光圈，相機算快門", "控制景深（人像/風景）"], ["S/Tv（快門優先）", "你設快門，相機算光圈", "控制動態（運動/長曝）"], ["M（全手動）", "全部自己控制", "棚拍、特殊效果"]]},
+            {"type": "heading", "value": "測光模式"},
+            {"type": "list", "items": ["矩陣/評價測光：綜合整個畫面，通用選擇", "中央重點測光：以中心區域為主，適合主體在中間", "點測光：只測很小的區域，精確控制曝光"]},
+            {"type": "heading", "value": "對焦系統"},
+            {"type": "list", "items": ["AF-S（單次對焦）：半按快門對焦一次鎖定，適合靜物", "AF-C（連續對焦）：持續追蹤移動主體", "對焦點選擇：自動（相機選）vs 手動（自己選對焦點）"]},
+            {"type": "heading", "value": "RAW vs JPEG"},
+            {"type": "text", "value": "RAW是未處理的原始數據，保留最多後製空間。JPEG是處理壓縮後的成品。認真學攝影一定要拍RAW——後製能力取決於原始數據的品質。"},
+            {"type": "tip", "value": "日常建議：用A模式（光圈優先）拍攝最多場景，只在需要凍結/模糊動態時切到S模式。全手動M模式在穩定光線環境（如棚拍）最有效。"}
+          ]
         },
         {
           "id": "basic-editing",
           "name": "基礎後製",
           "nameEn": "Basic Editing",
-          "description": "RAW 與 JPEG 的差異，基本的亮度、對比、色溫調整"
+          "content": [
+            {"type": "text", "value": "後製不是「修圖」，是完成攝影師創作意圖的最後一步。好的後製是不著痕跡的。"},
+            {"type": "heading", "value": "基礎調整項目"},
+            {"type": "list", "items": ["曝光：整體亮度的微調（±0.5EV最常用）", "對比：亮部暗部的差距（增加=更有力量感）", "高光/陰影：分別控制亮區和暗區的細節", "白平衡/色溫：冷暖調整，影響照片情緒", "清晰度/紋理：強調細節質感", "飽和度/鮮豔度：色彩濃度（鮮豔度比飽和度更自然）"]},
+            {"type": "heading", "value": "後製流程建議"},
+            {"type": "list", "items": ["1. 先校正曝光（確保不過曝不欠曝）", "2. 調整白平衡（讓色彩正確或營造氛圍）", "3. 調整對比和高光/陰影（建立層次感）", "4. 微調色彩（飽和度、色調）", "5. 裁切和水平校正", "6. 最後銳化輸出"]},
+            {"type": "heading", "value": "常見後製錯誤"},
+            {"type": "list", "items": ["過度飽和：天空變成塑膠藍、草地變成螢光綠", "過度HDR：像是電腦渲染圖不像真實照片", "過度銳化：出現不自然的光暈邊緣", "過度修皮膚：失去皮膚質感像蠟像"]},
+            {"type": "tip", "value": "後製完放一天再看。第二天新鮮的眼睛更容易發現「做過頭」的問題。保持克制是好後製的關鍵。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "Understanding Exposure — Bryan Peterson",
-          "type": "book",
-          "url": "",
-          "description": "攝影曝光聖經，用淺顯語言解釋複雜的曝光概念",
-          "language": "en"
-        },
-        {
-          "title": "攝影筆記 — 寧思潮耳",
-          "type": "book",
-          "url": "",
-          "description": "中文攝影入門暢銷書，系統講解基礎知識",
-          "language": "zh"
-        },
-        {
-          "title": "Peter McKinnon YouTube Channel",
-          "type": "video",
-          "url": "https://www.youtube.com/@PeterMcKinnon",
-          "description": "高品質攝影教學影片，風格輕鬆有趣且乾貨滿滿",
-          "language": "en"
-        },
-        {
-          "title": "Adobe Lightroom",
-          "type": "app",
-          "url": "https://www.adobe.com/products/photoshop-lightroom.html",
-          "description": "業界標準的照片管理與編修軟體，適合入門學習後製",
-          "language": "en"
-        },
-        {
-          "title": "500px",
-          "type": "platform",
-          "url": "https://500px.com",
-          "description": "攝影師作品分享平台，瀏覽優秀作品培養審美",
-          "language": "en"
-        },
-        {
-          "title": "Cambridge in Colour",
-          "type": "website",
-          "url": "https://www.cambridgeincolour.com",
-          "description": "深入淺出的攝影技術教學，涵蓋曝光、構圖等主題",
-          "language": "en"
-        },
-        {
-          "title": "Thomas Heaton YouTube Channel",
-          "type": "video",
-          "url": "https://www.youtube.com/@ThomasHeaton",
-          "description": "風景攝影大師的戶外拍攝記錄與教學",
-          "language": "en"
-        },
-        {
-          "title": "Snapseed",
-          "type": "app",
-          "url": "https://snapseed.online",
-          "description": "Google 出品的免費手機修圖App，功能強大且直覺",
-          "language": "en"
-        }
+        {"title": "Understanding Exposure — Bryan Peterson", "type": "book", "url": "", "description": "曝光聖經，淺顯解釋複雜概念", "language": "en"},
+        {"title": "Peter McKinnon", "type": "video", "url": "https://www.youtube.com/@PeterMcKinnon", "description": "高品質攝影教學影片", "language": "en"},
+        {"title": "Adobe Lightroom", "type": "app", "url": "https://www.adobe.com/products/photoshop-lightroom.html", "description": "業界標準照片管理與編修", "language": "en"},
+        {"title": "500px", "type": "platform", "url": "https://500px.com", "description": "攝影師作品分享平台", "language": "en"},
+        {"title": "Cambridge in Colour", "type": "website", "url": "https://www.cambridgeincolour.com", "description": "深入淺出攝影技術教學", "language": "en"}
       ]
     },
     {
@@ -117,99 +116,100 @@
       "xp": 300,
       "topics": [
         {
-          "id": "advanced-composition",
-          "name": "進階構圖",
-          "nameEn": "Advanced Composition",
-          "description": "色彩對比、負空間、層次感、視覺動線的運用"
-        },
-        {
           "id": "flash-photography",
           "name": "閃光燈攝影",
           "nameEn": "Flash Photography",
-          "description": "離機閃、跳閃、柔光罩的使用與光比控制"
+          "content": [
+            {"type": "text", "value": "閃光燈讓你不再受限於自然光。掌握閃燈=掌握光線=掌握攝影。"},
+            {"type": "heading", "value": "閃燈基礎概念"},
+            {"type": "list", "items": ["GN（閃燈指數）：閃燈的功率指標，GN=距離×光圈", "TTL：相機自動計算閃燈出力（方便但不夠精準）", "手動閃燈：自己設定出力（1/1, 1/2, 1/4...），精準控制", "閃燈同步速度：通常1/200s-1/250s，超過需HSS"]},
+            {"type": "heading", "value": "離機閃技巧"},
+            {"type": "text", "value": "把閃燈從機頂取下放到側面或上方，光線方向就有了側光/頂光的立體效果。這是最大幅提升閃燈照片品質的一步。"},
+            {"type": "heading", "value": "柔光技巧"},
+            {"type": "list", "items": ["跳閃：對著天花板或牆壁打閃，利用反射形成大面積柔光", "柔光罩：把閃燈光源面積變大，陰影柔和", "反射傘/柔光傘：攝影棚經典，大面積均勻柔光", "原則：光源面積越大（相對主體）=越柔"]},
+            {"type": "heading", "value": "光比控制"},
+            {"type": "text", "value": "光比=亮面與暗面的亮度差。1:1=平光無影，1:4=明顯明暗，1:8=戲劇性高對比。通過調整閃燈出力和距離來控制光比。"},
+            {"type": "tip", "value": "入門閃燈推薦：一支國產手動閃（如神牛V1）+一個無線觸發器+一個柔光傘。預算低效果好。"}
+          ]
         },
         {
           "id": "portrait-lighting",
           "name": "人像用光",
           "nameEn": "Portrait Lighting",
-          "description": "倫勃朗光、蝶光、分割光等經典人像布光法"
+          "content": [
+            {"type": "text", "value": "經典人像佈光模式經過百年電影和攝影實踐的驗證，每種都有獨特的情緒表達。"},
+            {"type": "heading", "value": "經典佈光模式"},
+            {"type": "table", "headers": ["模式", "特點", "適用"], "rows": [["蝶光（Butterfly）", "光從正上方打，鼻下三角形陰影", "時尚、女性"], ["倫勃朗光", "45度側光，暗面頰有三角形亮區", "戲劇性、經典"], ["分割光（Split）", "正側面打光，臉一半亮一半暗", "個性、力量"], ["環形光（Loop）", "30-45度，鼻影不觸及嘴角", "通用、自然"]]},
+            {"type": "heading", "value": "佈光位置要素"},
+            {"type": "list", "items": ["高度：光源高於眼睛=眼窩有陰影（更立體）", "角度：側面角度越大=暗面越大=越戲劇", "距離：光源越近=光線越柔（平方反比定律）", "輔助光/反光板：補亮暗面，降低光比"]},
+            {"type": "heading", "value": "自然光人像"},
+            {"type": "text", "value": "不一定需要閃燈。窗戶是天然的大面積柔光源（等同於大型柔光箱）。讓人物面對窗戶或側對窗戶，就能得到美麗的自然光人像。"},
+            {"type": "tip", "value": "練習：用一盞燈+反光板，嘗試拍出四種經典佈光。不需要模特，自己對著鏡子擺燈位觀察效果也很有效。"}
+          ]
         },
         {
-          "id": "landscape-techniques",
-          "name": "風景技法",
-          "nameEn": "Landscape Techniques",
-          "description": "長曝光、HDR、全景拼接、濾鏡系統的使用"
+          "id": "landscape",
+          "name": "風景攝影",
+          "nameEn": "Landscape",
+          "content": [
+            {"type": "text", "value": "風景攝影是對耐心和計劃能力的考驗——等待完美光線、選擇最佳機位、掌握技術才能拍出傑作。"},
+            {"type": "heading", "value": "風景攝影的核心要素"},
+            {"type": "list", "items": ["前景：增加深度和層次感，引導視線", "中景：主體或過渡區域", "背景：天空、山脈等遠景", "天際線：永遠保持水平！"]},
+            {"type": "heading", "value": "技術設定"},
+            {"type": "list", "items": ["光圈：f/8-f/11（銳度最佳甜蜜點）", "ISO：100（最低噪點）", "三腳架：長曝光必備", "快門線/2秒延遲：避免按快門時的震動"]},
+            {"type": "heading", "value": "濾鏡系統"},
+            {"type": "table", "headers": ["濾鏡", "效果", "場景"], "rows": [["CPL（偏振鏡）", "消除反光、加深天空", "水面、天空、葉子"], ["ND（減光鏡）", "減少進光量，允許長曝光", "瀑布、海浪、車軌"], ["GND（漸變灰）", "壓暗天空保留地面細節", "日出日落、大光比"]]},
+            {"type": "heading", "value": "長曝光技法"},
+            {"type": "text", "value": "使用ND減光鏡將曝光時間延長到數秒至數分鐘：流水變成絲綢、雲層變成流動的線條、人群消失。這創造出人眼看不到的超現實效果。"},
+            {"type": "tip", "value": "風景攝影最重要的投資不是器材，是起早。好光線只在日出/日落前後的短暫窗口出現。"}
+          ]
         },
         {
           "id": "street-photography",
           "name": "街頭攝影",
           "nameEn": "Street Photography",
-          "description": "決定性瞬間、抓拍技巧、光影與人文敘事"
+          "content": [
+            {"type": "text", "value": "街頭攝影捕捉城市生活中的決定性瞬間——人的表情、光影的巧合、故事的片段。"},
+            {"type": "heading", "value": "核心理念"},
+            {"type": "text", "value": "Henri Cartier-Bresson 提出的「決定性瞬間」：在正確的時刻按下快門，所有視覺元素完美匯聚。這需要敏銳的觀察力和快速的反應。"},
+            {"type": "heading", "value": "實戰技巧"},
+            {"type": "list", "items": ["預設相機：光圈f/8, ISO Auto, 快門1/250+。隨時舉起就能拍", "區域對焦：手動對焦設在2-3米，f/8下1-5米內都清楚", "觀察光線：找到好光線的位置等人走進來", "預判：看到有趣的場景元素，等待人物走到最佳位置", "不猶豫：感覺到了就按，錯過就沒有了"]},
+            {"type": "heading", "value": "常見主題"},
+            {"type": "list", "items": ["光影：強烈陽光在建築間創造的幾何光影", "並置：兩個不相關元素的有趣對比", "人物表情：不經意的喜怒哀樂", "重複圖案中的打破：一排相同中的唯一不同", "倒影：水窪、玻璃中的另一個世界"]},
+            {"type": "tip", "value": "街頭攝影的道德原則：尊重被攝者的尊嚴。不拍弱勢者的困境來博取關注，不侵犯明確表示拒絕的人。"}
+          ]
         },
         {
           "id": "color-theory",
           "name": "色彩理論",
           "nameEn": "Color Theory",
-          "description": "色彩心理學、互補色運用、調色風格的建立"
+          "content": [
+            {"type": "text", "value": "色彩是攝影中最直接影響情緒的元素。有意識地運用色彩能大幅提升照片的表達力。"},
+            {"type": "heading", "value": "色彩心理學"},
+            {"type": "table", "headers": ["色彩", "情緒", "運用"], "rows": [["紅/橙", "熱情、能量、警示", "強調重點、表達力量"], ["藍", "冷靜、憂鬱、深邃", "傍晚、海洋、安靜"], ["綠", "自然、生機、和諧", "森林、春天、健康"], ["黃", "快樂、溫暖、警覺", "陽光、活力"], ["紫", "神秘、高貴、創意", "夜空、藝術感"]]},
+            {"type": "heading", "value": "色彩搭配原則"},
+            {"type": "list", "items": ["互補色（對比色）：色環上相對位置（紅←→青，藍←→橙）→ 視覺衝擊力強", "類似色：色環上相鄰（藍→青→綠）→ 和諧統一", "單色系：同一色相的不同明暗 → 極簡優雅", "冷暖對比：暖色主體+冷色背景 → 主體突出"]},
+            {"type": "heading", "value": "後製中的色彩控制"},
+            {"type": "text", "value": "在Lightroom中，HSL面板讓你分別控制每種顏色的色相、飽和度和明度。這是建立個人色彩風格的核心工具。"},
+            {"type": "heading", "value": "建立色彩風格"},
+            {"type": "text", "value": "有辨識度的攝影師往往有統一的色彩傾向。冷調低飽和=日系文青，高對比暖色=電影感，去飽和只留一色=視覺衝擊。找到適合自己的色彩方向並持續練習。"},
+            {"type": "tip", "value": "練習：選一個顏色（如紅色），在一天中只拍含有那個顏色的照片。這能訓練你對色彩的敏感度。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "The Photographer's Eye — Michael Freeman",
-          "type": "book",
-          "url": "",
-          "description": "構圖聖經，從設計角度分析照片構成",
-          "language": "en"
-        },
-        {
-          "title": "Strobist",
-          "type": "website",
-          "url": "https://strobist.blogspot.com",
-          "description": "閃光燈攝影入門到精通的經典教學網站",
-          "language": "en"
-        },
-        {
-          "title": "Portrait Photography — Scott Kelby",
-          "type": "book",
-          "url": "",
-          "description": "人像攝影實戰指南，佈光與拍攝技巧詳解",
-          "language": "en"
-        },
-        {
-          "title": "Matti Haapoja YouTube",
-          "type": "video",
-          "url": "https://www.youtube.com/@MattiHaapoja",
-          "description": "攝影與影片製作教學，專業且實用",
-          "language": "en"
-        },
-        {
-          "title": "1X.com",
-          "type": "platform",
-          "url": "https://1x.com",
-          "description": "精選高品質藝術攝影平台，嚴格策展標準",
-          "language": "en"
-        },
-        {
-          "title": "Capture One",
-          "type": "app",
-          "url": "https://www.captureone.com",
-          "description": "專業級RAW處理軟體，色彩管理能力出眾",
-          "language": "en"
-        },
-        {
-          "title": "Henri Cartier-Bresson: The Decisive Moment",
-          "type": "book",
-          "url": "",
-          "description": "街頭攝影開山之作，理解「決定性瞬間」的哲學",
-          "language": "en"
-        }
+        {"title": "The Photographer's Eye — Michael Freeman", "type": "book", "url": "", "description": "構圖聖經，設計角度分析照片", "language": "en"},
+        {"title": "Strobist", "type": "website", "url": "https://strobist.blogspot.com", "description": "閃燈攝影入門到精通", "language": "en"},
+        {"title": "Matti Haapoja", "type": "video", "url": "https://www.youtube.com/@MattiHaapoja", "description": "攝影與影片製作教學", "language": "en"},
+        {"title": "1X.com", "type": "platform", "url": "https://1x.com", "description": "精選藝術攝影平台", "language": "en"},
+        {"title": "Capture One", "type": "app", "url": "https://www.captureone.com", "description": "專業RAW處理軟體", "language": "en"}
       ]
     },
     {
       "id": "advanced",
       "name": "高級階段",
       "nameEn": "Advanced",
-      "description": "建立個人風格，掌握商業攝影與精細後製技術",
+      "description": "建立個人風格，掌握商業攝影與精細後製",
       "duration": "6-12 個月",
       "xp": 600,
       "topics": [
@@ -217,89 +217,73 @@
           "id": "studio-lighting",
           "name": "棚拍布光",
           "nameEn": "Studio Lighting",
-          "description": "多燈布光、高/低調攝影、商品攝影佈光方案"
+          "content": [
+            {"type": "text", "value": "攝影棚是完全控制光線的環境。掌握棚拍佈光等於掌握了光線的終極控制權。"},
+            {"type": "heading", "value": "多燈佈光基礎"},
+            {"type": "list", "items": ["主光（Key Light）：最亮的光源，決定基本光影方向", "補光（Fill Light）：補亮暗面，控制光比", "輪廓光（Rim/Hair Light）：從背後打光，分離主體與背景", "背景光：單獨照亮背景，控制背景亮度"]},
+            {"type": "heading", "value": "光質修飾器"},
+            {"type": "table", "headers": ["修飾器", "效果", "適用"], "rows": [["柔光箱", "柔和均勻", "人像通用"], ["八角箱", "圓形眼神光", "時尚人像"], ["雷達罩", "集中但柔和", "美妝特寫"], ["蜂巢網格", "精確控光不擴散", "打局部光/髮光"], ["反光板", "補亮陰影", "降低光比"]]},
+            {"type": "heading", "value": "高低調攝影"},
+            {"type": "text", "value": "高調（High Key）：背景和主光都很亮，幾乎無陰影，清新乾淨感。低調（Low Key）：暗背景+精確的少量光線，戲劇性神秘感。兩者都是對光線的極端控制。"},
+            {"type": "heading", "value": "商品攝影佈光"},
+            {"type": "list", "items": ["反射類（金屬、珠寶）：大面積柔光+控制反射帶的位置", "透射類（玻璃、液體）：背光+邊緣深色勾線", "吸光類（布料）：側光強調質感紋理", "食物：逆光45度+反光板補前面=最佳食物光"]},
+            {"type": "tip", "value": "棚拍最重要的能力不是用多燈，而是一盞燈能否拍好。從一盞燈練起，完全理解後再加第二盞。"}
+          ]
         },
         {
           "id": "advanced-retouching",
           "name": "精細修圖",
-          "nameEn": "Advanced Retouching",
-          "description": "頻率分離、D&B、色彩分級、合成等專業技法"
+          "nameEn": "Retouching",
+          "content": [
+            {"type": "text", "value": "高級後製不是「美化」照片，是精確實現你的創作意圖。每個調整都應該有明確目的。"},
+            {"type": "heading", "value": "頻率分離"},
+            {"type": "text", "value": "將照片分為「紋理層」（高頻）和「色彩/明度層」（低頻）。分別處理：紋理層修痘痘毛孔，色彩層均勻膚色。這樣修皮膚既乾淨又保留自然質感。"},
+            {"type": "heading", "value": "D&B（Dodge & Burn）"},
+            {"type": "text", "value": "用亮化（Dodge）和暗化（Burn）工具精確雕塑臉部光影。這是頂級修圖師的核心技術——不改變皮膚本身，只優化光影結構。"},
+            {"type": "heading", "value": "色彩分級（Color Grading）"},
+            {"type": "list", "items": ["分離色調：高光偏暖、陰影偏冷（電影感）", "統一色調：所有區域一致色偏（風格化）", "LUT（查找表）：一鍵套用電影色彩風格", "HSL精調：分別控制每個顏色的表現"]},
+            {"type": "heading", "value": "合成技術"},
+            {"type": "list", "items": ["天空替換：選區+遮罩+邊緣細修", "多曝光合成：不同曝光的合並（HDR/景深合成）", "雙重曝光：創意合成兩張照片", "焦點堆疊：多張不同焦點合成全銳利照片"]},
+            {"type": "tip", "value": "好的修圖是看不出修過的。如果觀者第一反應是「P很大」而非「好美」，就修過頭了。"}
+          ]
         },
         {
-          "id": "commercial-photography",
+          "id": "commercial",
           "name": "商業攝影",
-          "nameEn": "Commercial Photography",
-          "description": "產品攝影、美食攝影、建築攝影的專業標準"
+          "nameEn": "Commercial",
+          "content": [
+            {"type": "text", "value": "商業攝影的核心是「解決客戶的問題」——不是拍你想拍的，而是拍客戶需要的同時加入你的專業價值。"},
+            {"type": "heading", "value": "商業攝影類型"},
+            {"type": "table", "headers": ["類型", "核心目標", "關鍵技術"], "rows": [["產品攝影", "展示產品優勢", "潔淨佈光、精確色彩"], ["食物攝影", "激發食慾", "逆光質感、蒸氣道具"], ["建築攝影", "展現空間設計", "透視控制、HDR"], ["時尚攝影", "傳達品牌調性", "創意佈光、團隊協作"], ["企業形象", "建立專業形象", "自然人像、環境融合"]]},
+            {"type": "heading", "value": "工作流程"},
+            {"type": "list", "items": ["1. 需求溝通：理解客戶的目標、受眾、風格偏好", "2. 拍攝計劃：場景、佈光方案、道具清單、時間表", "3. 前期準備：測試佈光、確認所有細節", "4. 拍攝執行：專注完成計劃，同時保持靈活性", "5. 後製交付：按約定風格修圖、準時交付"]},
+            {"type": "heading", "value": "定價思維"},
+            {"type": "text", "value": "商業攝影的定價不是按張數算，而是按價值算。一張好的產品照可能幫客戶多賺百萬營收，你的收費是基於你創造的價值而非按下快門的次數。"},
+            {"type": "tip", "value": "建立商業作品集：精選10-15張最能代表你能力的作品。寧可少但精，不要多而雜。每張都要能說出拍攝目的和技術亮點。"}
+          ]
         },
         {
-          "id": "conceptual-photography",
-          "name": "觀念攝影",
-          "nameEn": "Conceptual Photography",
-          "description": "用影像傳達概念與情感，策劃完整的攝影項目"
-        },
-        {
-          "id": "print-preparation",
-          "name": "輸出與印刷",
-          "nameEn": "Print & Output",
-          "description": "色彩管理、ICC Profile、輸出銳化、紙張選擇"
-        },
-        {
-          "id": "video-hybrid",
-          "name": "動靜融合",
-          "nameEn": "Photo-Video Hybrid",
-          "description": "將攝影技巧延伸至影片，短影音內容創作"
+          "id": "personal-project",
+          "name": "專題創作",
+          "nameEn": "Personal Projects",
+          "content": [
+            {"type": "text", "value": "專題攝影（Photo Essay/Series）是攝影藝術的進階表達——用一組照片說一個完整的故事或探索一個主題。"},
+            {"type": "heading", "value": "專題的價值"},
+            {"type": "list", "items": ["展示思考深度：不只是單張好看，而是有概念、有敘事", "建立個人識別：系列作品比單張更能展示你的風格", "比賽/展覽：大多數攝影獎項要求系列作品", "自我成長：逼迫你深入探索一個主題"]},
+            {"type": "heading", "value": "如何規劃專題"},
+            {"type": "list", "items": ["選題：選一個你真正關心的主題（不是為了得獎而選）", "研究：深入了解主題的背景和現有攝影作品", "視覺方向：決定風格—色調、構圖語言、情緒", "拍攝計劃：需要哪些場景？需要多長時間？", "編輯：精選+排序，建立照片間的節奏和敘事邏輯"]},
+            {"type": "heading", "value": "編輯的藝術"},
+            {"type": "text", "value": "一個20張的系列可能是從500張中精選出來的。編輯（選片+排序）的能力與拍攝能力同等重要。好的編輯讓系列作品有呼吸有節奏，像一首視覺的詩。"},
+            {"type": "tip", "value": "第一個專題不要太大。選一個具體可執行的主題（如「我的通勤路」「菜市場人物」），拍3個月，精選15-20張。完成比完美重要。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "Light: Science & Magic",
-          "type": "book",
-          "url": "",
-          "description": "光學原理在攝影中的應用，理解光的本質",
-          "language": "en"
-        },
-        {
-          "title": "Phlearn",
-          "type": "website",
-          "url": "https://phlearn.com",
-          "description": "專業 Photoshop 與 Lightroom 後製教學平台",
-          "language": "en"
-        },
-        {
-          "title": "LensCulture",
-          "type": "platform",
-          "url": "https://www.lensculture.com",
-          "description": "當代攝影藝術平台，國際攝影比賽與展覽資訊",
-          "language": "en"
-        },
-        {
-          "title": "Photoshop — Adobe",
-          "type": "app",
-          "url": "https://www.adobe.com/products/photoshop.html",
-          "description": "影像處理行業標準，精細修圖與合成必備工具",
-          "language": "en"
-        },
-        {
-          "title": "The Art of Photography — YouTube",
-          "type": "video",
-          "url": "https://www.youtube.com/@theartofphotography",
-          "description": "深入攝影藝術與歷史的高質量頻道",
-          "language": "en"
-        },
-        {
-          "title": "商業攝影實戰 — Karl Taylor Education",
-          "type": "website",
-          "url": "https://www.karltayloreducation.com",
-          "description": "專業商業攝影教學平台，佈光與實拍案例豐富",
-          "language": "en"
-        },
-        {
-          "title": "Nik Collection",
-          "type": "app",
-          "url": "https://nikcollection.dxo.com",
-          "description": "專業級濾鏡與效果插件套裝，風格化調色利器",
-          "language": "en"
-        }
+        {"title": "Light: Science & Magic", "type": "book", "url": "", "description": "光學原理在攝影中的應用", "language": "en"},
+        {"title": "Phlearn", "type": "website", "url": "https://phlearn.com", "description": "專業PS/LR後製教學", "language": "en"},
+        {"title": "LensCulture", "type": "platform", "url": "https://www.lensculture.com", "description": "當代攝影藝術平台", "language": "en"},
+        {"title": "Karl Taylor Education", "type": "website", "url": "https://www.karltayloreducation.com", "description": "商業攝影教學", "language": "en"},
+        {"title": "Photoshop", "type": "app", "url": "https://www.adobe.com/products/photoshop.html", "description": "影像處理行業標準", "language": "en"}
       ]
     },
     {
@@ -314,69 +298,53 @@
           "id": "personal-style",
           "name": "個人風格",
           "nameEn": "Personal Style",
-          "description": "發展辨識度高的拍攝與後製風格，建立視覺語言"
+          "content": [
+            {"type": "text", "value": "「風格」不是一個濾鏡或一種色調，而是你觀看世界的獨特方式——你選擇拍什麼、不拍什麼，本身就是風格。"},
+            {"type": "heading", "value": "風格的構成元素"},
+            {"type": "list", "items": ["主題選擇：你反覆被什麼吸引？（人物、光影、幾何、情緒）", "色彩傾向：冷調、暖調、低飽和、高對比？", "構圖語言：緊湊填滿 vs 大量留白？", "後製風格：真實自然 vs 風格化？", "情緒基調：溫暖、冷峻、神秘、歡快？"]},
+            {"type": "heading", "value": "發現自己的風格"},
+            {"type": "text", "value": "風格不是模仿來的，而是通過大量拍攝自然浮現的。回顧你最喜歡的100張自己的照片，找出它們的共通點——那就是你的風格傾向。"},
+            {"type": "heading", "value": "維持與進化"},
+            {"type": "text", "value": "風格需要一致性（讓人認出你的作品），也需要進化（避免重複自己）。每年都應該有新的探索和嘗試，在核心風格基礎上緩慢進化。"},
+            {"type": "tip", "value": "不要為了與眾不同而刻意怪異。真正的風格是做自己——誠實地拍你真正感興趣的東西，自然就有獨特性。"}
+          ]
         },
         {
-          "id": "portfolio-curation",
+          "id": "portfolio",
           "name": "作品集策展",
-          "nameEn": "Portfolio Curation",
-          "description": "精選與排序作品，打造有敘事力的作品集"
+          "nameEn": "Portfolio",
+          "content": [
+            {"type": "text", "value": "作品集是你能力的最佳證明。它的品質不取決於最好的那張，而是最差的那張。"},
+            {"type": "heading", "value": "策展原則"},
+            {"type": "list", "items": ["只放最好的：20張強力作品 > 50張良莠不齊", "一致性：整體風格要統一，不要什麼都放", "開場強勁：第一張和最後一張要最強（首因+近因效應）", "有節奏：色彩深淺交替、特寫和全景交替", "說故事：作品之間有邏輯關係，不是隨機排列"]},
+            {"type": "heading", "value": "不同目的的作品集"},
+            {"type": "table", "headers": ["目的", "數量", "要點"], "rows": [["商業接案", "15-20張", "展示解決問題的能力"], ["藝廊展覽", "10-15張", "統一主題的系列"], ["比賽申請", "按規定", "嚴格符合主題要求"], ["個人網站", "20-30張", "展示範圍+最佳品質"]]},
+            {"type": "heading", "value": "作品集的更新"},
+            {"type": "text", "value": "作品集是活的。每季度審視一次，把新的更好的作品換入，把不再代表你水準的舊作品移除。你的作品集應該只展示「現在的你」的能力。"},
+            {"type": "tip", "value": "請5個你信任的人（最好包含攝影師和非攝影師）看你的作品集並給意見。外部視角能發現你自己看不到的問題。"}
+          ]
         },
         {
-          "id": "exhibition-planning",
-          "name": "展覽策劃",
-          "nameEn": "Exhibition Planning",
-          "description": "策劃與執行攝影展覽，空間設計與作品呈現"
-        },
-        {
-          "id": "photography-business",
-          "name": "攝影事業",
-          "nameEn": "Photography Business",
-          "description": "定價策略、客戶管理、品牌經營與市場定位"
-        },
-        {
-          "id": "mentoring",
-          "name": "教學傳承",
-          "nameEn": "Mentoring",
-          "description": "將經驗系統化輸出，指導新進攝影師成長"
+          "id": "exhibition",
+          "name": "展覽與出版",
+          "nameEn": "Exhibition",
+          "content": [
+            {"type": "text", "value": "把作品從螢幕帶到實體空間是攝影師的重要里程碑。實體展覽的體驗是螢幕無法替代的。"},
+            {"type": "heading", "value": "展覽規劃"},
+            {"type": "list", "items": ["主題與故事：展覽需要一個清晰的敘事線", "空間選擇：場地的風格要與作品相配", "作品尺寸：根據觀看距離和空間大小決定", "輸出品質：專業輸出+裝裱，細節決定質感", "展覽文字：藝術家自述、每張作品的說明"]},
+            {"type": "heading", "value": "輸出與印刷"},
+            {"type": "list", "items": ["色彩管理：螢幕校色+ICC Profile+軟打樣", "紙張選擇：相紙（光滑）vs 藝術紙（質感）vs 金屬板（現代）", "輸出銳化：印刷用銳化與螢幕不同", "裝裱方式：有框/無框/裱板/浮空裝裱"]},
+            {"type": "heading", "value": "攝影書出版"},
+            {"type": "text", "value": "攝影書是系列作品的最佳載體——你控制觀看順序、頁面佈局、紙張質感。從自出版到正式出版，都是攝影師重要的表達管道。"},
+            {"type": "tip", "value": "第一次展覽不需要很大。咖啡館的牆面、共享空間的一角都可以。重要的是走出「只在社交媒體分享」的舒適圈。"}
+          ]
         }
       ],
       "resources": [
-        {
-          "title": "On Photography — Susan Sontag",
-          "type": "book",
-          "url": "",
-          "description": "攝影哲學經典著作，探討影像與真實的關係",
-          "language": "en"
-        },
-        {
-          "title": "Magnum Photos",
-          "type": "platform",
-          "url": "https://www.magnumphotos.com",
-          "description": "世界頂級攝影通訊社，大師作品與深度故事",
-          "language": "en"
-        },
-        {
-          "title": "World Press Photo",
-          "type": "platform",
-          "url": "https://www.worldpressphoto.org",
-          "description": "全球最具影響力的新聞攝影獎，觀察紀實趨勢",
-          "language": "en"
-        },
-        {
-          "title": "Camera Lucida — Roland Barthes",
-          "type": "book",
-          "url": "",
-          "description": "攝影理論經典，探討照片的本質與情感力量",
-          "language": "en"
-        },
-        {
-          "title": "Format.com",
-          "type": "platform",
-          "url": "https://www.format.com",
-          "description": "專業攝影師作品集網站建構平台",
-          "language": "en"
-        }
+        {"title": "On Photography — Susan Sontag", "type": "book", "url": "", "description": "攝影哲學經典", "language": "en"},
+        {"title": "Magnum Photos", "type": "platform", "url": "https://www.magnumphotos.com", "description": "世界頂級攝影通訊社", "language": "en"},
+        {"title": "World Press Photo", "type": "platform", "url": "https://www.worldpressphoto.org", "description": "全球最具影響力新聞攝影獎", "language": "en"},
+        {"title": "Format.com", "type": "platform", "url": "https://www.format.com", "description": "專業攝影師作品集網站", "language": "en"}
       ]
     }
   ]

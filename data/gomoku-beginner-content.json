@@ -1,0 +1,677 @@
+[
+  {
+    "id": "rules",
+    "name": "規則認識",
+    "nameEn": "Rules",
+    "content": [
+      {
+        "type": "heading",
+        "value": "五子棋棋盤與基本設置"
+      },
+      {
+        "type": "text",
+        "value": "五子棋使用 15×15 的棋盤，棋子下在縱橫線的交叉點上。棋盤共有 225 個交叉點，中央的交叉點稱為「天元」，座標為 (H8)。黑方先行，雙方輪流各下一子，落子後不可移動或取走。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1}
+        ],
+        "caption": "天元 — 棋盤正中心，通常是黑方第一手的位置",
+        "markers": [
+          {"row": 3, "col": 3, "type": "circle", "color": "#666"},
+          {"row": 3, "col": 7, "type": "circle", "color": "#666"},
+          {"row": 3, "col": 11, "type": "circle", "color": "#666"},
+          {"row": 7, "col": 3, "type": "circle", "color": "#666"},
+          {"row": 7, "col": 11, "type": "circle", "color": "#666"},
+          {"row": 11, "col": 3, "type": "circle", "color": "#666"},
+          {"row": 11, "col": 7, "type": "circle", "color": "#666"},
+          {"row": 11, "col": 11, "type": "circle", "color": "#666"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "勝利條件"
+      },
+      {
+        "type": "text",
+        "value": "率先在橫、縱、或斜方向上形成連續五顆（或以上）同色棋子的一方獲勝。若棋盤下滿 225 手仍未分出勝負，則為和棋。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 5, "num": 1},
+          {"color": "b", "row": 7, "col": 6, "num": 3},
+          {"color": "b", "row": 7, "col": 7, "num": 5},
+          {"color": "b", "row": 7, "col": 8, "num": 7},
+          {"color": "b", "row": 7, "col": 9, "num": 9},
+          {"color": "w", "row": 6, "col": 5, "num": 2},
+          {"color": "w", "row": 6, "col": 6, "num": 4},
+          {"color": "w", "row": 6, "col": 7, "num": 6},
+          {"color": "w", "row": 6, "col": 8, "num": 8}
+        ],
+        "caption": "黑方五子連珠獲勝（橫向）— 白方未能及時阻擋",
+        "markers": [
+          {"row": 7, "col": 5, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 6, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 7, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 8, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 9, "type": "square", "color": "#e74c3c"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "標準五子棋 vs 連珠（Renju）"
+      },
+      {
+        "type": "text",
+        "value": "標準五子棋（Free-style Gomoku）規則簡單：黑白雙方輪流落子，先成五者勝。但因黑方先行優勢過大，職業比賽多採用「連珠」規則，對黑方施加禁手限制。"
+      },
+      {
+        "type": "table",
+        "headers": ["規則項目", "標準五子棋", "連珠（Renju）"],
+        "rows": [
+          ["黑方禁手", "無", "三三禁手、四四禁手、長連禁手"],
+          ["白方限制", "無", "無（白方無禁手）"],
+          ["長連判定", "六子以上仍算勝", "黑方長連算禁手（敗），白方長連算勝"],
+          ["開局規則", "無", "有（如 Soosõrv-8 等）"],
+          ["適用場景", "休閒對弈", "正式比賽"]
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "連珠禁手簡介"
+      },
+      {
+        "type": "text",
+        "value": "在連珠規則中，黑方有三種禁手：（1）三三禁手 — 一手棋同時形成兩個活三；（2）四四禁手 — 一手棋同時形成兩個四（含衝四與活四）；（3）長連禁手 — 形成六子或以上的連線。黑方若下出禁手點，立即判負。但若該禁手點同時形成五連，則以五連優先，不算禁手。"
+      },
+      {
+        "type": "tip",
+        "value": "初學者建議先熟悉標準五子棋規則，理解基本棋形後再學習連珠禁手。禁手規則的存在使得黑方的進攻需要更加精確，是五子棋戰術深度的重要來源。"
+      }
+    ]
+  },
+  {
+    "id": "basic-patterns",
+    "name": "基礎棋形",
+    "nameEn": "Basic Patterns",
+    "content": [
+      {
+        "type": "heading",
+        "value": "棋形概述"
+      },
+      {
+        "type": "text",
+        "value": "五子棋的棋形是判斷局勢和制定策略的基礎。同色棋子的排列方式構成不同的「棋形」，每種棋形的威脅程度不同。認識並記住這些基本棋形，是提高棋力的第一步。"
+      },
+      {
+        "type": "table",
+        "headers": ["棋形名稱", "描述", "威脅等級"],
+        "rows": [
+          ["成五", "五子連珠，已獲勝", "★★★★★"],
+          ["活四", "四子連線，兩端皆空", "★★★★★"],
+          ["衝四（死四）", "四子連線，僅一端可成五", "★★★★"],
+          ["活三", "三子連線，兩端皆空，可發展為活四", "★★★★"],
+          ["眠三（死三）", "三子連線，僅一端開放", "★★"],
+          ["活二", "兩子連線，兩端皆空", "★★"],
+          ["活一", "單子，周圍有發展空間", "★"]
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "活一與活二"
+      },
+      {
+        "type": "text",
+        "value": "「活一」是指一顆孤立的棋子，兩側有足夠的空間可以發展。「活二」是兩顆同色棋子相連（或間隔一格），兩端都沒有被對方堵住。活二是構建攻勢的起點。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 5, "col": 7, "num": 1},
+          {"color": "b", "row": 7, "col": 6, "num": 3},
+          {"color": "b", "row": 7, "col": 7, "num": 5},
+          {"color": "b", "row": 9, "col": 6, "num": 7},
+          {"color": "b", "row": 9, "col": 8, "num": 9}
+        ],
+        "caption": "上：活一（單子）；中：連活二（兩子相鄰）；下：跳活二（兩子間隔一格）",
+        "markers": [
+          {"row": 5, "col": 7, "type": "label", "color": "#2ecc71", "text": "活一"},
+          {"row": 7, "col": 5, "type": "label", "color": "#3498db", "text": "活二"},
+          {"row": 9, "col": 5, "type": "label", "color": "#9b59b6", "text": "跳活二"}
+        ],
+        "showNumbers": false,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "活三與眠三"
+      },
+      {
+        "type": "text",
+        "value": "「活三」是三顆同色棋子連成一線，兩端都有空位，對手必須立即應對否則下一手將形成活四。「眠三」則是三子連線但有一端被堵住，威脅較低但仍有發展潛力。活三是五子棋中最重要的進攻棋形之一。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 5, "col": 6, "num": 1},
+          {"color": "b", "row": 5, "col": 7, "num": 3},
+          {"color": "b", "row": 5, "col": 8, "num": 5},
+          {"color": "b", "row": 9, "col": 6, "num": 7},
+          {"color": "b", "row": 9, "col": 7, "num": 9},
+          {"color": "b", "row": 9, "col": 8, "num": 11},
+          {"color": "w", "row": 9, "col": 5, "num": 2}
+        ],
+        "caption": "上排：活三（●●●，兩端皆空）；下排：眠三（○●●●，左端被白子堵住）",
+        "markers": [
+          {"row": 5, "col": 5, "type": "circle", "color": "#2ecc71"},
+          {"row": 5, "col": 9, "type": "circle", "color": "#2ecc71"},
+          {"row": 9, "col": 9, "type": "circle", "color": "#e74c3c"},
+          {"row": 5, "col": 4, "type": "label", "color": "#2ecc71", "text": "活三"},
+          {"row": 9, "col": 4, "type": "label", "color": "#e67e22", "text": "眠三"}
+        ],
+        "showNumbers": false,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "活四與衝四"
+      },
+      {
+        "type": "text",
+        "value": "「活四」是四子連線且兩端皆有空位 — 這是必勝棋形，對手無法同時堵住兩端。「衝四」是四子連線但只有一端可以成五，對手堵住該端即可防守。衝四雖然不如活四強，但作為進攻手段仍然非常重要，因為對手必須回應。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 5, "col": 5, "num": 1},
+          {"color": "b", "row": 5, "col": 6, "num": 3},
+          {"color": "b", "row": 5, "col": 7, "num": 5},
+          {"color": "b", "row": 5, "col": 8, "num": 7},
+          {"color": "b", "row": 9, "col": 5, "num": 9},
+          {"color": "b", "row": 9, "col": 6, "num": 11},
+          {"color": "b", "row": 9, "col": 7, "num": 13},
+          {"color": "b", "row": 9, "col": 8, "num": 15},
+          {"color": "w", "row": 9, "col": 4, "num": 2}
+        ],
+        "caption": "上排：活四（兩端皆空，必勝）；下排：衝四（左端被堵，僅右端可成五）",
+        "markers": [
+          {"row": 5, "col": 4, "type": "circle", "color": "#2ecc71"},
+          {"row": 5, "col": 9, "type": "circle", "color": "#2ecc71"},
+          {"row": 9, "col": 9, "type": "circle", "color": "#e74c3c"},
+          {"row": 5, "col": 3, "type": "label", "color": "#2ecc71", "text": "活四"},
+          {"row": 9, "col": 3, "type": "label", "color": "#e67e22", "text": "衝四"}
+        ],
+        "showNumbers": false,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "成五 — 勝利棋形"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 5, "num": 1},
+          {"color": "b", "row": 7, "col": 6, "num": 3},
+          {"color": "b", "row": 7, "col": 7, "num": 5},
+          {"color": "b", "row": 7, "col": 8, "num": 7},
+          {"color": "b", "row": 7, "col": 9, "num": 9},
+          {"color": "b", "row": 4, "col": 4, "num": 11},
+          {"color": "b", "row": 5, "col": 5, "num": 13},
+          {"color": "b", "row": 6, "col": 6, "num": 15},
+          {"color": "b", "row": 8, "col": 8, "num": 17},
+          {"color": "b", "row": 9, "col": 9, "num": 19}
+        ],
+        "caption": "成五的兩種方向：橫向五連（中排）與斜向五連（左上到右下）",
+        "markers": [
+          {"row": 7, "col": 5, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 6, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 7, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 8, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 9, "type": "square", "color": "#e74c3c"},
+          {"row": 5, "col": 5, "type": "square", "color": "#3498db"},
+          {"row": 6, "col": 6, "type": "square", "color": "#3498db"},
+          {"row": 7, "col": 7, "type": "square", "color": "#3498db"},
+          {"row": 8, "col": 8, "type": "square", "color": "#3498db"},
+          {"row": 9, "col": 9, "type": "square", "color": "#3498db"}
+        ],
+        "showNumbers": false,
+        "boardSize": 15
+      },
+      {
+        "type": "tip",
+        "value": "棋形辨識的核心口訣：「活四必勝、衝四必擋、活三必防」。看到對手形成活三就要立刻防守，否則下一手將變成活四，再無法阻擋。"
+      }
+    ]
+  },
+  {
+    "id": "attack-defense",
+    "name": "攻防基礎",
+    "nameEn": "Attack & Defense",
+    "content": [
+      {
+        "type": "heading",
+        "value": "進攻與防守的基本原則"
+      },
+      {
+        "type": "text",
+        "value": "五子棋的對弈本質是攻防的交替。進攻的目標是製造對手無法同時應對的多重威脅；防守的目標是在阻擋對手的同時，為自己的反擊創造條件。判斷何時進攻、何時防守，是棋力提升的關鍵。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "當你有活三或衝四時 → 進攻（持續施壓）",
+          "當對手形成活三時 → 防守（必須立即堵截）",
+          "當對手形成衝四時 → 防守（必須堵住唯一成五點）",
+          "當雙方都沒有直接威脅時 → 發展子力（佈局、做棋）",
+          "防守時優先選擇兼具反擊作用的防守點"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "防守活三的正確位置"
+      },
+      {
+        "type": "text",
+        "value": "當對手形成活三時，你必須在其兩端之一落子堵截。但堵哪一端有講究 — 應選擇對自己棋形有利的一端，既完成防守又強化自身佈局。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "w", "row": 6, "col": 8, "num": 2},
+          {"color": "b", "row": 7, "col": 8, "num": 3},
+          {"color": "w", "row": 6, "col": 6, "num": 4},
+          {"color": "b", "row": 7, "col": 9, "num": 5},
+          {"color": "w", "row": 7, "col": 10, "num": 6}
+        ],
+        "caption": "黑方形成活三（5-7-8-9），白6堵右端防守。若不堵，黑方下一手成活四必勝",
+        "markers": [
+          {"row": 7, "col": 6, "type": "circle", "color": "#2ecc71"},
+          {"row": 7, "col": 10, "type": "x", "color": "#e74c3c"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "進攻做棋 — 活三搶攻"
+      },
+      {
+        "type": "text",
+        "value": "進攻的核心在於「做棋」— 透過連續的活三（或衝四）迫使對手被動防守，直到形成無法防守的「雙活三」或「四三」組合。每一步進攻手都應考慮：這步棋是否迫使對手必須回應？"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "w", "row": 6, "col": 7, "num": 2},
+          {"color": "b", "row": 8, "col": 8, "num": 3},
+          {"color": "w", "row": 6, "col": 8, "num": 4},
+          {"color": "b", "row": 9, "col": 9, "num": 5},
+          {"color": "w", "row": 6, "col": 9, "num": 6},
+          {"color": "b", "row": 6, "col": 6, "num": 7},
+          {"color": "w", "row": 5, "col": 5, "num": 8},
+          {"color": "b", "row": 10, "col": 10, "num": 9}
+        ],
+        "caption": "黑方斜向連攻：1-3-5 形成活三，白方忙於防守上方，黑9成活四必勝",
+        "markers": [
+          {"row": 7, "col": 7, "type": "square", "color": "#e74c3c"},
+          {"row": 8, "col": 8, "type": "square", "color": "#e74c3c"},
+          {"row": 9, "col": 9, "type": "square", "color": "#e74c3c"},
+          {"row": 10, "col": 10, "type": "square", "color": "#e74c3c"},
+          {"row": 11, "col": 11, "type": "circle", "color": "#2ecc71"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "攻防兼備的落子"
+      },
+      {
+        "type": "text",
+        "value": "最好的棋步往往是攻防兼備的：一手棋既能堵住對手的威脅，又能為自己創造新的連線。這種棋步我們稱為「一子雙用」或「反先」。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "w", "row": 7, "col": 6, "num": 2},
+          {"color": "w", "row": 7, "col": 7, "num": 4},
+          {"color": "w", "row": 7, "col": 8, "num": 6},
+          {"color": "b", "row": 7, "col": 9, "num": 7},
+          {"color": "b", "row": 8, "col": 9, "num": 1},
+          {"color": "b", "row": 9, "col": 9, "num": 3},
+          {"color": "b", "row": 6, "col": 9, "num": 5}
+        ],
+        "caption": "黑7一子雙用：堵住白方活三的右端，同時自身形成縱向活三（上下方向）",
+        "markers": [
+          {"row": 7, "col": 9, "type": "square", "color": "#f39c12"},
+          {"row": 5, "col": 9, "type": "circle", "color": "#2ecc71"},
+          {"row": 10, "col": 9, "type": "circle", "color": "#2ecc71"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "tip",
+        "value": "進攻時牢記「四三殺」：如果你能一手棋同時形成一個四（衝四或活四）和一個活三，對手無法同時防守兩個威脅，你就贏了。這是五子棋最基本的必殺技。"
+      }
+    ]
+  },
+  {
+    "id": "simple-vcf",
+    "name": "簡單VCF",
+    "nameEn": "Simple VCF",
+    "content": [
+      {
+        "type": "heading",
+        "value": "什麼是 VCF？"
+      },
+      {
+        "type": "text",
+        "value": "VCF 是「Victory by Continuous Fours」的縮寫，中文稱為「連續衝四取勝」。其核心思想是：衝四是對手必須回應的威脅（否則下一步成五），因此透過連續衝四，你可以控制對手的每一步回應，最終在某個衝四的同時完成五連或形成活四。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "衝四 → 對手被迫堵住 → 再衝四 → 對手再堵 → ... → 最後一個衝四成五",
+          "VCF 的關鍵：每一步衝四都必須是「絕對先手」，對手只能唯一回應",
+          "計算 VCF 時，要確認每一步對手的防守位置是唯一的",
+          "VCF 是五子棋中最基礎也最重要的計算技巧"
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "簡單 VCF 範例（2步）"
+      },
+      {
+        "type": "text",
+        "value": "以下範例展示一個兩步 VCF：黑方先衝四，白方被迫防守，黑方再衝四成五獲勝。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 5, "num": 1},
+          {"color": "b", "row": 7, "col": 6, "num": 3},
+          {"color": "b", "row": 7, "col": 7, "num": 5},
+          {"color": "w", "row": 6, "col": 5, "num": 2},
+          {"color": "w", "row": 6, "col": 6, "num": 4},
+          {"color": "w", "row": 6, "col": 7, "num": 6},
+          {"color": "w", "row": 6, "col": 8, "num": 8},
+          {"color": "b", "row": 8, "col": 6, "num": 7},
+          {"color": "b", "row": 8, "col": 7, "num": 9},
+          {"color": "b", "row": 8, "col": 8, "num": 11},
+          {"color": "b", "row": 7, "col": 8, "num": 13},
+          {"color": "w", "row": 7, "col": 9, "num": 14},
+          {"color": "b", "row": 7, "col": 4, "num": 15}
+        ],
+        "caption": "黑13衝四（7,8位置），白14被迫堵右端（7,9），黑15成五獲勝！",
+        "markers": [
+          {"row": 7, "col": 4, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 5, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 6, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 7, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 8, "type": "square", "color": "#e74c3c"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "三步 VCF 範例"
+      },
+      {
+        "type": "text",
+        "value": "以下是一個更複雜的三步 VCF。黑方利用斜線和橫線上的已有棋子，連續三次衝四，最終成五。注意每一步白方的防守位置都是唯一的。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "b", "row": 8, "col": 8, "num": 3},
+          {"color": "b", "row": 9, "col": 9, "num": 5},
+          {"color": "w", "row": 7, "col": 8, "num": 2},
+          {"color": "w", "row": 8, "col": 7, "num": 4},
+          {"color": "w", "row": 9, "col": 6, "num": 6},
+          {"color": "b", "row": 10, "col": 10, "num": 7},
+          {"color": "w", "row": 11, "col": 11, "num": 8},
+          {"color": "b", "row": 10, "col": 7, "num": 9},
+          {"color": "b", "row": 10, "col": 8, "num": 11},
+          {"color": "b", "row": 10, "col": 9, "num": 13},
+          {"color": "w", "row": 10, "col": 6, "num": 10},
+          {"color": "b", "row": 10, "col": 11, "num": 15},
+          {"color": "w", "row": 10, "col": 12, "num": 16},
+          {"color": "b", "row": 6, "col": 6, "num": 17}
+        ],
+        "caption": "黑方VCF：黑7衝四→白8擋→黑9-11-13構建→黑15衝四→白16擋→黑17斜向成五！",
+        "markers": [
+          {"row": 6, "col": 6, "type": "square", "color": "#e74c3c"},
+          {"row": 7, "col": 7, "type": "square", "color": "#e74c3c"},
+          {"row": 8, "col": 8, "type": "square", "color": "#e74c3c"},
+          {"row": 9, "col": 9, "type": "square", "color": "#e74c3c"},
+          {"row": 10, "col": 10, "type": "square", "color": "#e74c3c"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "VCF 計算要點"
+      },
+      {
+        "type": "list",
+        "items": [
+          "從最終目標（成五的位置）逆推，找出需要哪些衝四",
+          "確認每一步衝四後，對手的防守位置是唯一的",
+          "注意衝四的方向可以改變 — 利用不同方向的棋子配合",
+          "如果對手有兩個堵點可選，這個 VCF 不成立",
+          "練習時先計算 2 步 VCF，熟練後挑戰 3-4 步"
+        ]
+      },
+      {
+        "type": "tip",
+        "value": "VCF 是五子棋計算力的基礎，職業棋手能計算到 10 步以上的 VCF。初學階段只要能看出 2-3 步的 VCF，就已經能在同級對手中取得明顯優勢。"
+      }
+    ]
+  },
+  {
+    "id": "opening-basics",
+    "name": "開局入門",
+    "nameEn": "Opening Basics",
+    "content": [
+      {
+        "type": "heading",
+        "value": "五子棋開局的重要性"
+      },
+      {
+        "type": "text",
+        "value": "五子棋的開局（前3-5手）決定了中盤的走向。良好的開局能為自己爭取更多的發展空間和先手機會。黑方因為先手優勢，開局選擇尤為重要。"
+      },
+      {
+        "type": "heading",
+        "value": "直指與斜指"
+      },
+      {
+        "type": "text",
+        "value": "黑方第一手通常下在天元。白方第二手根據與天元的位置關係，分為「直指」和「斜指」兩大類。直指是指白棋下在天元的上下左右（相鄰直線位置）；斜指是下在天元的斜角位置。兩種開法衍生出不同的開局體系。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "w", "row": 6, "col": 7, "num": 2}
+        ],
+        "caption": "直指開局：黑1天元，白2直接落在天元正上方（直線相鄰）",
+        "markers": [
+          {"row": 6, "col": 7, "type": "label", "color": "#3498db", "text": "直"},
+          {"row": 8, "col": 7, "type": "circle", "color": "#aaa"},
+          {"row": 7, "col": 6, "type": "circle", "color": "#aaa"},
+          {"row": 7, "col": 8, "type": "circle", "color": "#aaa"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "w", "row": 6, "col": 8, "num": 2}
+        ],
+        "caption": "斜指開局：黑1天元，白2落在天元斜上方（對角相鄰）",
+        "markers": [
+          {"row": 6, "col": 8, "type": "label", "color": "#e67e22", "text": "斜"},
+          {"row": 6, "col": 6, "type": "circle", "color": "#aaa"},
+          {"row": 8, "col": 6, "type": "circle", "color": "#aaa"},
+          {"row": 8, "col": 8, "type": "circle", "color": "#aaa"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "常見開局定式"
+      },
+      {
+        "type": "text",
+        "value": "連珠規則中有 26 種標準開局（依第三手分類）。初學者先掌握幾個最常見的開局：花月、浦月、寒星、溪月。這些名稱來自日本連珠傳統。"
+      },
+      {
+        "type": "table",
+        "headers": ["開局名", "類型", "第三手位置", "特點"],
+        "rows": [
+          ["花月", "直指", "天元斜上方", "黑方最強開局之一，攻擊性強"],
+          ["浦月", "直指", "天元正上兩格", "均衡開局，雙方都有機會"],
+          ["寒星", "斜指", "天元正上方", "黑方需精確計算，白方有反擊機會"],
+          ["溪月", "斜指", "天元斜向延伸", "較為平穩的斜指開局"]
+        ]
+      },
+      {
+        "type": "heading",
+        "value": "開局基本原則"
+      },
+      {
+        "type": "list",
+        "items": [
+          "佔據中央 — 天元附近的子力價值最高，發展空間最大",
+          "保持連接 — 前幾手棋之間不要距離太遠，形成可相互配合的棋形",
+          "多向發展 — 不要把所有棋子放在同一直線上，保留多個進攻方向",
+          "注意平衡 — 不能只顧進攻忽略防守，也不能只防守不發展",
+          "避免被動 — 如果對手的開局明顯有侵略性，要及早反應"
+        ]
+      },
+      {
+        "type": "tip",
+        "value": "初學者不需要背誦所有開局變化。最重要的是理解原則：佔中、連接、多向。隨著實戰經驗增加，自然會對常見開局產生感覺。"
+      }
+    ]
+  },
+  {
+    "id": "board-awareness",
+    "name": "盤面感覺",
+    "nameEn": "Board Awareness",
+    "content": [
+      {
+        "type": "heading",
+        "value": "什麼是盤面感覺？"
+      },
+      {
+        "type": "text",
+        "value": "盤面感覺是指在對弈中能夠綜觀全局，而不是只盯著棋盤的某一個角落。初學者最常犯的錯誤是「局部視野」— 只關注剛剛發生對弈的區域，忽略了棋盤其他位置正在成形的威脅或機會。"
+      },
+      {
+        "type": "heading",
+        "value": "先手（Sente）的概念"
+      },
+      {
+        "type": "text",
+        "value": "「先手」是指能迫使對手回應的棋步。擁有先手意味著你在主導局面的節奏。活三是先手（對手必須防），衝四是絕對先手（對手不防就輸）。連續的先手可以控制整個對局走向。失去先手（被迫回應對手）稱為「後手」。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "絕對先手：衝四、活四 — 對手必須回應否則立即敗",
+          "相對先手：活三 — 對手通常必須回應，但在某些情況下可以「反先」",
+          "無先手：活二或更低的棋形 — 對手可以忽略去做自己的事",
+          "先手轉換：透過精確的下法，將先手從對手手中奪回"
+        ]
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 7, "col": 7, "num": 1},
+          {"color": "w", "row": 6, "col": 8, "num": 2},
+          {"color": "b", "row": 8, "col": 6, "num": 3},
+          {"color": "w", "row": 9, "col": 5, "num": 4},
+          {"color": "b", "row": 6, "col": 6, "num": 5},
+          {"color": "w", "row": 5, "col": 5, "num": 6},
+          {"color": "b", "row": 10, "col": 10, "num": 7},
+          {"color": "w", "row": 10, "col": 8, "num": 8}
+        ],
+        "caption": "黑7跳到遠處佈局 — 不要只在左上角糾纏，全盤都是戰場",
+        "markers": [
+          {"row": 10, "col": 10, "type": "circle", "color": "#2ecc71"},
+          {"row": 4, "col": 4, "type": "label", "color": "#999", "text": "局部"},
+          {"row": 10, "col": 11, "type": "label", "color": "#2ecc71", "text": "全局"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "避免局部糾纏"
+      },
+      {
+        "type": "text",
+        "value": "當局部戰鬥暫時告一段落（雙方都沒有直接威脅），應該抬頭看看全盤。也許在棋盤另一側有更好的發展機會，或者可以開闢第二戰場，讓對手顧此失彼。"
+      },
+      {
+        "type": "gomoku",
+        "moves": [
+          {"color": "b", "row": 4, "col": 4, "num": 1},
+          {"color": "w", "row": 4, "col": 5, "num": 2},
+          {"color": "b", "row": 5, "col": 4, "num": 3},
+          {"color": "w", "row": 5, "col": 5, "num": 4},
+          {"color": "b", "row": 6, "col": 4, "num": 5},
+          {"color": "w", "row": 7, "col": 4, "num": 6},
+          {"color": "b", "row": 10, "col": 10, "num": 7},
+          {"color": "w", "row": 10, "col": 9, "num": 8},
+          {"color": "b", "row": 10, "col": 11, "num": 9},
+          {"color": "w", "row": 3, "col": 4, "num": 10},
+          {"color": "b", "row": 11, "col": 10, "num": 11}
+        ],
+        "caption": "黑方在左上被堵後，轉向右下開闢第二戰場。白方難以兼顧兩邊",
+        "markers": [
+          {"row": 3, "col": 3, "type": "label", "color": "#e74c3c", "text": "被堵"},
+          {"row": 10, "col": 12, "type": "label", "color": "#2ecc71", "text": "新戰場"}
+        ],
+        "showNumbers": true,
+        "boardSize": 15
+      },
+      {
+        "type": "heading",
+        "value": "培養全盤視野的練習方法"
+      },
+      {
+        "type": "list",
+        "items": [
+          "每次落子前，先掃視整個棋盤 3 秒再決定",
+          "不只計算自己的棋，也數一數對手各方向有多少子",
+          "問自己：棋盤上有幾個活二？有幾個活三？分別在哪裡？",
+          "覆盤時標記出「只看局部而錯失的好點」",
+          "嘗試離螢幕遠一些看棋盤，用整體形狀感覺而非逐子計算"
+        ]
+      },
+      {
+        "type": "tip",
+        "value": "職業棋手常說「好手不一定是最猛的一步，而是最具全局觀的一步」。培養盤面感覺需要時間和大量對局，但有意識地練習全盤掃視，能加速這個過程。"
+      }
+    ]
+  }
+]

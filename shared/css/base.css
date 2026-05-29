@@ -641,3 +641,213 @@ button { font-family: var(--font); cursor: pointer; border: none; }
     90% { opacity: 0.2; }
     100% { opacity: 0; transform: translateY(-10vh) scale(1); }
 }
+
+/* ===== Topics Navigation ===== */
+.topics-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.topic-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.topic-nav-item:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.topic-nav-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--card-accent, var(--accent-primary));
+    opacity: 0.7;
+}
+
+/* ===== Topic Article ===== */
+.topics-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.topic-article {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    scroll-margin-top: 72px;
+}
+
+.topic-article-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.topic-article-num {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--card-accent, var(--accent-primary));
+    opacity: 0.5;
+    line-height: 1;
+    padding-top: 0.2rem;
+}
+
+.topic-article-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.topic-article-subtitle {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.topic-article-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ===== Content Blocks ===== */
+.cb-text {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.cb-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid var(--card-accent, var(--accent-primary));
+}
+
+.cb-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cb-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.cb-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--card-accent, var(--accent-primary));
+    opacity: 0.7;
+}
+
+.cb-tip {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(212, 160, 55, 0.08);
+    border: 1px solid rgba(212, 160, 55, 0.2);
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.cb-tip-icon {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+.cb-table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.cb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.cb-table th {
+    background: var(--bg-elevated);
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.cb-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.cb-table tr:last-child td { border-bottom: none; }
+.cb-table tr:hover td { background: var(--bg-card-hover); }
+
+/* ===== Board Diagrams ===== */
+.cb-board, .cb-gomoku {
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cb-board svg, .cb-gomoku svg {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+.cb-board-caption {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-align: center;
+    font-style: italic;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+/* ===== Responsive additions for content ===== */
+@media (max-width: 768px) {
+    .topic-article { padding: 1.5rem 1rem; }
+    .topics-nav { padding: 0.75rem; }
+    .topic-nav-item { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+}
