@@ -56,8 +56,9 @@ const Router = (() => {
     }
 
     function renderTopbar(breadcrumbs) {
-        const crumbs = breadcrumbs ? breadcrumbs.map((b, i) => {
-            if (i === breadcrumbs.length - 1) {
+        const allCrumbs = breadcrumbs ? [{ name: '首頁', path: '' }, ...breadcrumbs] : [];
+        const crumbsHtml = allCrumbs.length ? allCrumbs.map((b, i) => {
+            if (i === allCrumbs.length - 1) {
                 return `<span class="breadcrumb-current">${b.name}</span>`;
             }
             return `<a href="javascript:void(0)" onclick="Router.navigate('${b.path}')">${b.name}</a><span class="breadcrumb-sep">/</span>`;
@@ -65,8 +66,8 @@ const Router = (() => {
 
         return `
             <div class="topbar">
-                <span class="site-logo" onclick="Router.navigate('')">DOJO</span>
-                ${crumbs ? `<nav class="breadcrumb">${crumbs}</nav>` : ''}
+                <span class="site-logo" onclick="Router.navigate('')">YU</span>
+                ${crumbsHtml ? `<nav class="breadcrumb">${crumbsHtml}</nav>` : ''}
             </div>
         `;
     }
@@ -98,7 +99,7 @@ const Router = (() => {
             <div class="particles" id="particles"></div>
             <div class="home-container">
                 <div class="home-level-badge">LV.1 — Apprentice</div>
-                <h1 class="home-title">Yu-Dojo</h1>
+                <h1 class="home-title">DOJO</h1>
                 <p class="home-subtitle">選擇你的修煉之道</p>
                 <div class="skills-grid">
                     ${cards}
@@ -151,6 +152,12 @@ const Router = (() => {
     }
 
     function renderRoadmap(skillId, data) {
+        // Render introduction/framework section if present
+        let introHtml = '';
+        if (data.introduction && Array.isArray(data.introduction)) {
+            introHtml = `<div class="roadmap-intro">${renderContentBlocks(data.introduction, skillId)}</div>`;
+        }
+
         const stageColors = ['#58a6ff', '#7ee787', '#d4a037', '#f97316'];
         const stages = data.stages.map((stage, i) => `
             <div class="stage-card" style="--stage-color: ${stageColors[i] || stageColors[0]}" 
@@ -168,7 +175,7 @@ const Router = (() => {
             </div>
         `).join('');
 
-        return `<div class="roadmap">${stages}</div>`;
+        return `${introHtml}<div class="roadmap">${stages}</div>`;
     }
 
     function renderAllResources(data) {
