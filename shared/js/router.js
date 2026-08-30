@@ -97,39 +97,34 @@ const Router = (() => {
 
     function renderFooter() {
         return `
-            <footer class="wrap">
-                <div class="footer">
+            <div class="wrap">
+                <footer class="footer">
                     <span>Yu Dojo® — 技能修煉道場</span>
                     <span>先看見全貌，再走出路線</span>
-                </div>
-            </footer>
+                </footer>
+            </div>
         `;
     }
 
     /* ===== Home ===== */
 
     function renderHome() {
-        const rows = SKILL_IDS.map((id, i) => {
+        const cards = SKILL_IDS.map((id, i) => {
             const meta = skillMeta[id];
             const data = skillsData[id];
             const lm = data && data.learningMap;
-            const domains = lm ? lm.totalDomains : 0;
-            const units = lm ? lm.totalItems : 0;
-            const stages = data ? data.stages.length : 0;
             return `
-                <div class="skill-row rise d${i + 1}" onclick="Router.navigate('skill/${id}')">
-                    <div class="skill-row-num">${String(i + 1).padStart(2, '0')}</div>
-                    <div>
-                        <div class="skill-row-name">${meta.name}</div>
-                        <div class="skill-row-en">${meta.nameEn}</div>
-                        <div class="skill-row-desc">${meta.desc}</div>
+                <div class="skill-card rise d${i + 1}" onclick="Router.navigate('skill/${id}')">
+                    <div class="skill-card-top">
+                        <span class="skill-card-name">${meta.name}</span>
+                        <span class="skill-card-en">${meta.nameEn}</span>
                     </div>
-                    <div class="skill-row-stats">
-                        <div><div class="stat-num">${domains}</div><div class="stat-cap">能力域</div></div>
-                        <div><div class="stat-num">${units}</div><div class="stat-cap">知識單元</div></div>
-                        <div><div class="stat-num">${stages}</div><div class="stat-cap">修煉階段</div></div>
+                    <p class="skill-card-desc">${meta.desc}</p>
+                    <div class="skill-card-stats">
+                        <div class="skill-card-stat"><b>${lm ? lm.totalDomains : 0}</b><span>能力域</span></div>
+                        <div class="skill-card-stat"><b>${lm ? lm.totalItems : 0}</b><span>知識單元</span></div>
+                        <div class="skill-card-stat"><b>${data ? data.stages.length : 0}</b><span>修煉階段</span></div>
                     </div>
-                    <div class="skill-row-go">→</div>
                 </div>
             `;
         }).join('');
@@ -137,23 +132,19 @@ const Router = (() => {
         document.getElementById('app').innerHTML = `
             ${renderNav({ overlay: true })}
             <section class="hero">
-                <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="">
+                <video class="hero-video" autoplay muted loop playsinline preload="auto">
                     <source src="${HERO_VIDEO}" type="video/mp4">
                 </video>
                 <div class="hero-scrim"></div>
                 <div class="hero-inner">
-                    <div class="hero-eyebrow rise">Skill Dojo — 技能修煉道場</div>
-                    <h1 class="hero-title rise d1">
-                        <span class="line">The whole <em>map</em>,</span>
-                        <span class="line">then the <em>path</em>.</span>
-                    </h1>
-                    <p class="hero-sub rise d2">先看見一門技藝的完整邊界，再決定從哪裡開始。象棋、五子棋、攝影——每一項都先攤開全景學習地圖，再從地圖上規劃出可執行的修煉路線。</p>
-                    <div class="hero-actions rise d4">
+                    <div class="hero-eyebrow rise">技能修煉道場</div>
+                    <h1 class="hero-title rise d1">先看見<em>全貌</em>，再走出路線</h1>
+                    <p class="hero-sub rise d2">每一門技藝都先攤開完整的學習地圖 — 所有能學的內容、能力的邊界，一次看清楚，再從地圖上規劃可執行的修煉路線。</p>
+                    <div class="hero-actions rise d3">
                         <button class="pill pill-lg" onclick="Router.navigate('skill/chinese-chess')">進入道場</button>
                         <button class="pill pill-lg pill-ghost" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">瀏覽技藝</button>
                     </div>
                 </div>
-                <div class="hero-scroll">Scroll</div>
             </section>
 
             <section class="section" id="skills">
@@ -163,29 +154,32 @@ const Router = (() => {
                         <h2 class="section-title">三門技藝，三張完整地圖</h2>
                         <p class="section-desc">每一門技藝都先被完整測繪：所有能被學習的內容、所有能力邊界，一次攤開。路線只是走過這張地圖的一種順序。</p>
                     </div>
-                    <div class="skill-list">${rows}</div>
+                    <div class="skill-grid">${cards}</div>
                 </div>
             </section>
 
-            <section class="manifesto">
+            <section class="section" style="padding-top:0">
                 <div class="wrap">
-                    <div class="section-label">Method</div>
-                    <p class="manifesto-quote">大多數人學不好一門技藝，不是因為不夠努力，而是因為從來不知道自己還缺什麼。</p>
-                    <div class="manifesto-steps">
-                        <div class="manifesto-step">
-                            <div class="manifesto-step-num">01</div>
-                            <div class="manifesto-step-title">測繪全貌</div>
-                            <div class="manifesto-step-desc">先窮舉這門技藝可被學習的全部內容，劃分成能力域，標出每個知識單元的深度層級。這是學習的地圖，不是課程表。</div>
+                    <div class="section-head">
+                        <div class="section-label">Method</div>
+                        <h2 class="section-title">怎麼修煉</h2>
+                    </div>
+                    <div class="quote-card">大多數人學不好一門技藝，不是因為不夠努力，而是因為從來不知道自己還缺什麼。</div>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <div class="method-num">1</div>
+                            <div class="method-title">測繪全貌</div>
+                            <p class="method-desc">先窮舉這門技藝可被學習的全部內容，劃分成能力域，標出每個知識單元的深度層級。這是學習的地圖，不是課程表。</p>
                         </div>
-                        <div class="manifesto-step">
-                            <div class="manifesto-step-num">02</div>
-                            <div class="manifesto-step-title">規劃路線</div>
-                            <div class="manifesto-step-desc">在地圖上切出四段路線。每一段橫跨多個能力域，並說明為什麼是這個順序、走完之後能做到什麼。</div>
+                        <div class="method-card">
+                            <div class="method-num">2</div>
+                            <div class="method-title">規劃路線</div>
+                            <p class="method-desc">在地圖上切出四段路線。每一段橫跨多個能力域，並說明為什麼是這個順序、走完之後能做到什麼。</p>
                         </div>
-                        <div class="manifesto-step">
-                            <div class="manifesto-step-num">03</div>
-                            <div class="manifesto-step-title">逐段修煉</div>
-                            <div class="manifesto-step-desc">每個階段展開成可讀的教學內容——圖解、表格、棋盤示例，以及對應的書籍與工具資源。</div>
+                        <div class="method-card">
+                            <div class="method-num">3</div>
+                            <div class="method-title">逐段修煉</div>
+                            <p class="method-desc">每個階段展開成可讀的教學內容 — 圖解、表格、棋盤示例，以及對應的書籍與工具資源。</p>
                         </div>
                     </div>
                 </div>
@@ -207,7 +201,7 @@ const Router = (() => {
             { id: 'roadmap', name: '修煉路線' },
             { id: 'resources', name: '學習資源' }
         ];
-        if (!['map', 'roadmap', 'resources'].includes(activeTab)) activeTab = 'map';
+        if (!tabs.some(t => t.id === activeTab)) activeTab = 'map';
 
         const tabsHtml = tabs.map(t => `
             <button class="tab${t.id === activeTab ? ' active' : ''}" onclick="Router.navigate('skill/${skillId}/${t.id}')">${t.name}</button>
@@ -222,12 +216,12 @@ const Router = (() => {
             ${renderNav({ activeSkill: skillId })}
             ${renderCrumbs([{ name: meta.name, path: `skill/${skillId}` }])}
             <div class="wrap skill-hero">
-                <div class="section-label rise">${meta.nameEn}</div>
-                <h1 class="skill-hero-title rise d1">${data.name}</h1>
-                <p class="skill-hero-desc rise d2">${data.description}</p>
-                <div class="tabs rise d3">${tabsHtml}</div>
+                <div class="skill-hero-en">${meta.nameEn}</div>
+                <h1 class="skill-hero-title">${data.name}</h1>
+                <p class="skill-hero-desc">${data.description}</p>
+                <div class="tabs">${tabsHtml}</div>
             </div>
-            <div class="wrap tab-panel rise d3">${panel}</div>
+            <div class="wrap tab-panel rise">${panel}</div>
             ${renderFooter()}
         `;
 
@@ -241,37 +235,35 @@ const Router = (() => {
         const lm = data.learningMap;
         if (!lm) return '<p class="cb-text">此技能尚未建立學習地圖。</p>';
 
-        const levelCounts = { beginner: 0, intermediate: 0, advanced: 0, master: 0 };
-        lm.domains.forEach(d => d.items.forEach(it => { levelCounts[it.level]++; }));
+        const counts = { beginner: 0, intermediate: 0, advanced: 0, master: 0 };
+        lm.domains.forEach(d => d.items.forEach(it => { counts[it.level]++; }));
 
-        const filters = [{ id: 'all', label: `全部 ${lm.totalItems}` }].concat(
-            Object.keys(levelNames).map(k => ({ id: k, label: `${levelNames[k]} ${levelCounts[k]}` }))
-        ).map(f => `<button class="map-filter" data-filter="${f.id}" onclick="Router.setMapFilter('${f.id}')">${f.label}</button>`).join('');
+        const filters = [{ id: 'all', label: `全部 ${lm.totalItems}` }]
+            .concat(Object.keys(levelNames).map(k => ({ id: k, label: `${levelNames[k]} ${counts[k]}` })))
+            .map(f => `<button class="map-filter" data-filter="${f.id}" onclick="Router.setMapFilter('${f.id}')">${f.label}</button>`)
+            .join('');
 
         const domains = lm.domains.map((dom, i) => {
             const items = dom.items.map(it => {
-                const linked = it.topic ? ' linked' : '';
-                const click = it.topic
-                    ? ` onclick="Router.navigate('skill/${skillId}/stage/${it.topic}')"`
-                    : '';
-                const nameCls = it.topic ? '' : ' no-content';
-                const arrow = it.topic ? '<span class="map-item-arrow">→</span>' : '';
+                const click = it.topic ? ` onclick="Router.navigate('skill/${skillId}/stage/${it.topic}')"` : '';
                 return `
-                    <div class="map-item${linked}" data-level="${it.level}"${click}>
+                    <div class="map-item${it.topic ? ' linked' : ''}" data-level="${it.level}"${click}>
                         <span class="lv" data-lv="${it.level}">${levelNames[it.level]}</span>
-                        <span class="map-item-name${nameCls}">${escapeHtml(it.name)}</span>
-                        ${arrow}
+                        <span class="map-item-name${it.topic ? '' : ' no-content'}">${escapeHtml(it.name)}</span>
+                        ${it.topic ? '<span class="map-item-arrow">→</span>' : ''}
                     </div>
                 `;
             }).join('');
 
             return `
                 <section class="domain" data-domain="${dom.id}">
-                    <div>
-                        <div class="domain-num">${String(i + 1).padStart(2, '0')} / ${String(lm.domains.length).padStart(2, '0')}</div>
-                        <h3 class="domain-name">${escapeHtml(dom.name)}</h3>
-                        <div class="domain-en">${escapeHtml(dom.nameEn)}</div>
-                        <p class="domain-summary">${escapeHtml(dom.summary)}</p>
+                    <div class="domain-head">
+                        <span class="domain-num">${String(i + 1).padStart(2, '0')}</span>
+                        <div>
+                            <h3 class="domain-name">${escapeHtml(dom.name)}</h3>
+                            <div class="domain-en">${escapeHtml(dom.nameEn)}</div>
+                            <p class="domain-summary">${escapeHtml(dom.summary)}</p>
+                        </div>
                     </div>
                     <div class="map-items">${items}</div>
                 </section>
@@ -279,17 +271,19 @@ const Router = (() => {
         }).join('');
 
         return `
-            <div class="map-lead">
-                <h2 class="map-lead-title">${escapeHtml(lm.title)}</h2>
-                <p class="map-lead-desc">${escapeHtml(lm.summary)}</p>
+            <div class="panel-head">
+                <h2 class="panel-title">${escapeHtml(lm.title)}</h2>
+                <p class="panel-desc">${escapeHtml(lm.summary)}</p>
+                <div class="panel-stats">
+                    <div class="panel-stat"><b>${lm.totalDomains}</b><span>能力域 Domains</span></div>
+                    <div class="panel-stat"><b>${lm.totalItems}</b><span>知識單元 Units</span></div>
+                    <div class="panel-stat"><b>${data.stages.length}</b><span>修煉階段 Stages</span></div>
+                </div>
             </div>
-            <div class="map-stats">
-                <div><div class="map-stat-num">${lm.totalDomains}</div><div class="map-stat-cap">能力域 Domains</div></div>
-                <div><div class="map-stat-num">${lm.totalItems}</div><div class="map-stat-cap">知識單元 Units</div></div>
-                <div><div class="map-stat-num">${data.stages.length}</div><div class="map-stat-cap">修煉階段 Stages</div></div>
+            <div class="map-toolbar">
+                ${filters}
+                <span class="map-hint">${escapeHtml(lm.legend)}</span>
             </div>
-            <div class="map-filters">${filters}</div>
-            <p class="map-filter-hint">${escapeHtml(lm.legend)}</p>
             <div id="map-domains">${domains}</div>
         `;
     }
@@ -326,47 +320,46 @@ const Router = (() => {
             const chips = (stage.covers || []).map(id => `<span class="chip">${escapeHtml(domainName[id] || id)}</span>`).join('');
             return `
                 <section class="route-stage" onclick="Router.navigate('skill/${skillId}/stage/${stage.id}')">
-                    <div>
-                        <div class="route-stage-num">STAGE ${String(i + 1).padStart(2, '0')} / ${String(data.stages.length).padStart(2, '0')}</div>
-                        <h3 class="route-stage-name">${escapeHtml(stage.name)}</h3>
-                        <div class="route-stage-en">${escapeHtml(stage.nameEn)}</div>
-                        <div class="route-stage-side-meta">
-                            <span>建議時程　<b>${escapeHtml(stage.duration)}</b></span>
-                            ${stage.benchmark ? `<span>對應水準　<b>${escapeHtml(stage.benchmark)}</b></span>` : ''}
-                        </div>
+                    <div class="route-stage-head">
+                        <span class="lv lv-solid" data-lv="${stage.id}">${levelNames[stage.id] || ''}</span>
+                        <span class="route-stage-name">${escapeHtml(stage.name)}</span>
+                        <span class="route-stage-en">${escapeHtml(stage.nameEn)}</span>
+                        <span class="route-stage-num" style="margin-left:auto">STAGE ${String(i + 1).padStart(2, '0')} / ${String(data.stages.length).padStart(2, '0')}</span>
                     </div>
-                    <div>
-                        <span class="lv lv-solid" data-lv="${stage.id}">${levelNames[stage.id] || stage.name}</span>
-                        <p class="route-goal" style="margin-top:14px">${escapeHtml(stage.goal || stage.description)}</p>
-                        <p class="route-desc">${escapeHtml(stage.description)}</p>
-                        <div class="route-covers">
-                            <div class="route-covers-cap">本段橫跨的能力域</div>
-                            <div class="chips">${chips}</div>
-                        </div>
-                        <div class="route-foot">
-                            <span>${stage.topics.length} 個教學主題</span>
-                            ${stage.mapItemCount ? `<span>涵蓋地圖 ${stage.mapItemCount} 個知識單元</span>` : ''}
-                            <span>${stage.resources.length} 份學習資源</span>
-                            <span class="route-enter">進入本段 <span>→</span></span>
-                        </div>
+                    <p class="route-goal">${escapeHtml(stage.goal || stage.description)}</p>
+                    <p class="route-desc">${escapeHtml(stage.description)}</p>
+                    <div class="route-meta">
+                        <span>建議時程 <b>${escapeHtml(stage.duration)}</b></span>
+                        ${stage.benchmark ? `<span>對應水準 <b>${escapeHtml(stage.benchmark)}</b></span>` : ''}
+                    </div>
+                    <div class="covers-cap">本段橫跨的能力域</div>
+                    <div class="chips">${chips}</div>
+                    <div class="route-foot">
+                        <span>${stage.topics.length} 個教學主題</span>
+                        ${stage.mapItemCount ? `<span>涵蓋地圖 ${stage.mapItemCount} 個知識單元</span>` : ''}
+                        <span>${stage.resources.length} 份學習資源</span>
+                        <span class="route-enter">進入本段 →</span>
                     </div>
                 </section>
             `;
         }).join('');
 
-        const introBlocks = data.introduction ? renderContentBlocks(data.introduction) : '';
-
         return `
-            <div class="route-lead">
-                <h2 class="route-lead-title">從地圖到路線</h2>
-                <p class="route-lead-desc">${escapeHtml(route.intro || '')}</p>
+            <div class="panel-head">
+                <h2 class="panel-title">從地圖到路線</h2>
+                <p class="panel-desc">${escapeHtml(route.intro || '')}</p>
             </div>
-            <div class="route-strategy">${escapeHtml(route.strategy || '')}</div>
+            ${route.strategy ? `<div class="route-note">${escapeHtml(route.strategy)}</div>` : ''}
             <div>${stages}</div>
-            <div style="margin-top:96px">
-                <div class="section-label">Appendix</div>
-                <h3 class="route-lead-title" style="font-size:30px;margin-bottom:28px">分段的依據</h3>
-                ${introBlocks}
+            <div class="topic" style="margin-top:22px">
+                <div class="topic-head">
+                    <span class="topic-num">附</span>
+                    <div>
+                        <h3 class="topic-title">分段的依據</h3>
+                        <div class="topic-en">Appendix</div>
+                    </div>
+                </div>
+                ${data.introduction ? renderContentBlocks(data.introduction) : ''}
             </div>
         `;
     }
@@ -385,18 +378,22 @@ const Router = (() => {
 
         return Object.entries(grouped).map(([type, list]) => `
             <div class="res-group">
-                <h3 class="res-group-title">${typeNames[type] || type}</h3>
-                ${list.map(r => `
-                    <div class="res-item">
-                        <div>
-                            <div class="res-title">${escapeHtml(r.title)}</div>
-                            <div class="res-desc">${escapeHtml(r.description)}</div>
-                            <div class="res-stage-tag">${escapeHtml(r.stage)}</div>
-                            ${r.url ? `<a class="res-link" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.url)}</a>` : ''}
+                <h3 class="res-group-title">${typeNames[type] || type}<span>${list.length}</span></h3>
+                <div class="res-grid">
+                    ${list.map(r => `
+                        <div class="res-card">
+                            <div class="res-card-top">
+                                <span class="res-title">${escapeHtml(r.title)}</span>
+                                <span class="res-type">${escapeHtml(r.type)}</span>
+                            </div>
+                            <p class="res-desc">${escapeHtml(r.description)}</p>
+                            <div class="res-foot">
+                                <span>${escapeHtml(r.stage)}</span>
+                                ${r.url ? `<a class="res-link" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.url)}</a>` : ''}
+                            </div>
                         </div>
-                        <span class="res-type">${escapeHtml(r.type)}</span>
-                    </div>
-                `).join('')}
+                    `).join('')}
+                </div>
             </div>
         `).join('');
     }
@@ -425,11 +422,13 @@ const Router = (() => {
         const articles = stage.topics.map((t, i) => `
             <article class="topic" id="topic-${t.id}">
                 <div class="topic-head">
-                    <div class="topic-num">${String(i + 1).padStart(2, '0')} / ${String(stage.topics.length).padStart(2, '0')}</div>
-                    <h2 class="topic-title">${escapeHtml(t.name)}</h2>
-                    <div class="topic-en">${escapeHtml(t.nameEn)}</div>
+                    <span class="topic-num">${String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                        <h2 class="topic-title">${escapeHtml(t.name)}</h2>
+                        <div class="topic-en">${escapeHtml(t.nameEn)}</div>
+                    </div>
                 </div>
-                <div>${renderContentBlocks(t.content)}</div>
+                ${renderContentBlocks(t.content)}
             </article>
         `).join('');
 
@@ -443,18 +442,20 @@ const Router = (() => {
                 { name: stage.name, path: `skill/${skillId}/stage/${stageId}` }
             ])}
             <div class="wrap stage-detail">
-                <span class="lv lv-solid" data-lv="${stage.id}">${levelNames[stage.id] || ''}</span>
-                <h1 class="stage-detail-title rise">${escapeHtml(stage.name)}</h1>
-                <div class="stage-detail-en rise d1">${escapeHtml(stage.nameEn)}</div>
-                <div class="stage-detail-meta rise d2">
-                    <span>建議時程 <b>${escapeHtml(stage.duration)}</b></span>
-                    ${stage.benchmark ? `<span>對應水準 <b>${escapeHtml(stage.benchmark)}</b></span>` : ''}
-                    <span>教學主題 <b>${stage.topics.length}</b></span>
-                    ${stage.mapItemCount ? `<span>涵蓋知識單元 <b>${stage.mapItemCount}</b></span>` : ''}
+                <div class="stage-head">
+                    <span class="lv lv-solid" data-lv="${stage.id}">${levelNames[stage.id] || ''}</span>
+                    <h1 class="stage-title">${escapeHtml(stage.name)}</h1>
+                    <div class="stage-en">${escapeHtml(stage.nameEn)}</div>
+                    ${stage.goal ? `<p class="stage-goal">${escapeHtml(stage.goal)}</p>` : ''}
+                    <p class="stage-desc">${escapeHtml(stage.description)}</p>
+                    ${chips ? `<div class="covers-cap">本段橫跨的能力域</div><div class="chips">${chips}</div>` : ''}
+                    <div class="stage-meta">
+                        <span>建議時程 <b>${escapeHtml(stage.duration)}</b></span>
+                        ${stage.benchmark ? `<span>對應水準 <b>${escapeHtml(stage.benchmark)}</b></span>` : ''}
+                        <span>教學主題 <b>${stage.topics.length}</b></span>
+                        ${stage.mapItemCount ? `<span>涵蓋知識單元 <b>${stage.mapItemCount}</b></span>` : ''}
+                    </div>
                 </div>
-                ${stage.goal ? `<p class="stage-detail-goal rise d2">${escapeHtml(stage.goal)}</p>` : ''}
-                <p class="stage-detail-desc rise d3">${escapeHtml(stage.description)}</p>
-                ${chips ? `<div class="route-covers"><div class="route-covers-cap">本段橫跨的能力域</div><div class="chips">${chips}</div></div>` : ''}
                 <div class="stage-body">
                     <aside class="toc">
                         <div class="toc-cap">本段主題</div>
@@ -481,8 +482,8 @@ const Router = (() => {
         document.getElementById('app').innerHTML = `
             ${renderNav({})}
             <div class="wrap empty">
-                <div class="empty-title">Not found</div>
-                <p class="empty-desc">找不到這條路線。</p>
+                <div class="empty-title">找不到頁面</div>
+                <p class="empty-desc">這條路線不存在。</p>
                 <button class="pill" onclick="Router.navigate('')">回到道場</button>
             </div>
             ${renderFooter()}
@@ -502,7 +503,7 @@ const Router = (() => {
                 case 'list':
                     return `<ul class="cb-list">${block.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
                 case 'tip':
-                    return `<div class="cb-tip"><span class="cb-tip-icon">◆</span><span>${escapeHtml(block.value)}</span></div>`;
+                    return `<div class="cb-tip"><span class="cb-tip-icon">💡</span><span>${escapeHtml(block.value)}</span></div>`;
                 case 'table':
                     return renderTable(block);
                 case 'board':
