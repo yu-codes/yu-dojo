@@ -175,8 +175,28 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 
 @media (max-width: 860px) {
     .nav-links { display: none; }
-    .nav-inner { grid-template-columns: 1fr auto; padding: 10px 16px; }
-    .wrap { padding: 0 16px; }
+    .nav-inner { grid-template-columns: 1fr auto; padding: 10px 18px; }
+    .wrap { padding-left: 18px; padding-right: 18px; }
+}
+
+@media (max-width: 700px) {
+    /* The nowrap hint was wider than a small phone and pushed the page out. */
+    .anchor-head { flex-wrap: wrap; gap: 8px; }
+    .anchor-head .hint { white-space: normal; flex-basis: 100%; }
+    .anchor-head .rule { min-width: 20px; }
+}
+
+@media (max-width: 520px) {
+    .nav-inner { padding: 10px 16px; }
+    .wrap { padding-left: 16px; padding-right: 16px; }
+    /* Trim card padding rather than the page gutter, so text keeps its
+       distance from the screen edge on the narrowest phones. */
+    .panel-head, .topic, .stage-head { padding: 16px 15px; }
+    .domain, .route-stage { padding: 15px; }
+    .toc { padding: 12px 9px; }
+    .skill-card { padding: 16px; }
+    .cb-table th, .cb-table td { padding: 8px 10px; }
+    .tab { padding: 7px 13px; }
 }
 
 /* ===== Hero ===== */
@@ -277,12 +297,12 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 }
 
 /* ===== Breadcrumb ===== */
-.crumbs { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--faint); padding: 14px 0 0; flex-wrap: wrap; }
+.crumbs { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--faint); padding-top: 14px; flex-wrap: wrap; }
 .crumbs a:hover { color: var(--ink); }
 .crumbs-current { color: var(--ink); font-weight: 500; }
 
 /* ===== Skill page header ===== */
-.skill-hero { padding: 18px 0 0; }
+.skill-hero { padding-top: 18px; }
 .skill-hero-title { font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: -0.025em; margin-top: 4px; }
 .skill-hero-en { font-size: 11.5px; font-weight: 600; letter-spacing: 0.11em; text-transform: uppercase; color: var(--faint); }
 .skill-hero-desc { max-width: 72ch; margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--muted); }
@@ -303,7 +323,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 .tab:hover { color: var(--ink); }
 .tab.active { background: var(--card); color: var(--ink); font-weight: 600; box-shadow: var(--shadow); }
 
-.tab-panel { padding: 22px 0 56px; }
+.tab-panel { padding-top: 22px; padding-bottom: 56px; }
 
 /* ===== Panel head ===== */
 .panel-head {
@@ -481,7 +501,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 .res-link:hover { text-decoration: underline; }
 
 /* ===== Stage detail ===== */
-.stage-detail { padding: 18px 0 56px; }
+.stage-detail { padding-top: 18px; padding-bottom: 56px; }
 .stage-head {
     background: var(--card);
     border: 1px solid var(--line);
@@ -500,6 +520,9 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 .stage-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
 
 .stage-body { display: grid; grid-template-columns: 216px 1fr; gap: 20px; align-items: start; }
+.stage-body > * { min-width: 0; }
+.topic, .domain, .route-stage, .panel-head, .stage-head { min-width: 0; }
+.cb-table-wrap, .mm-wrap { max-width: 100%; }
 .toc {
     position: sticky;
     top: 62px;
@@ -609,6 +632,6 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; border: none
 .cb-board-caption { font-size: 12px; color: var(--faint); line-height: 1.6; }
 
 /* ===== Empty ===== */
-.empty { padding: 80px 0; text-align: center; }
+.empty { padding-top: 80px; padding-bottom: 80px; text-align: center; }
 .empty-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
 .empty-desc { color: var(--muted); margin: 8px 0 18px; font-size: 14px; }
